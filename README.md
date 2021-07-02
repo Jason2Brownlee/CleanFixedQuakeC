@@ -15,15 +15,21 @@ The version of the game code released under the GPL was v1.01, different from th
 
 This project provides a version of the quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code.
 
+## Download
+
+The latest release can be downloaded from here:
+
+[https://github.com/Jason2Brownlee/QuakeCGPL/releases](bin/https://github.com/Jason2Brownlee/QuakeCGPL/releases)
+
 ## Build
 
 1. Checkout the code.
 	1. `git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
 	2. `cd QuakeCGPL`
-2. Configure your QuakeC compiler (e.g. qcc)
+2. Configure your QuakeC compiler (e.g. assumes you have qcc)
 	1. Set `COMPILER` and `QCC` in `makefile`
 3. Create a release
 	3. `make`
 
-Retrieve the release from dist/
+Retrieve the release from `dist/`
 
