@@ -5,7 +5,7 @@ Quake game code (progs.dat) with all known bug fixes released under the GPL.
 Project Home:
 [https://github.com/Jason2Brownlee/QuakeCGPL/](https://github.com/Jason2Brownlee/QuakeCGPL/)
 
-# About
+## About
 
 The Quake computer game Quake was release in 1996.
 
@@ -15,15 +15,15 @@ The version of the game code released under the GPL was v1.01, different from th
 
 This project provides a version of the quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code.
 
-# How to Release
+## Build
 
 1. Checkout the code.
-	1. >`git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
-	2. >`cd QuakeCGPL`
+	>`git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
+	>`cd QuakeCGPL`
 2. Configure your QuakeC compiler (e.g. qcc)
 	1. Set `COMPILER` and `QCC` in `makefile`
 3. Create a release
-	1. >`make`
+	>`make`
 
 Retrieve the release from dist/
 
