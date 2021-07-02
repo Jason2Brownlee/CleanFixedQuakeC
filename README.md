@@ -26,10 +26,10 @@ The latest release can be downloaded from here:
 1. Checkout the code.
 	1. `git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
 	2. `cd QuakeCGPL`
-2. Configure your QuakeC compiler (e.g. assumes you have qcc)
+2. Configure your QuakeC compiler (e.g. assumes you have qcc).
 	1. Set `COMPILER` and `QCC` in `makefile`
-3. Create a release
-	3. `make`
+3. Create a release.
+	1. `make`
 
 Retrieve the release from `dist/`
 
