@@ -22,10 +22,10 @@ QC=$(CURDIR)/qc
 # create a release
 dist: clean build
 	# put the documentation into position
-	cp ${DOC}/*.txt ${BUILD}
-	cp $(CURDIR)/LICENSE.txt ${BUILD}
+	cp $(CURDIR)/*.txt ${BUILD}
+	cp $(CURDIR)/*.md ${BUILD}
 	# create the archive
-	cd ${BUILD};tar czvf quake_progs_gpl_v${VERSION}.tgz qc progs.dat *.txt
+	cd ${BUILD};tar czvf quake_progs_gpl_v${VERSION}.tgz qc progs.dat *.txt *.md
 	# place the release for distribution
 	cp ${BUILD}/quake_progs_gpl_v${VERSION}.tgz ${DIST}
 
