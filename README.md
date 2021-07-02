@@ -18,5 +18,7 @@ This project provides a version of the quake game code v1.01 released under the 
 
 Each release of this project provides a compiled version of the game code (progs.dat) and the QuakeC source code (.qc).
 
-This section lists all releases.
+You can access the releases here:
+
+* [Releases](https://github.com/Jason2Brownlee/QuakeCGPL/releases/)
 
