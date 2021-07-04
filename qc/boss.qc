@@ -23,7 +23,7 @@ BOSS-ONE
 
 ==============================================================================
 */
-$cd /raid/quake/id1/models/boss1
+$cd id1/models/boss1
 $origin 0 0 -15
 $base base
 $skin skin

@@ -1,5 +1,9 @@
 Change Log
 
+v1.1
+
+* Changed release to a .zip file.
+
 v1.0
 
 Initial release of the project with GPL code v1.01 take from q1source.zip and compiled with qcc take from q1tools_gpl.tgz (e.g. the official GPL releases from id Software).
