@@ -483,6 +483,7 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 void() W_FireLightning =
 {
 	local	vector		org;
+	local	float		cells;
 
 	if (self.ammo_cells < 1)
 	{
@@ -847,7 +848,7 @@ float() W_BestWeapon =
 
 	it = self.items;
 
-	if(self.ammo_cells >= 1 && (it & IT_LIGHTNING) )
+	if (self.waterlevel <= 1 && self.ammo_cells >= 1 && (it & IT_LIGHTNING) )
 		return IT_LIGHTNING;
 	else if(self.ammo_nails >= 2 && (it & IT_SUPER_NAILGUN) )
 		return IT_SUPER_NAILGUN;
@@ -857,14 +858,6 @@ float() W_BestWeapon =
 		return IT_NAILGUN;
 	else if(self.ammo_shells >= 1 && (it & IT_SHOTGUN) )
 		return IT_SHOTGUN;
-
-/*
-	if(self.ammo_rockets >= 1 && (it & IT_ROCKET_LAUNCHER) )
-		return IT_ROCKET_LAUNCHER;
-	else if(self.ammo_rockets >= 1 && (it & IT_GRENADE_LAUNCHER) )
-		return IT_GRENADE_LAUNCHER;
-
-*/
 
 	return IT_AXE;
 };
