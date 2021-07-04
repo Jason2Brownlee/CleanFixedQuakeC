@@ -494,9 +494,10 @@ void() W_FireLightning =
 // explode if under water
 	if (self.waterlevel > 1)
 	{
-		T_RadiusDamage (self, self, 35*self.ammo_cells, world);
+		cells = self.ammo_cells;
 		self.ammo_cells = 0;
 		W_SetCurrentAmmo ();
+		T_RadiusDamage (self, self, 35*cells, world);
 		return;
 	}
 
