@@ -3,6 +3,7 @@ Change Log
 
 v1.1
 
+* Updated W_FireRocket in weapons.qc set classname (qc v1.06).
 * Updated W_FireAxe in weapons.qc from qw2.30 (qc v1.06).
 * Removed /raid/quake/ from the model paths (qc v1.06).
 * Changed release to a .zip file.

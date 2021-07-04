@@ -403,6 +403,7 @@ void() W_FireRocket =
 	missile.owner = self;
 	missile.movetype = MOVETYPE_FLYMISSILE;
 	missile.solid = SOLID_BBOX;
+	missile.classname = "missile";
 
 // set missile speed
 
