@@ -16,7 +16,7 @@ This project provides a version of the quake game code v1.01 released under the 
 
 The latest release can be downloaded from here:
 
-[https://github.com/Jason2Brownlee/QuakeCGPL/releases](bin/https://github.com/Jason2Brownlee/QuakeCGPL/releases)
+[https://github.com/Jason2Brownlee/QuakeCGPL/releases]
 
 ## Build
 
