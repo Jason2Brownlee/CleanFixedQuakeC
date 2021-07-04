@@ -3,6 +3,7 @@ Change Log
 
 v1.1
 
+* Added CycleWeaponReverseCommand from qw2.30 GPL (qc v1.06).
 * Updated W_BestWeapon in weapons.qc from qw2.30 GPL (qc v1.06).
 * Updated W_FireLightning in weapons.qc from qw2.30 GPL (qc v1.06).
 * Updated W_FireRocket in weapons.qc set classname (qc v1.06).
