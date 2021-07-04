@@ -1,11 +1,12 @@
 Change Log
 ==========
 
-v1.1: All progs.dat v1.06 functionality.
+v1.1: All functionality from progs.dat v1.06.
 
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
-were written from scratch inspired by the 1.06 release.
+changes were written from scratch inspired by the 1.06 release.
 
+* Added secret die think function in doors.qc (qc v1.06).
 * Added pain function for old one in oldone.qc (qc v1.06).
 * Added CycleWeaponReverseCommand from qw2.30 GPL (qc v1.06).
 * Updated W_BestWeapon in weapons.qc from qw2.30 GPL (qc v1.06).
