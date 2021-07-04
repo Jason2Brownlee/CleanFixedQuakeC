@@ -2,9 +2,6 @@
 
 Quake game code (progs.dat) with all known bug fixes released under the GPL.
 
-Project Home:
-[https://github.com/Jason2Brownlee/QuakeCGPL/](https://github.com/Jason2Brownlee/QuakeCGPL/)
-
 ## About
 
 The Quake computer game Quake was released in 1996.
@@ -30,6 +27,6 @@ The latest release can be downloaded from here:
 	1. Set `COMPILER` and `QCC` in `makefile`
 3. Create a release.
 	1. `make`
+4. Retrieve the release from `dist/`
 
-Retrieve the release from `dist/`
 
