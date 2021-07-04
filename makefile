@@ -4,8 +4,10 @@
 .PHONY : clean build dist
 
 # current version of the release
-VERSION=1.0
+VERSION=1.1
 
+# release filename
+RELEASE=quake_progs_gpl_v${VERSION}.zip
 # directory where the qc files are compiled
 BUILD=$(CURDIR)/build
 # directory where release artifacts are placed
@@ -25,9 +27,9 @@ dist: clean build
 	cp $(CURDIR)/*.txt ${BUILD}
 	cp $(CURDIR)/*.md ${BUILD}
 	# create the archive
-	cd ${BUILD};tar czvf quake_progs_gpl_v${VERSION}.tgz qc progs.dat *.txt *.md
+	cd ${BUILD};zip -r ${RELEASE} qc progs.dat *.txt *.md
 	# place the release for distribution
-	cp ${BUILD}/quake_progs_gpl_v${VERSION}.tgz ${DIST}
+	cp ${BUILD}/${RELEASE} ${DIST}
 
 # compile the quakec source code
 build:
