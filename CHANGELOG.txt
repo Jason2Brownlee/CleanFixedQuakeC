@@ -1,8 +1,12 @@
 Change Log
 ==========
 
-v1.1
+v1.1: All progs.dat v1.06 functionality.
 
+Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
+were written from scratch inspired by the 1.06 release.
+
+* Added pain function for old one in oldone.qc (qc v1.06).
 * Added CycleWeaponReverseCommand from qw2.30 GPL (qc v1.06).
 * Updated W_BestWeapon in weapons.qc from qw2.30 GPL (qc v1.06).
 * Updated W_FireLightning in weapons.qc from qw2.30 GPL (qc v1.06).
@@ -11,7 +15,7 @@ v1.1
 * Removed /raid/quake/ from the model paths (qc v1.06).
 * Changed release to a .zip file.
 
-v1.0
+v1.0: Initial release.
 
 * Initial release of the project with GPL code v1.01 take from q1source.zip.
   Compiled with qcc take from q1tools_gpl.tgz (e.g. the official GPL releases
