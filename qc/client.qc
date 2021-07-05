@@ -696,31 +696,13 @@ void() CheckRules =
 
 	if (timelimit && time >= timelimit)
 	{
-NextLevel ();
-/*
-		gameover = TRUE;
-		bprint ("\n\n\n==============================\n");
-		bprint ("game exited after ");
-		bprint (ftos(timelimit/60));
-		bprint (" minutes\n");
-		DumpScore ();
-		localcmd ("killserver\n");
-*/
+		NextLevel ();
 		return;
 	}
 
 	if (fraglimit && self.frags >= fraglimit)
 	{
-NextLevel ();
-/*
-		gameover = TRUE;
-		bprint ("\n\n\n==============================\n");
-		bprint ("game exited after ");
-		bprint (ftos(self.frags));
-		bprint (" frags\n");
-		DumpScore ();
-		localcmd ("killserver\n");
-*/
+		NextLevel ();
 		return;
 	}
 };
