@@ -18,6 +18,22 @@ The latest release can be downloaded from here:
 
 https://github.com/Jason2Brownlee/QuakeCGPL/releases
 
+## Use
+
+### Play Quake
+
+You can use the game code (progs.dat) to play Quake, such as singleplayer or multiplayer.
+
+1. Download the .zip file for the latest release.
+2. Unzip and locate the `progs.dat` file.
+3. Create a mod subdirectory under your quake directory, e.g. `quakegpl/`
+4. Place the `progs.dat` into your mod subdirectory, e.g. `quakegpl/progs.dat`
+5. Start quake and load the mod, e.g. `quake -game quakegpl`
+
+### Mod Development
+
+You can use the .qc files as the basis for mod development.
+
 ## Build
 
 1. Checkout the code.
