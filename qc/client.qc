@@ -50,10 +50,16 @@ void() info_intermission =
 
 void() SetChangeParms =
 {
+	if (self.health <= 0)
+	{
+		SetNewParms ();
+		return;
+	}
+
 // remove items
-	self.items = self.items - (self.items & 
+	self.items = self.items - (self.items &
 	(IT_KEY1 | IT_KEY2 | IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
-	
+
 // cap super health
 	if (self.health > 100)
 		self.health = 100;
@@ -93,7 +99,7 @@ void() DecodeLevelParms =
 		if (world.model == "maps/start.bsp")
 			SetNewParms ();		// take away all stuff on starting new episode
 	}
-	
+
 	self.items = parm1;
 	self.health = parm2;
 	self.armorvalue = parm3;
@@ -136,12 +142,12 @@ entity() FindIntermission =
 	spot = find (world, classname, "info_player_start");
 	if (spot)
 		return spot;
-	
+
 // testinfo_player_start is only found in regioned levels
 	spot = find (world, classname, "testplayerstart");
 	if (spot)
 		return spot;
-	
+
 	objerror ("FindIntermission: no spot");
 };
 
@@ -164,7 +170,7 @@ void() ExitIntermission =
 		GotoNextMap ();
 		return;
 	}
-	
+
 	intermission_exittime = time + 1;
 	intermission_running = intermission_running + 1;
 
@@ -223,7 +229,7 @@ void() ExitIntermission =
 
 		GotoNextMap();
 	}
-	
+
 	if (intermission_running == 3)
 	{
 		if (!cvar("registered"))
@@ -231,14 +237,14 @@ void() ExitIntermission =
 			WriteByte (MSG_ALL, SVC_SELLSCREEN);
 			return;
 		}
-		
+
 		if ( (serverflags&15) == 15)
 		{
 			WriteByte (MSG_ALL, SVC_FINALE);
 			WriteString (MSG_ALL, "Now, you have all four Runes. You sense\ntremendous invisible forces moving to\nunseal ancient barriers. Shub-Niggurath\nhad hoped to use the Runes Herself to\nclear off the Earth, but now instead,\nyou will use them to enter her home and\nconfront her as an avatar of avenging\nEarth-life. If you defeat her, you will\nbe remembered forever as the savior of\nthe planet. If she conquers, it will be\nas if you had never been born.");
 			return;
 		}
-		
+
 	}
 
 	GotoNextMap();
@@ -258,7 +264,7 @@ void() IntermissionThink =
 
 	if (!self.button0 && !self.button1 && !self.button2)
 		return;
-	
+
 	ExitIntermission ();
 };
 
@@ -267,7 +273,7 @@ void() execute_changelevel =
 	local entity	pos;
 
 	intermission_running = 1;
-	
+
 // enforce a wait time before allowing changelevel
 	if (deathmatch)
 		intermission_exittime = time + 5;
@@ -277,7 +283,7 @@ void() execute_changelevel =
 	WriteByte (MSG_ALL, SVC_CDTRACK);
 	WriteByte (MSG_ALL, 3);
 	WriteByte (MSG_ALL, 3);
-	
+
 	pos = FindIntermission ();
 
 	other = find (world, classname, "player");
@@ -293,7 +299,7 @@ void() execute_changelevel =
 		other.modelindex = 0;
 		setorigin (other, pos.origin);
 		other = find (other, classname, "player");
-	}	
+	}
 
 	WriteByte (MSG_ALL, SVC_INTERMISSION);
 };
@@ -313,7 +319,7 @@ void() changelevel_touch =
 	}
 	bprint (other.netname);
 	bprint (" exited the level\n");
-	
+
 	nextmap = self.map;
 
 	SUB_UseTargets ();
@@ -323,7 +329,7 @@ void() changelevel_touch =
 		GotoNextMap();
 		return;
 	}
-	
+
 	self.touch = SUB_Null;
 
 // we can't move people right now, because touch functions are called
@@ -339,7 +345,7 @@ void() trigger_changelevel =
 {
 	if (!self.map)
 		objerror ("chagnelevel trigger doesn't have map");
-	
+
 	InitTrigger ();
 	self.touch = changelevel_touch;
 };
@@ -364,7 +370,7 @@ void() respawn =
 		CopyToBodyQue (self);
 		// get the spawn parms as they were at level start
 		setspawnparms (self);
-		// respawn		
+		// respawn
 		PutClientInServer ();
 	}
 	else if (deathmatch)
@@ -373,7 +379,7 @@ void() respawn =
 		CopyToBodyQue (self);
 		// set default spawn parms
 		SetNewParms ();
-		// respawn		
+		// respawn
 		PutClientInServer ();
 	}
 	else
@@ -415,12 +421,12 @@ Returns the entity to spawn at
 entity() SelectSpawnPoint =
 {
 	local	entity spot;
-	
+
 // testinfo_player_start is only found in regioned levels
 	spot = find (world, classname, "testplayerstart");
 	if (spot)
 		return spot;
-		
+
 // choose a info_player_deathmatch point
 	if (coop)
 	{
@@ -445,11 +451,11 @@ entity() SelectSpawnPoint =
 		if (spot)
 			return spot;
 	}
-	
+
 	spot = find (world, classname, "info_player_start");
 	if (!spot)
 		error ("PutClientInServer: no info_player_start on level");
-	
+
 	return spot;
 };
 
@@ -486,17 +492,17 @@ void() PutClientInServer =
 	self.invincible_time = 0;
 
 	DecodeLevelParms ();
-	
+
 	W_SetCurrentAmmo ();
 
 	self.attack_finished = time;
 	self.th_pain = player_pain;
 	self.th_die = PlayerDie;
-	
+
 	self.deadflag = DEAD_NO;
 // paustime is set by teleporters to keep the player from moving a while
 	self.pausetime = 0;
-	
+
 	spot = SelectSpawnPoint ();
 
 	self.origin = spot.origin + '0 0 1';
@@ -511,11 +517,11 @@ void() PutClientInServer =
 	modelindex_player = self.modelindex;
 
 	setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-	
+
 	self.view_ofs = '0 0 22';
 
 	player_stand1 ();
-	
+
 	if (deathmatch || coop)
 	{
 		makevectors(self.angles);
@@ -641,13 +647,13 @@ void() DumpScore =
 				} while (walk.chain != e);
 			}
 		}
-		
+
 		e = find(e, classname, "player");
 	}
 
 // print the list
-	
-	bprint ("\n");	
+
+	bprint ("\n");
 	while (sort)
 	{
 		PrintClientScore (sort);
@@ -672,7 +678,7 @@ void() NextLevel =
 	}
 
 	nextmap = o.map;
-	
+
 	if (o.nextthink < time)
 	{
 		o.think = execute_changelevel;
@@ -691,13 +697,13 @@ void() CheckRules =
 {
 	local	float		timelimit;
 	local	float		fraglimit;
-	
+
 	if (gameover)	// someone else quit the game already
 		return;
-		
+
 	timelimit = cvar("timelimit") * 60;
 	fraglimit = cvar("fraglimit");
-	
+
 	if (timelimit && time >= timelimit)
 	{
 NextLevel ();
@@ -712,7 +718,7 @@ NextLevel ();
 */
 		return;
 	}
-	
+
 	if (fraglimit && self.frags >= fraglimit)
 	{
 NextLevel ();
@@ -726,7 +732,7 @@ NextLevel ();
 		localcmd ("killserver\n");
 */
 		return;
-	}	
+	}
 };
 
 //============================================================================
@@ -742,7 +748,7 @@ void() PlayerDeathThink =
 		forward = forward - 20;
 		if (forward <= 0)
 			self.velocity = '0 0 0';
-		else	
+		else
 			self.velocity = forward * normalize(self.velocity);
 	}
 
@@ -769,10 +775,10 @@ void() PlayerDeathThink =
 void() PlayerJump =
 {
 	local vector start, end;
-	
+
 	if (self.flags & FL_WATERJUMP)
 		return;
-	
+
 	if (self.waterlevel >= 2)
 	{
 		if (self.watertype == CONTENT_WATER)
@@ -804,7 +810,7 @@ void() PlayerJump =
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 
 	self.flags = self.flags - FL_ONGROUND;	// don't stairwalk
-	
+
 	self.button2 = 0;
 // player jumping sound
 	sound (self, CHAN_BODY, "player/plyrjmp8.wav", 1, ATTN_NORM);
@@ -848,11 +854,11 @@ void() WaterMove =
 			self.pain_finished = time + 1;
 		}
 	}
-	
+
 	if (!self.waterlevel)
 	{
 		if (self.flags & FL_INWATER)
-		{	
+		{
 			// play leave water sound
 			sound (self, CHAN_BODY, "misc/outwater.wav", 1, ATTN_NORM);
 			self.flags = self.flags - FL_INWATER;
@@ -880,9 +886,9 @@ void() WaterMove =
 			T_Damage (self, world, world, 4*self.waterlevel);
 		}
 	}
-	
+
 	if ( !(self.flags & FL_INWATER) )
-	{	
+	{
 
 // player enter water sound
 
@@ -896,7 +902,7 @@ void() WaterMove =
 		self.flags = self.flags + FL_INWATER;
 		self.dmgtime = 0;
 	}
-	
+
 	if (! (self.flags & FL_WATERJUMP) )
 		self.velocity = self.velocity - 0.8*self.waterlevel*frametime*self.velocity;
 };
@@ -908,7 +914,7 @@ void() CheckWaterJump =
 // check for a jump-out-of-water
 	makevectors (self.angles);
 	start = self.origin;
-	start_z = start_z + 8; 
+	start_z = start_z + 8;
 	v_forward_z = 0;
 	normalize(v_forward);
 	end = start + v_forward*24;
@@ -965,7 +971,7 @@ void() PlayerPreThink =
 		PlayerDeathThink ();
 		return;
 	}
-	
+
 	if (self.deadflag == DEAD_DYING)
 		return;	// dying, so do nothing
 
@@ -976,11 +982,11 @@ void() PlayerPreThink =
 	else
 		self.flags = self.flags | FL_JUMPRELEASED;
 
-// teleporters can force a non-moving pause time	
+// teleporters can force a non-moving pause time
 	if (time < self.pausetime)
 		self.velocity = '0 0 0';
 };
-	
+
 /*
 ================
 CheckPowerups
@@ -1013,7 +1019,7 @@ void() CheckPowerups =
 				sound (self, CHAN_AUTO, "items/inv2.wav", 1, ATTN_NORM);
 				self.invisible_time = time + 1;
 			}
-			
+
 			if (self.invisible_time < time)
 			{
 				self.invisible_time = time + 1;
@@ -1027,7 +1033,7 @@ void() CheckPowerups =
 			self.invisible_finished = 0;
 			self.invisible_time = 0;
 		}
-		
+
 	// use the eyes
 		self.frame = 0;
 		self.modelindex = modelindex_eyes;
@@ -1048,14 +1054,14 @@ void() CheckPowerups =
 				sound (self, CHAN_AUTO, "items/protect2.wav", 1, ATTN_NORM);
 				self.invincible_time = time + 1;
 			}
-			
+
 			if (self.invincible_time < time)
 			{
 				self.invincible_time = time + 1;
 				stuffcmd (self, "bf\n");
 			}
 		}
-		
+
 		if (self.invincible_finished < time)
 		{	// just stopped
 			self.items = self.items - IT_INVULNERABILITY;
@@ -1082,8 +1088,8 @@ void() CheckPowerups =
 				stuffcmd (self, "bf\n");
 				sound (self, CHAN_AUTO, "items/damage2.wav", 1, ATTN_NORM);
 				self.super_time = time + 1;
-			}	  
-			
+			}
+
 			if (self.super_time < time)
 			{
 				self.super_time = time + 1;
@@ -1101,9 +1107,9 @@ void() CheckPowerups =
 			self.effects = self.effects | EF_DIMLIGHT;
 		else
 			self.effects = self.effects - (self.effects & EF_DIMLIGHT);
-	}	
+	}
 
-// suit	
+// suit
 	if (self.radsuit_finished)
 	{
 		self.air_finished = time + 12;		// don't drown
@@ -1118,7 +1124,7 @@ void() CheckPowerups =
 				sound (self, CHAN_AUTO, "items/suit2.wav", 1, ATTN_NORM);
 				self.rad_time = time + 1;
 			}
-			
+
 			if (self.rad_time < time)
 			{
 				self.rad_time = time + 1;
@@ -1132,7 +1138,7 @@ void() CheckPowerups =
 			self.rad_time = 0;
 			self.radsuit_finished = 0;
 		}
-	}	
+	}
 
 };
 
@@ -1153,19 +1159,19 @@ void() PlayerPostThink =
 		return;		// intermission or finale
 	if (self.deadflag)
 		return;
-		
+
 // do weapon stuff
 
 	W_WeaponFrame ();
 
-// check to see if player landed and play landing sound	
+// check to see if player landed and play landing sound
 	if ((self.jump_flag < -300) && (self.flags & FL_ONGROUND) && (self.health > 0))
 	{
 		if (self.watertype == CONTENT_WATER)
 			sound (self, CHAN_BODY, "player/h2ojump.wav", 1, ATTN_NORM);
 		else if (self.jump_flag < -650)
 		{
-			T_Damage (self, world, world, 5); 
+			T_Damage (self, world, world, 5);
 			sound (self, CHAN_VOICE, "player/land2.wav", 1, ATTN_NORM);
 			self.deathtype = "falling";
 		}
@@ -1193,7 +1199,7 @@ void() ClientConnect =
 {
 	bprint (self.netname);
 	bprint (" entered the game\n");
-	
+
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();
@@ -1266,7 +1272,7 @@ void(entity targ, entity attacker) ClientObituary =
 				// killed self
 				attacker.frags = attacker.frags - 1;
 				bprint (targ.netname);
-				
+
 				if (targ.weapon == 64 && targ.waterlevel > 1)
 				{
 					bprint (" discharges into the water.\n");
@@ -1424,7 +1430,7 @@ void(entity targ, entity attacker) ClientObituary =
 				return;
 			}
 			if (attacker.solid == SOLID_BSP && attacker != world)
-			{	
+			{
 				bprint (" was squished\n");
 				return;
 			}
