@@ -1256,12 +1256,25 @@ void(entity targ, entity attacker) ClientObituary =
 					bprint (" discharges into the water.\n");
 					return;
 				}
-				if (targ.weapon == 16)
+				if (targ.weapon == IT_GRENADE_LAUNCHER)
 					bprint (" tries to put the pin back in\n");
-				else if (rnum)
-					bprint (" becomes bored with life\n");
 				else
-					bprint (" checks if his weapon is loaded\n");
+					bprint (" becomes bored with life\n");
+				return;
+			}
+			else if ( (teamplay == 2) && (targ.team >0) && (targ.team == attacker.team) )
+			{
+				if (rnum < 0.25)
+					deathstring = " mows down a teammate\n";
+				else if (rnum < 0.50)
+					deathstring = " checks his glasses\n";
+				else if (rnum < 0.75)
+					deathstring = " gets a frag for the other team\n";
+				else
+					deathstring = " loses another friend\n";
+				bprint (attacker.netname);
+				bprint (deathstring);
+				attacker.frags = attacker.frags - 1;
 				return;
 			}
 			else
@@ -1332,38 +1345,7 @@ void(entity targ, entity attacker) ClientObituary =
 		else
 		{
 			targ.frags = targ.frags - 1;		// killed self
-			rnum = targ.watertype;
-
 			bprint (targ.netname);
-			if (rnum == -3)
-			{
-				if (random() < 0.5)
-					bprint (" sleeps with the fishes\n");
-				else
-					bprint (" sucks it down\n");
-				return;
-			}
-			else if (rnum == -4)
-			{
-				if (random() < 0.5)
-					bprint (" gulped a load of slime\n");
-				else
-					bprint (" can't exist on slime alone\n");
-				return;
-			}
-			else if (rnum == -5)
-			{
-				if (targ.health < -15)
-				{
-					bprint (" burst into flames\n");
-					return;
-				}
-				if (random() < 0.5)
-					bprint (" turned into hot slag\n");
-				else
-					bprint (" visits the Volcano God\n");
-				return;
-			}
 
 			if (attacker.flags & FL_MONSTER)
 			{
@@ -1412,12 +1394,6 @@ void(entity targ, entity attacker) ClientObituary =
 				bprint (" was squished\n");
 				return;
 			}
-			if (targ.deathtype == "falling")
-			{
-				targ.deathtype = "";
-				bprint (" fell to his death\n");
-				return;
-			}
 			if (attacker.classname == "trap_shooter" || attacker.classname == "trap_spikeshooter")
 			{
 				bprint (" was spiked\n");
@@ -1431,6 +1407,44 @@ void(entity targ, entity attacker) ClientObituary =
 			if (attacker.classname == "trigger_changelevel")
 			{
 				bprint (" tried to leave\n");
+				return;
+			}
+
+			rnum = targ.watertype;
+			if (rnum == -3)
+			{
+				if (random() < 0.5)
+					bprint (" sleeps with the fishes\n");
+				else
+					bprint (" sucks it down\n");
+				return;
+			}
+			else if (rnum == -4)
+			{
+				if (random() < 0.5)
+					bprint (" gulped a load of slime\n");
+				else
+					bprint (" can't exist on slime alone\n");
+				return;
+			}
+			else if (rnum == -5)
+			{
+				if (targ.health < -15)
+				{
+					bprint (" burst into flames\n");
+					return;
+				}
+				if (random() < 0.5)
+					bprint (" turned into hot slag\n");
+				else
+					bprint (" visits the Volcano God\n");
+				return;
+			}
+
+			if (targ.deathtype == "falling")
+			{
+				targ.deathtype = "";
+				bprint (" fell to his death\n");
 				return;
 			}
 
