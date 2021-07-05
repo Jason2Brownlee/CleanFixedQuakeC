@@ -426,6 +426,8 @@ Returns the entity to spawn at
 entity() SelectSpawnPoint =
 {
 	local	entity spot;
+	local entity thing;
+	local float pcount;
 
 // testinfo_player_start is only found in regioned levels
 	spot = find (world, classname, "testplayerstart");
@@ -443,11 +445,33 @@ entity() SelectSpawnPoint =
 	}
 	else if (deathmatch)
 	{
-		lastspawn = find(lastspawn, classname, "info_player_deathmatch");
-		if (lastspawn == world)
-			lastspawn = find (lastspawn, classname, "info_player_deathmatch");
-		if (lastspawn != world)
-			return lastspawn;
+		spot = lastspawn;
+		// loop until a spawn point is located
+		while(1) {
+			// locate a spawn point
+			spot = find(spot, classname, "info_player_deathmatch");
+			// check that a spot was found
+			if (spot != world) {
+				// check if the spot is the same as the last spawn point checked
+				if (spot == lastspawn) {
+					return lastspawn;
+				}
+				// count the number of players close to the spawn point
+				pcount = 0;
+				thing = findradius(spot.origin, 32);
+				while(thing) {
+					if (thing.classname == "player") {
+						pcount = pcount + 1;
+					}
+					thing = thing.chain;
+				}
+				// use spot if no players at spawn point
+				if (pcount == 0) {
+					lastspawn = spot;
+					return spot;
+				}
+			}
+		}
 	}
 
 	if (serverflags)

@@ -6,6 +6,7 @@ v1.1: All functionality from progs.dat v1.06.
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
 changes were written from scratch inspired by the 1.06 release.
 
+* Updated SelectSpawnPoint in client.qc from scratch (qc v1.06).
 * Updated changelevel_touch in client.qc from qw2.30 GPL (qc v1.06).
 * Updated SetNewParms in client.qc from qw2.30 GPL (qc v1.06).
 * Updated SetChangeParms in client.qc from qw2.30 GPL (qc v1.06).
@@ -17,7 +18,7 @@ changes were written from scratch inspired by the 1.06 release.
 * Added CycleWeaponReverseCommand from qw2.30 GPL (qc v1.06).
 * Updated W_BestWeapon in weapons.qc from qw2.30 GPL (qc v1.06).
 * Updated W_FireLightning in weapons.qc from qw2.30 GPL (qc v1.06).
-* Updated W_FireRocket in weapons.qc set classname (qc v1.06).
+* Updated W_FireRocket in weapons.qc from scratch (qc v1.06).
 * Updated W_FireAxe in weapons.qc from qw2.30 GPL (qc v1.06).
 * Removed /raid/quake/ from the model paths (qc v1.06).
 * Changed release to a .zip file.
