@@ -87,7 +87,7 @@ void() SetNewParms =
 	parm4 = 25;
 	parm5 = 0;
 	parm6 = 0;
-	parm6 = 0;
+	parm7 = 0;
 	parm8 = 1;
 	parm9 = 0;
 };
