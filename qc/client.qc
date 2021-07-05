@@ -503,6 +503,8 @@ void() PutClientInServer =
 {
 	local	entity spot;
 
+	spot = SelectSpawnPoint ();
+
 	self.classname = "player";
 	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
@@ -531,8 +533,6 @@ void() PutClientInServer =
 	self.deadflag = DEAD_NO;
 // paustime is set by teleporters to keep the player from moving a while
 	self.pausetime = 0;
-
-	spot = SelectSpawnPoint ();
 
 	self.origin = spot.origin + '0 0 1';
 	self.angles = spot.angles;

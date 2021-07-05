@@ -6,6 +6,7 @@ v1.1: All functionality from progs.dat v1.06.
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
 changes were written from scratch inspired by the 1.06 release.
 
+* Updated PutClientInServer in client.qc (qc v1.06).
 * Updated SelectSpawnPoint in client.qc from scratch (qc v1.06).
 * Updated changelevel_touch in client.qc from qw2.30 GPL (qc v1.06).
 * Updated SetNewParms in client.qc from qw2.30 GPL (qc v1.06).
