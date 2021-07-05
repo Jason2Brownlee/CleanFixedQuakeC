@@ -312,13 +312,18 @@ void() changelevel_touch =
 	if (other.classname != "player")
 		return;
 
-	if (cvar("noexit"))
+	if ((cvar("noexit") == 1) || ((cvar("noexit") == 2) && (mapname != "start")))
 	{
 		T_Damage (other, self, self, 50000);
 		return;
 	}
-	bprint (other.netname);
-	bprint (" exited the level\n");
+
+	// don't print the messages in singleplayer
+	if (coop || deathmatch)
+	{
+		bprint(other.netname);
+		bprint(" exited the level\n");
+	}
 
 	nextmap = self.map;
 
