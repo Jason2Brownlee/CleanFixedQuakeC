@@ -6,6 +6,7 @@ v1.1: All functionality from progs.dat v1.06.
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
 changes were written from scratch inspired by the 1.06 release.
 
+* Updated PlayerPreThink in client.qc from qw2.30 GPL (qc v1.06).
 * Removed commented out code in CheckRules client.qc (qc v1.06).
 * Updated NextLevel in client.qc from qw2.30 GPL (qc v1.06).
 * Deleted PrintClientScore and DumpScore in client.qc (qc v1.06).
