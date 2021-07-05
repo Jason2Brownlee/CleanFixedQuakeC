@@ -1248,13 +1248,25 @@ PLAYER BACKPACKS
 void() BackpackTouch =
 {
 	local string	s;
-	local	float	best;
+	local   float   best, old, new;
 	local		entity	stemp;
+	local   float   acount;
 
 	if (other.classname != "player")
 		return;
 	if (other.health <= 0)
 		return;
+
+	acount = 0;
+	sprint (other, "You get ");
+
+	if (self.items)
+		if ((other.items & self.items) == 0)
+		{
+			acount = 1;
+			sprint (other, "the ");
+			sprint (other, self.netname);
+		}
 
 // if the player was using his best weapon, change up to the new one if better
 	stemp = self;
@@ -1268,32 +1280,46 @@ void() BackpackTouch =
 	other.ammo_rockets = other.ammo_rockets + self.ammo_rockets;
 	other.ammo_cells = other.ammo_cells + self.ammo_cells;
 
-	other.items = other.items | self.items;
+	new = self.items;
+	if (!new)
+		new = other.weapon;
+	old = other.items;
+	other.items = other.items | new;
 
 	bound_other_ammo ();
 
-	sprint (other, "You get ");
-
 	if (self.ammo_shells)
 	{
+		if (acount)
+			sprint(other, ", ");
+		acount = 1;
 		s = ftos(self.ammo_shells);
 		sprint (other, s);
 		sprint (other, " shells  ");
 	}
 	if (self.ammo_nails)
 	{
+		if (acount)
+			sprint(other, ", ");
+		acount = 1;
 		s = ftos(self.ammo_nails);
 		sprint (other, s);
 		sprint (other, " nails ");
 	}
 	if (self.ammo_rockets)
 	{
+		if (acount)
+			sprint(other, ", ");
+		acount = 1;
 		s = ftos(self.ammo_rockets);
 		sprint (other, s);
 		sprint (other, " rockets  ");
 	}
 	if (self.ammo_cells)
 	{
+		if (acount)
+			sprint(other, ", ");
+		acount = 1;
 		s = ftos(self.ammo_cells);
 		sprint (other, s);
 		sprint (other, " cells  ");
@@ -1304,19 +1330,18 @@ void() BackpackTouch =
 	sound (other, CHAN_ITEM, "weapons/lock4.wav", 1, ATTN_NORM);
 	stuffcmd (other, "bf\n");
 
-// change to a better weapon if appropriate
-	if ( other.weapon == best )
-	{
-		stemp = self;
-		self = other;
-		self.weapon = W_BestWeapon();
-		self = stemp;
-	}
-
-
+	// remove the backpack
 	remove(self);
-
 	self = other;
+
+// change to a better weapon if appropriate
+	if (!deathmatch)
+			// last weapon held by player
+			self.weapon = new;
+	else
+			// best weapon in backpack
+			Deathmatch_Weapon (old, new);
+
 	W_SetCurrentAmmo ();
 };
 
