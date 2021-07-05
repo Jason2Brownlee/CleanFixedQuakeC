@@ -1,20 +1,20 @@
 /*  Copyright (C) 1996-1997  Id Software, Inc.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-    See file, 'COPYING', for details.
+	See file, 'COPYING', for details.
 */
 void() W_SetCurrentAmmo;
 /* ALL LIGHTS SHOULD BE 0 1 0 IN COLOR ALL OTHER ITEMS SHOULD
@@ -1336,11 +1336,11 @@ void() BackpackTouch =
 
 // change to a better weapon if appropriate
 	if (!deathmatch)
-			// last weapon held by player
-			self.weapon = new;
+		// last weapon held by player
+		self.weapon = new;
 	else
-			// best weapon in backpack
-			Deathmatch_Weapon (old, new);
+		// best weapon in backpack
+		Deathmatch_Weapon (old, new);
 
 	W_SetCurrentAmmo ();
 };
@@ -1361,6 +1361,24 @@ void() DropBackpack =
 	item.origin = self.origin - '0 0 24';
 
 	item.items = self.weapon;
+	if (item.items == IT_AXE)
+		item.netname = "Axe";
+	else if (item.items == IT_SHOTGUN)
+		item.netname = "Shotgun";
+	else if (item.items == IT_SUPER_SHOTGUN)
+		item.netname = "Double-barrelled Shotgun";
+	else if (item.items == IT_NAILGUN)
+		item.netname = "Nailgun";
+	else if (item.items == IT_SUPER_NAILGUN)
+		item.netname = "Super Nailgun";
+	else if (item.items == IT_GRENADE_LAUNCHER)
+		item.netname = "Grenade Launcher";
+	else if (item.items == IT_ROCKET_LAUNCHER)
+		item.netname = "Rocket Launcher";
+	else if (item.items == IT_LIGHTNING)
+		item.netname = "Thunderbolt";
+	else
+		item.netname = "";
 
 	item.ammo_shells = self.ammo_shells;
 	item.ammo_nails = self.ammo_nails;
