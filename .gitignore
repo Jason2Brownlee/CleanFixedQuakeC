@@ -1,6 +1,11 @@
+$ git ignore
+
+# mac stuff
 .DS_Store
+# build and release directories
 dev
-qcc
 build
 dist
-
+# compilers
+qcc
+gmqcc
