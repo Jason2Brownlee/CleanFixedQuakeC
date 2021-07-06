@@ -4,7 +4,7 @@
 .PHONY : clean build dist
 
 # current version of the release
-VERSION=1.1
+VERSION=1.2
 
 # release filename
 RELEASE=quake_progs_gpl_v${VERSION}.zip
