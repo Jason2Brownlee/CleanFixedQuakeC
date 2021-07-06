@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+v1.2: Fix compiler warnings from gmqcc.
+
+* Updated misc_fireball set fireball speed if not set.
+
 v1.1: All functionality from progs.dat v1.06.
 
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
