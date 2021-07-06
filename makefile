@@ -38,7 +38,7 @@ build:
 	mkdir -p ${DIST}
 	# compile quakec source
 	cp -r ${QC} ${BUILD}/
-	cp ${QCC} ${BUILD}
+	cp ${QCC} ${BUILD}/qc/
 	cd ${BUILD}/qc/;./${COMPILER};true
 	rm ${BUILD}/qc/${COMPILER}
 
