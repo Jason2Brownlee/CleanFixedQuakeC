@@ -12,14 +12,26 @@ RELEASE=quake_progs_gpl_v${VERSION}.zip
 BUILD=$(CURDIR)/build
 # directory where release artifacts are placed
 DIST=$(CURDIR)/dist
-# location of documentation
-DOC=$(CURDIR)/doc
+
 # filename of quakec compiler
-COMPILER=qcc
+COMPILER=gmqcc
 # location of the quakec compiler (change as needed)
-QCC=$(CURDIR)/qcc/${COMPILER}
+QCC=$(CURDIR)/gmqcc/${COMPILER}
 # location of quakec source code
 QC=$(CURDIR)/qc
+# compiler flags
+QCFLAGS=-std=qcc -Wall
+
+# compile the quakec source code
+build:
+	# create the required directories
+	mkdir -p ${BUILD}
+	mkdir -p ${DIST}
+	# compile quakec source
+	cp -r ${QC} ${BUILD}/
+	cp ${QCC} ${BUILD}/qc/
+	cd ${BUILD}/qc/;./${COMPILER} ${QCFLAGS};true
+	rm ${BUILD}/qc/${COMPILER}
 
 # create a release
 dist: clean build
@@ -30,17 +42,6 @@ dist: clean build
 	cd ${BUILD};zip -r ${RELEASE} qc progs.dat *.txt *.md
 	# place the release for distribution
 	cp ${BUILD}/${RELEASE} ${DIST}
-
-# compile the quakec source code
-build:
-	# create the required directories
-	mkdir -p ${BUILD}
-	mkdir -p ${DIST}
-	# compile quakec source
-	cp -r ${QC} ${BUILD}/
-	cp ${QCC} ${BUILD}/qc/
-	cd ${BUILD}/qc/;./${COMPILER};true
-	rm ${BUILD}/qc/${COMPILER}
 
 # delete all build and release artifacts
 clean:
