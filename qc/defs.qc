@@ -64,9 +64,9 @@ float		parm1, parm2, parm3, parm4, parm5, parm6, parm7, parm8, parm9, parm10, pa
 
 //
 // global variables set by built in functions
-//	
+//
 vector		v_forward, v_up, v_right;	// set by makevectors()
-	
+
 // set by traceline / tracebox
 float		trace_allsolid;
 float		trace_startsolid;
@@ -534,12 +534,12 @@ float	AS_MISSILE		= 4;
 //
 .float		aflag;
 .float		dmg;			// damage done by door when hit
-	
+
 //
 // misc
 //
 .float		cnt; 			// misc flag
-	
+
 //
 // subs
 //
@@ -571,7 +571,7 @@ float	AS_MISSILE		= 4;
 
 
 //===========================================================================
-	
+
 
 //
 // builtin functions
@@ -598,7 +598,7 @@ void(entity e) remove				= #15;
 // An entity will also be ignored for testing if forent == test,
 // forent->owner == test, or test->owner == forent
 // a forent of world is ignored
-void(vector v1, vector v2, float nomonsters, entity forent) traceline = #16;	
+void(vector v1, vector v2, float nomonsters, entity forent) traceline = #16;
 
 entity() checkclient				= #17;	// returns a client to look for
 entity(entity start, .string fld, string match) find = #18;
@@ -617,7 +617,7 @@ void() traceoff						= #30;
 void(entity e) eprint				= #31;		// prints an entire edict
 float(float yaw, float dist) walkmove	= #32;	// returns TRUE or FALSE
 // #33 was removed
-float(float yaw, float dist) droptofloor= #34;	// TRUE if landed on floor
+float() droptofloor= #34;	// TRUE if landed on floor
 void(float style, string value) lightstyle = #35;
 float(float v) rint					= #36;		// round to nearest int
 float(float v) floor				= #37;		// largest integer <= v

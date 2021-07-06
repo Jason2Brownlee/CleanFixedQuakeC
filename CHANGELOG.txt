@@ -3,7 +3,9 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
-* Updated misc_fireball set fireball speed if not set.
+* Changed definition of droptofloor in defs.qc to match C code.
+* Updated misc_fireball in misc.qc set fireball speed if not set.
+
 
 v1.1: All functionality from progs.dat v1.06.
 
@@ -33,6 +35,7 @@ changes were written from scratch inspired by the 1.06 release.
 * Updated W_FireAxe in weapons.qc from qw2.30 GPL (qc v1.06).
 * Removed /raid/quake/ from the model paths (qc v1.06).
 * Changed release to a .zip file.
+
 
 v1.0: Initial release.
 
