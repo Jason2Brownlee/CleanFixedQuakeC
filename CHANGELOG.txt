@@ -3,6 +3,7 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
+* Fixed missing return value in FindTarget.
 * Changed definition of droptofloor in defs.qc to match C code.
 * Added missing parameter in call to makestatic in func_illusionary.
 * Updated misc_fireball in misc.qc set fireball speed if not set.
