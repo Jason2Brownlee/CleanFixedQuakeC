@@ -3,6 +3,7 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
+* Fixed "allways" spelling error in comments.
 * Remove unused local variable shadowing parameter in SpawnMeatSpray.
 * Fixed missing return value in CheckAnyAttack.
 * Fixed missing return value in FindTarget.
