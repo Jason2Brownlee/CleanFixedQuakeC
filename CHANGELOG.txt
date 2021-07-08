@@ -3,6 +3,7 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
+* Fixed local variable shadowing parameter in LaunchLaser.
 * Fixed missing parameter in call to ai_charge by ogre_smash12.
 * Fixed "allways" spelling error in comments.
 * Remove unused local variable shadowing parameter in SpawnMeatSpray.

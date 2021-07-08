@@ -91,12 +91,12 @@ void() Laser_Touch =
 
 void(vector org, vector vec) LaunchLaser =
 {
-	local	vector	vec;
+	local	vector	new_vec;
 
 	if (self.classname == "monster_enforcer")
 		sound (self, CHAN_WEAPON, "enforcer/enfire.wav", 1, ATTN_NORM);
 
-	vec = normalize(vec);
+	new_vec = normalize(vec);
 
 	newmis = spawn();
 	newmis.owner = self;
