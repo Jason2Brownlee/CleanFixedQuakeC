@@ -14,7 +14,7 @@ This project provides a version of the quake game code v1.01 released under the 
 
 See the change log for a full list of fixes:
 
-* [Changelog](changelog.txt)
+* [Changelog](CHANGELOG.txt)
 
 ## Download
 
@@ -48,5 +48,4 @@ You can use the .qc files as the basis for mod development.
 3. Create a release.
 	1. `make`
 4. Retrieve the release from `dist/`
-
 
