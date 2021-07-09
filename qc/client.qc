@@ -149,6 +149,8 @@ entity() FindIntermission =
 		return spot;
 
 	objerror ("FindIntermission: no spot");
+// avoid compiler warning
+	return world;
 };
 
 
