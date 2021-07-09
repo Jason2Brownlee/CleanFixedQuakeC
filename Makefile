@@ -2,10 +2,8 @@
 
 # list of targets that should always run
 .PHONY : clean build dist
-
 # current version of the release
 VERSION=1.2
-
 # release filename
 RELEASE=quake_progs_gpl_v${VERSION}.zip
 # directory where the qc files are compiled
@@ -21,18 +19,18 @@ COMPILERS=$(CURDIR)/compilers
 # ----------------
 # # filename of quakec compiler
 # QCCNAME=qcc
-# # location of the quakec compiler (change as needed)
+# # location of the quakec compiler
 # QCCCOMPILER=$(COMPILERS)/qcc/${QCCNAME}
-# # compiler flags
+# # quakec compiler flags
 # QCFLAGS=""
 
 # gmqcc
 # ----------------
 # filename of quakec compiler
 QCCNAME=gmqcc
-# location of the quakec compiler (change as needed)
+# location of the quakec compiler
 QCCCOMPILER=$(COMPILERS)/gmqcc/${QCCNAME}
-# compiler flags
+# quakec compiler flags
 QCFLAGS=-std=qcc -Wall
 
 
