@@ -26,11 +26,11 @@ The latest release can be downloaded from here:
 
 ## How to Use
 
-You can use this game code to **play quake** with bugs fixed, or for th basis of **mod development**.
+You can use this game code to **play quake** with bugs fixed, or as the basis for **mod development**.
 
 ### Play Quake
 
-You can use the game code (progs.dat) to play Quake, such as singleplayer or multiplayer.
+You can use the game code (`progs.dat`) to play Quake, such as singleplayer or multiplayer.
 
 1. Download the .zip file for the latest release.
 2. Unzip and locate the `progs.dat` file.
@@ -41,6 +41,10 @@ You can use the game code (progs.dat) to play Quake, such as singleplayer or mul
 ### Mod Development
 
 You can use the .qc files as the basis for mod development.
+
+1. Download the .zip file for the latest release.
+2. Unzip and locate the `progs.dat` file.
+3. Access the source code in the `qc/` subdirectory.
 
 ## How to Build
 
