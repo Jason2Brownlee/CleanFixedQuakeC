@@ -15,6 +15,7 @@ v1.2: Fix compiler warnings from gmqcc.
 
 
 v1.1: All functionality from progs.dat v1.06.
+6 July 2021
 
 Changes were copied from the QW 2.30 GPL release wherever possible, otherwise
 changes were written from scratch inspired by the 1.06 release.
@@ -45,6 +46,7 @@ changes were written from scratch inspired by the 1.06 release.
 
 
 v1.0: Initial release.
+3 July 2021
 
 * Initial release of the project with GPL code v1.01 take from q1source.zip.
   Compiled with qcc take from q1tools_gpl.tgz (e.g. the official GPL releases
