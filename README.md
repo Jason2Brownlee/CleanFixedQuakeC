@@ -26,7 +26,7 @@ The latest release can be downloaded from here:
 
 ## How to Use
 
-You can use this game code to *play quake* with bugs fixed, or for th basis of *mod development*.
+You can use this game code to **play quake** with bugs fixed, or for th basis of **mod development**.
 
 ### Play Quake
 
@@ -43,6 +43,8 @@ You can use the game code (progs.dat) to play Quake, such as singleplayer or mul
 You can use the .qc files as the basis for mod development.
 
 ## How to Build
+
+Instructions on how to download and build this project.
 
 1. Checkout the code.
 	1. `git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
