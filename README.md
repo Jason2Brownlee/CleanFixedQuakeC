@@ -54,9 +54,9 @@ Instructions on how to download and build this project.
 	1. `git clone https://github.com/Jason2Brownlee/QuakeCGPL.git`
 	2. `cd QuakeCGPL`
 2. Configure your QuakeC compiler (e.g. assumes you have qcc).
-	1. Set `COMPILER` and `QCC` in `makefile`
+	1. Set `QCCNAME`, `QCCCOMPILER`, and `QCFLAGS` in `makefile`
 3. Create a release.
-	1. `make`
+	1. `make dist`
 4. Retrieve the release from `dist/`
 
 ## Resources
