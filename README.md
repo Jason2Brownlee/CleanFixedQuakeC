@@ -49,3 +49,8 @@ You can use the .qc files as the basis for mod development.
 	1. `make`
 4. Retrieve the release from `dist/`
 
+## Resources
+
+Useful resources for fixing bugs in Quake game code.
+
+* [Quake Info Pool (QIP)](https://www.quake-info-pool.net/home.htm)
