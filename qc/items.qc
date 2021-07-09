@@ -257,6 +257,11 @@ void() armor_touch =
 {
 	local	float	type, value, bit;
 
+	// initialize variables
+	type = 0;
+	bit = 0;
+	value = 0;
+
 	if (other.health <= 0)
 		return;
 	if (other.classname != "player")

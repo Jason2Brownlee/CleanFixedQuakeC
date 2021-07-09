@@ -3,6 +3,7 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
+* Initialize variables in armor_touch.
 * Fixed return type for WizardAttackFinished.
 * Updated FindIntermission to have a return value in failure case.
 * Fixed return type for SetMovedir.
