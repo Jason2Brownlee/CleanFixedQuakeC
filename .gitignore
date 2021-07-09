@@ -7,5 +7,4 @@ dev
 build
 dist
 # compilers
-qcc
-gmqcc
+compilers

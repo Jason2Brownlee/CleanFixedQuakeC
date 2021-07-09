@@ -14,13 +14,27 @@ BUILD=$(CURDIR)/build
 DIST=$(CURDIR)/dist
 # location of quakec source code
 QC=$(CURDIR)/qc
+# location of compilers
+COMPILERS=$(CURDIR)/compilers
 
+# qcc (idsoftware)
+# ----------------
+# # filename of quakec compiler
+# QCCNAME=qcc
+# # location of the quakec compiler (change as needed)
+# QCCCOMPILER=$(COMPILERS)/qcc/${QCCNAME}
+# # compiler flags
+# QCFLAGS=""
+
+# gmqcc
+# ----------------
 # filename of quakec compiler
-COMPILER=gmqcc
+QCCNAME=gmqcc
 # location of the quakec compiler (change as needed)
-QCC=$(CURDIR)/gmqcc/${COMPILER}
+QCCCOMPILER=$(COMPILERS)/gmqcc/${QCCNAME}
 # compiler flags
 QCFLAGS=-std=qcc -Wall
+
 
 # compile the quakec source code
 build:
@@ -29,9 +43,9 @@ build:
 	mkdir -p ${DIST}
 	# compile quakec source
 	cp -r ${QC} ${BUILD}/
-	cp ${QCC} ${BUILD}/qc/
-	cd ${BUILD}/qc/;./${COMPILER} ${QCFLAGS};true
-	rm ${BUILD}/qc/${COMPILER}
+	cp ${QCCCOMPILER} ${BUILD}/qc/
+	cd ${BUILD}/qc/;./${QCCNAME} ${QCFLAGS};true
+	rm ${BUILD}/qc/${QCCNAME}
 
 # create a release
 dist: clean build
