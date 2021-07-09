@@ -10,13 +10,17 @@ In 1999 the source code for the Quake engine (.exe), tools (qcc), and game code 
 
 The version of the Quake game code released under the GPL was v1.01, different from the latest release of the game code v1.06.
 
-This project provides a version of the quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code, and other bug fixes.
+This project provides a version of the quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code. This project also includes a host of other bug fixes, such as compiler warnings and bugs reported on the Quake Info Pool.
+
+See the change log for a full list of fixes:
+
+* [Changelog](changelog.txt)
 
 ## Download
 
 The latest release can be downloaded from here:
 
-https://github.com/Jason2Brownlee/QuakeCGPL/releases
+* [Releases](https://github.com/Jason2Brownlee/QuakeCGPL/releases)
 
 ## Use
 
