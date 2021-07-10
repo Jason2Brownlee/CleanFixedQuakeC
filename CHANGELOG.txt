@@ -3,6 +3,7 @@ Change Log
 
 v1.2: Fix compiler warnings from gmqcc.
 
+* Initialize variable in W_ChangeWeapon.
 * Initialize variable in weapon_touch.
 * Initialize variables in armor_touch.
 * Fixed return type for WizardAttackFinished.
