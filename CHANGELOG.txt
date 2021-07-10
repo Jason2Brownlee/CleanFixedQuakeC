@@ -2,6 +2,7 @@ Change Log
 ==========
 
 v1.2: Fix compiler warnings from gmqcc.
+11 July 2021
 
 * Initialize variables in ClientObituary.
 * Initialize variable in W_ChangeWeapon.
