@@ -426,6 +426,7 @@ void() weapon_touch =
 	self = other;
 	best = W_BestWeapon();
 	self = stemp;
+	new = 0;
 
 	if (deathmatch == 2 || coop)
 		leave = 1;
