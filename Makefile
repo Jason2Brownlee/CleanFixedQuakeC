@@ -3,7 +3,7 @@
 # list of targets that should always run
 .PHONY : clean build dist
 # current version of the release
-VERSION=1.2
+VERSION=1.3
 # release filename
 RELEASE=quake_progs_gpl_v${VERSION}.zip
 # directory where the qc files are compiled
