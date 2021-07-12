@@ -63,7 +63,7 @@ Instructions on how to download and build this project.
 
 Useful resources for fixing bugs in Quake game code.
 
-* [Quake GPL Source Release](https://github.com/id-Software/Quake)
-* [Quake tools and utilities](https://github.com/id-Software/Quake-Tools)
+* [Quake Engine Source (GPL)](https://github.com/id-Software/Quake)
+* [Quake Tools and Utilities (GPL)](https://github.com/id-Software/Quake-Tools)
 * [Quake Info Pool (QIP)](https://www.quake-info-pool.net/home.htm)
 * [GMQCC](https://graphitemaster.github.io/gmqcc/)
