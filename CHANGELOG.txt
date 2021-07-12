@@ -6,6 +6,7 @@ v1.3: Removed unused code.
 
 Removed unused variables, files, and commented out code.
 
+* Removed unused local variable from OgreFireGrenade.
 * Removed unused local variables from monster_death_use and walkmonster_start_go.
 * Removed unused local variables from bubble_bob.
 * Removed unused local variables from health_touch, key_touch, sigil_touch, and
