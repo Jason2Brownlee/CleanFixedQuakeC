@@ -47,8 +47,6 @@ $frame shake1 shake2 shake3 shake4 shake5 shake6 shake7 shake8
 $frame shake9 shake10 shake11 shake12 shake12 shake13 shake14
 $frame shake15 shake16 shake17 shake18 shake19 shake20
 
-//void() old_stand     =[      $old1,       old_stand    ] {};
-
 void() old_idle1        =[      $old1,  old_idle2       ] {};
 void() old_idle2        =[      $old2,  old_idle3       ] {};
 void() old_idle3        =[      $old3,  old_idle4       ] {};
@@ -111,10 +109,11 @@ void() old_thrash11       =[      $shake11, old_thrash12      ] {lightstyle(0, "
 void() old_thrash12       =[      $shake12, old_thrash13      ] {lightstyle(0, "i");};
 void() old_thrash13       =[      $shake13, old_thrash14      ] {lightstyle(0, "k");};
 void() old_thrash14       =[      $shake14, old_thrash15      ] {lightstyle(0, "m");};
-void() old_thrash15       =[      $shake15, old_thrash16      ] {lightstyle(0, "m");
-self.cnt = self.cnt + 1;
-if (self.cnt != 3)
-	self.think = old_thrash1;
+void() old_thrash15       =[      $shake15, old_thrash16      ] {
+	lightstyle(0, "m");
+	self.cnt = self.cnt + 1;
+	if (self.cnt != 3)
+		self.think = old_thrash1;
 };
 void() old_thrash16       =[      $shake16, old_thrash17      ] {lightstyle(0, "g");};
 void() old_thrash17       =[      $shake17, old_thrash18      ] {lightstyle(0, "c");};

@@ -394,7 +394,6 @@ testing air bubbles
 */
 
 void() air_bubbles =
-
 {
 	if (deathmatch)
 	{
@@ -408,7 +407,7 @@ void() air_bubbles =
 
 void() make_bubbles =
 {
-local entity	bubble;
+	local entity	bubble;
 
 	bubble = spawn();
 	setmodel (bubble, "progs/s_bubble.spr");
@@ -429,7 +428,7 @@ local entity	bubble;
 
 void() bubble_split =
 {
-local entity	bubble;
+	local entity	bubble;
 	bubble = spawn();
 	setmodel (bubble, "progs/s_bubble.spr");
 	setorigin (bubble, self.origin);
@@ -453,7 +452,6 @@ void() bubble_remove =
 {
 	if (other.classname == self.classname)
 	{
-//		dprint ("bump");
 		return;
 	}
 	remove(self);
@@ -461,8 +459,8 @@ void() bubble_remove =
 
 void() bubble_bob =
 {
-local float		rnd1, rnd2, rnd3;
-local vector	vtmp1, modi;
+	local float		rnd1, rnd2, rnd3;
+	local vector	vtmp1, modi;
 
 	self.cnt = self.cnt + 1;
 	if (self.cnt == 4)
@@ -497,16 +495,12 @@ local vector	vtmp1, modi;
 	self.think = bubble_bob;
 };
 
-/*~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>
-~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~*/
-
 /*QUAKED viewthing (0 .5 .8) (-8 -8 -8) (8 8 8)
 
 Just for the debugging level.  Don't use
 */
 
 void() viewthing =
-
 {
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_NOT;
@@ -545,7 +539,6 @@ void() func_wall =
 A simple entity that looks solid but lets you walk through it.
 */
 void() func_illusionary =
-
 {
 	self.angles = '0 0 0';
 	self.movetype = MOVETYPE_NONE;
@@ -558,7 +551,6 @@ void() func_illusionary =
 This bmodel will appear if the episode has allready been completed, so players can't reenter it.
 */
 void() func_episodegate =
-
 {
 	if (!(serverflags & self.spawnflags))
 		return;			// can still enter episode
@@ -574,7 +566,6 @@ void() func_episodegate =
 This bmodel appears unless players have all of the episode sigils.
 */
 void() func_bossgate =
-
 {
 	if ( (serverflags & 15) == 15)
 		return;		// all episodes completed
@@ -672,7 +663,6 @@ For optimzation testing, starts a lot of sounds.
 */
 
 void() misc_noisemaker =
-
 {
 	precache_sound2 ("enforcer/enfire.wav");
 	precache_sound2 ("enforcer/enfstop.wav");

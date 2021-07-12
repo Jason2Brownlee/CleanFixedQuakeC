@@ -66,9 +66,9 @@ void()	demon1_stand12	=[	$stand12,	demon1_stand13	] {ai_stand();};
 void()	demon1_stand13	=[	$stand13,	demon1_stand1	] {ai_stand();};
 
 void()	demon1_walk1	=[	$walk1,		demon1_walk2	] {
-if (random() < 0.2)
-    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
-ai_walk(8);
+	if (random() < 0.2)
+	    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
+	ai_walk(8);
 };
 void()	demon1_walk2	=[	$walk2,		demon1_walk3	] {ai_walk(6);};
 void()	demon1_walk3	=[	$walk3,		demon1_walk4	] {ai_walk(6);};
@@ -79,9 +79,10 @@ void()	demon1_walk7	=[	$walk7,		demon1_walk8	] {ai_walk(10);};
 void()	demon1_walk8	=[	$walk8,		demon1_walk1	] {ai_walk(10);};
 
 void()	demon1_run1	=[	$run1,		demon1_run2	] {
-if (random() < 0.2)
-    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
-ai_run(20);};
+	if (random() < 0.2)
+	    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
+	ai_run(20);
+};
 void()	demon1_run2	=[	$run2,		demon1_run3	] {ai_run(15);};
 void()	demon1_run3	=[	$run3,		demon1_run4	] {ai_run(36);};
 void()	demon1_run4	=[	$run4,		demon1_run5	] {ai_run(20);};
@@ -108,8 +109,8 @@ void()	demon1_jump7	=[	$leap7,		demon1_jump8	] {};
 void()	demon1_jump8	=[ 	$leap8,		demon1_jump9	] {};
 void()	demon1_jump9	=[ 	$leap9,		demon1_jump10	] {};
 void()	demon1_jump10	=[ 	$leap10,	demon1_jump1	] {
-self.nextthink = time + 3;
-// if three seconds pass, assume demon is stuck and jump again
+	self.nextthink = time + 3;
+	// if three seconds pass, assume demon is stuck and jump again
 };
 
 void()	demon1_jump11	=[ 	$leap11,	demon1_jump12	] {};
@@ -157,13 +158,15 @@ void(entity attacker, float damage)	demon1_pain =
 };
 
 void()	demon1_die1		=[	$death1,		demon1_die2	] {
-sound (self, CHAN_VOICE, "demon/ddeath.wav", 1, ATTN_NORM);};
+	sound (self, CHAN_VOICE, "demon/ddeath.wav", 1, ATTN_NORM);
+};
 void()	demon1_die2		=[	$death2,		demon1_die3	] {};
 void()	demon1_die3		=[	$death3,		demon1_die4	] {};
 void()	demon1_die4		=[	$death4,		demon1_die5	] {};
 void()	demon1_die5		=[	$death5,		demon1_die6	] {};
-void()	demon1_die6		=[	$death6,		demon1_die7	]
-{self.solid = SOLID_NOT;};
+void()	demon1_die6		=[	$death6,		demon1_die7	]{
+	self.solid = SOLID_NOT;
+};
 void()	demon1_die7		=[	$death7,		demon1_die8	] {};
 void()	demon1_die8		=[	$death8,		demon1_die9	] {};
 void()	demon1_die9		=[	$death9,		demon1_die9 ] {};
@@ -360,16 +363,11 @@ void()	Demon_JumpTouch =
 	if (!checkbottom(self))
 	{
 		if (self.flags & FL_ONGROUND)
-		{	// jump randomly to not get hung up
-//dprint ("popjump\n");
-	self.touch = SUB_Null;
-	self.think = demon1_jump1;
-	self.nextthink = time + 0.1;
-
-//			self.velocity_x = (random() - 0.5) * 600;
-//			self.velocity_y = (random() - 0.5) * 600;
-//			self.velocity_z = 200;
-//			self.flags = self.flags - FL_ONGROUND;
+		{
+			// jump randomly to not get hung up
+			self.touch = SUB_Null;
+			self.think = demon1_jump1;
+			self.nextthink = time + 0.1;
 		}
 		return;	// not on ground yet
 	}

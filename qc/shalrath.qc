@@ -44,9 +44,10 @@ void() ShalMissile;
 void() shal_stand     =[      $walk1,       shal_stand    ] {ai_stand();};
 
 void() shal_walk1     =[      $walk2,       shal_walk2    ] {
-if (random() < 0.2)
-	sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
-ai_walk(6);};
+	if (random() < 0.2)
+		sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
+	ai_walk(6);
+};
 void() shal_walk2     =[      $walk3,       shal_walk3    ] {ai_walk(4);};
 void() shal_walk3     =[      $walk4,       shal_walk4    ] {ai_walk(0);};
 void() shal_walk4     =[      $walk5,       shal_walk5    ] {ai_walk(0);};
@@ -60,9 +61,10 @@ void() shal_walk11    =[      $walk12,       shal_walk12    ] {ai_walk(4);};
 void() shal_walk12    =[      $walk1,       shal_walk1    ] {ai_walk(5);};
 
 void() shal_run1     =[      $walk2,       shal_run2    ] {
-if (random() < 0.2)
-	sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
-ai_run(6);};
+	if (random() < 0.2)
+		sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
+	ai_run(6);
+};
 void() shal_run2     =[      $walk3,       shal_run3    ] {ai_run(4);};
 void() shal_run3     =[      $walk4,       shal_run4    ] {ai_run(0);};
 void() shal_run4     =[      $walk5,       shal_run5    ] {ai_run(0);};
@@ -76,8 +78,8 @@ void() shal_run11    =[      $walk12,       shal_run12    ] {ai_run(4);};
 void() shal_run12    =[      $walk1,       shal_run1    ] {ai_run(5);};
 
 void() shal_attack1     =[      $attack1,       shal_attack2    ] {
-sound (self, CHAN_VOICE, "shalrath/attack.wav", 1, ATTN_NORM);
-ai_face();
+	sound (self, CHAN_VOICE, "shalrath/attack.wav", 1, ATTN_NORM);
+	ai_face();
 };
 void() shal_attack2     =[      $attack2,       shal_attack3    ] {ai_face();};
 void() shal_attack3     =[      $attack3,       shal_attack4    ] {ai_face();};

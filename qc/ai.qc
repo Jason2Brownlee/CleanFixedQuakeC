@@ -229,62 +229,6 @@ float(entity targ) infront =
 
 //============================================================================
 
-/*
-===========
-ChangeYaw
-
-Turns towards self.ideal_yaw at self.yaw_speed
-Sets the global variable current_yaw
-Called every 0.1 sec by monsters
-============
-*/
-/*
-
-void() ChangeYaw =
-{
-	local float		ideal, move;
-
-//current_yaw = self.ideal_yaw;
-// mod down the current angle
-	current_yaw = anglemod( self.angles_y );
-	ideal = self.ideal_yaw;
-
-	if (current_yaw == ideal)
-		return;
-
-	move = ideal - current_yaw;
-	if (ideal > current_yaw)
-	{
-		if (move > 180)
-			move = move - 360;
-	}
-	else
-	{
-		if (move < -180)
-			move = move + 360;
-	}
-
-	if (move > 0)
-	{
-		if (move > self.yaw_speed)
-			move = self.yaw_speed;
-	}
-	else
-	{
-		if (move < 0-self.yaw_speed )
-			move = 0-self.yaw_speed;
-	}
-
-	current_yaw = anglemod (current_yaw + move);
-
-	self.angles_y = current_yaw;
-};
-
-*/
-
-
-//============================================================================
-
 void() HuntTarget =
 {
 	self.goalentity = self.enemy;
@@ -460,14 +404,6 @@ stagger back a bit
 void(float dist) ai_pain =
 {
 	ai_back (dist);
-/*
-	local float	away;
-
-	away = anglemod (vectoyaw (self.origin - self.enemy.origin)
-	+ 180*(random()- 0.5) );
-
-	walkmove (away, dist);
-*/
 };
 
 /*
@@ -739,13 +675,11 @@ void(float dist) ai_run =
 
 	if (self.attack_state == AS_MISSILE)
 	{
-//dprint ("ai_run_missile\n");
 		ai_run_missile ();
 		return;
 	}
 	if (self.attack_state == AS_MELEE)
 	{
-//dprint ("ai_run_melee\n");
 		ai_run_melee ();
 		return;
 	}

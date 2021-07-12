@@ -16,8 +16,6 @@
 
     See file, 'COPYING', for details.
 */
-/*~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>
-~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~*/
 
 void() test_teleport_touch;
 void() tele_done;
@@ -28,23 +26,21 @@ Teleporter testing
 void() test_teleport =
 {
 	precache_model ("sprites/s_aball.spr");
-	setsize (self, self.mins, self.maxs);	
+	setsize (self, self.mins, self.maxs);
 	self.touch = test_teleport_touch;
 	self.solid = 1;
-	
+
 	if (!self.target)
 		objerror ("no target\n");
 };
 
 void() test_teleport_touch =
 {
-local entity oldself;
+	local entity oldself;
 	other.movetype = MOVETYPE_TOSS;
-//	other.solid = SOLID_NOT;
 	other.dest = '256 -128 -128';
 	oldself = self;
 	self = other;
-//	SUB_CalcMove (self.dest, 200, tele_done);
 	self.velocity = '1000 0 0 ';
 	self = oldself;
 };
@@ -52,11 +48,9 @@ local entity oldself;
 void() tele_done =
 {
 	self.movetype = MOVETYPE_WALK;
-	self.solid = SOLID_SLIDEBOX;	
+	self.solid = SOLID_SLIDEBOX;
 };
 
-/*~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>
-~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~<~>~*/
 
 void() test_goaway;
 void() test_spawn;
@@ -72,7 +66,7 @@ void() test_fodder =
 
 void() test_spawn =
 {
-local entity	body;
+	local entity	body;
 	makevectors (self.angles);
 
 	body = spawn();
@@ -91,9 +85,8 @@ local entity	body;
 	body.nextthink = time + 5;
 	body.think = test_goaway;
 
-self.nextthink = time + 3;
-self.think = test_spawn;
-
+	self.nextthink = time + 3;
+	self.think = test_spawn;
 };
 
 void() test_goaway =

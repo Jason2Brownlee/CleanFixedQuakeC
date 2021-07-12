@@ -802,7 +802,6 @@ WaterMove
 
 void() WaterMove =
 {
-//dprint (ftos(self.waterlevel));
 	if (self.movetype == MOVETYPE_NOCLIP)
 		return;
 	if (self.health < 0)

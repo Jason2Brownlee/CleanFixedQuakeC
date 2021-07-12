@@ -69,10 +69,10 @@ void() boss_face =
 };
 
 void() boss_rise1	=[	$rise1, boss_rise2 ] {
-sound (self, CHAN_WEAPON, "boss1/out1.wav", 1, ATTN_NORM);
+	sound (self, CHAN_WEAPON, "boss1/out1.wav", 1, ATTN_NORM);
 };
 void() boss_rise2	=[	$rise2, boss_rise3 ] {
-sound (self, CHAN_VOICE, "boss1/sight1.wav", 1, ATTN_NORM);
+	sound (self, CHAN_VOICE, "boss1/sight1.wav", 1, ATTN_NORM);
 };
 void() boss_rise3	=[	$rise3, boss_rise4 ] {};
 void() boss_rise4	=[	$rise4, boss_rise5 ] {};
@@ -183,7 +183,7 @@ void() boss_shockc9 =[	$shockc9, boss_shockc10 ] {};
 void() boss_shockc10 =[	$shockc10, boss_death1 ] {};
 
 void() boss_death1 = [$death1, boss_death2] {
-sound (self, CHAN_VOICE, "boss1/death.wav", 1, ATTN_NORM);
+	sound (self, CHAN_VOICE, "boss1/death.wav", 1, ATTN_NORM);
 };
 void() boss_death2 = [$death2, boss_death3] {};
 void() boss_death3 = [$death3, boss_death4] {};
@@ -312,7 +312,8 @@ void() lightning_fire =
 	local vector p1, p2;
 
 	if (time >= lightning_end)
-	{	// done here, put the terminals back up
+	{
+		// done here, put the terminals back up
 		self = le1;
 		door_go_down ();
 		self = le2;
@@ -361,7 +362,6 @@ void() lightning_use =
 	|| (le2.state != STATE_TOP && le2.state != STATE_BOTTOM)
 	|| (le1.state != le2.state) )
 	{
-//		dprint ("not aligned\n");
 		return;
 	}
 

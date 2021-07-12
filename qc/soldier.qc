@@ -73,9 +73,10 @@ void()	army_stand7	=[	$stand7,	army_stand8	] {ai_stand();};
 void()	army_stand8	=[	$stand8,	army_stand1	] {ai_stand();};
 
 void()	army_walk1	=[	$prowl_1,	army_walk2	] {
-if (random() < 0.2)
-	sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
-ai_walk(1);};
+	if (random() < 0.2)
+		sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
+	ai_walk(1);
+};
 void()	army_walk2	=[	$prowl_2,	army_walk3	] {ai_walk(1);};
 void()	army_walk3	=[	$prowl_3,	army_walk4	] {ai_walk(1);};
 void()	army_walk4	=[	$prowl_4,	army_walk5	] {ai_walk(1);};
@@ -101,9 +102,10 @@ void()	army_walk23	=[	$prowl_23,	army_walk24	] {ai_walk(1);};
 void()	army_walk24	=[	$prowl_24,	army_walk1	] {ai_walk(1);};
 
 void()	army_run1	=[	$run1,		army_run2	] {
-if (random() < 0.2)
-	sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
-ai_run(11);};
+	if (random() < 0.2)
+		sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
+	ai_run(11);
+};
 void()	army_run2	=[	$run2,		army_run3	] {ai_run(15);};
 void()	army_run3	=[	$run3,		army_run4	] {ai_run(10);};
 void()	army_run4	=[	$run4,		army_run5	] {ai_run(10);};
@@ -116,8 +118,11 @@ void()	army_atk1	=[	$shoot1,	army_atk2	] {ai_face();};
 void()	army_atk2	=[	$shoot2,	army_atk3	] {ai_face();};
 void()	army_atk3	=[	$shoot3,	army_atk4	] {ai_face();};
 void()	army_atk4	=[	$shoot4,	army_atk5	] {ai_face();};
-void()	army_atk5	=[	$shoot5,	army_atk6	] {ai_face();army_fire();
-self.effects = self.effects | EF_MUZZLEFLASH;};
+void()	army_atk5	=[	$shoot5,	army_atk6	] {
+	ai_face();
+	army_fire();
+	self.effects = self.effects | EF_MUZZLEFLASH;
+};
 void()	army_atk6	=[	$shoot6,	army_atk7	] {ai_face();};
 void()	army_atk7	=[	$shoot7,	army_atk8	] {ai_face();SUB_CheckRefire (army_atk1);};
 void()	army_atk8	=[	$shoot8,	army_atk9	] {ai_face();};
@@ -213,7 +218,11 @@ void() army_fire =
 void()	army_die1	=[	$death1,	army_die2	] {};
 void()	army_die2	=[	$death2,	army_die3	] {};
 void()	army_die3	=[	$death3,	army_die4	]
-{self.solid = SOLID_NOT;self.ammo_shells = 5;DropBackpack();};
+{
+	self.solid = SOLID_NOT;
+	self.ammo_shells = 5;
+	DropBackpack();
+};
 void()	army_die4	=[	$death4,	army_die5	] {};
 void()	army_die5	=[	$death5,	army_die6	] {};
 void()	army_die6	=[	$death6,	army_die7	] {};
@@ -225,7 +234,12 @@ void()	army_die10	=[	$death10,	army_die10	] {};
 void()	army_cdie1	=[	$deathc1,	army_cdie2	] {};
 void()	army_cdie2	=[	$deathc2,	army_cdie3	] {ai_back(5);};
 void()	army_cdie3	=[	$deathc3,	army_cdie4	]
-{self.solid = SOLID_NOT;self.ammo_shells = 5;DropBackpack();ai_back(4);};
+{
+	self.solid = SOLID_NOT;
+	self.ammo_shells = 5;
+	DropBackpack();
+	ai_back(4);
+};
 void()	army_cdie4	=[	$deathc4,	army_cdie5	] {ai_back(13);};
 void()	army_cdie5	=[	$deathc5,	army_cdie6	] {ai_back(3);};
 void()	army_cdie6	=[	$deathc6,	army_cdie7	] {ai_back(4);};

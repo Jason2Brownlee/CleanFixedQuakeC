@@ -220,12 +220,6 @@ $base base
 $skin skin
 $frame frame1
 
-//modelname jetpack
-//cd id1/models/jetpack
-//flags 8		// client side rotate
-//base base
-//skin skin
-//frame frame1
 
 $modelname cube
 $cd id1/models/cube

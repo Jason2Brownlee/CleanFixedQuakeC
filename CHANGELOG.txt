@@ -1,8 +1,16 @@
 Change Log
 ==========
 
+v1.3
+
+* Removed commented out source code.
+* Fixed minor source code indenting for consistency.
+
+
 v1.2: Fix compiler warnings from gmqcc.
 11 July 2021
+
+Fixes all reasonable warnings reported by the gmqcc QuakeC compiler.
 
 * Initialize variables in ClientObituary.
 * Initialize variable in W_ChangeWeapon.

@@ -127,7 +127,7 @@ void() f_attack17       =[      $attack17,      f_attack18] {ai_charge(10);};
 void() f_attack18       =[      $attack18,      f_run1    ] {ai_charge(10);};
 
 void() f_death1 =[      $death1,        f_death2        ] {
-sound (self, CHAN_VOICE, "fish/death.wav", 1, ATTN_NORM);
+	sound (self, CHAN_VOICE, "fish/death.wav", 1, ATTN_NORM);
 };
 void() f_death2 =[      $death2,        f_death3        ] {};
 void() f_death3 =[      $death3,        f_death4        ] {};

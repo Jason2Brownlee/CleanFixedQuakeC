@@ -157,8 +157,10 @@ void()	player_run =[	$rockrun1,	player_run	]
 };
 
 
-void()	player_shot1 =	[$shotatt1, player_shot2	] {self.weaponframe=1;
-self.effects = self.effects | EF_MUZZLEFLASH;};
+void()	player_shot1 =	[$shotatt1, player_shot2	] {
+	self.weaponframe=1;
+	self.effects = self.effects | EF_MUZZLEFLASH;
+};
 void()	player_shot2 =	[$shotatt2, player_shot3	] {self.weaponframe=2;};
 void()	player_shot3 =	[$shotatt3, player_shot4	] {self.weaponframe=3;};
 void()	player_shot4 =	[$shotatt4, player_shot5	] {self.weaponframe=4;};
@@ -247,8 +249,10 @@ void() player_light2   =[$light2, player_light1  ]
 //============================================================================
 
 
-void() player_rocket1   =[$rockatt1, player_rocket2  ] {self.weaponframe=1;
-self.effects = self.effects | EF_MUZZLEFLASH;};
+void() player_rocket1   =[$rockatt1, player_rocket2  ] {
+	self.weaponframe=1;
+	self.effects = self.effects | EF_MUZZLEFLASH;
+};
 void() player_rocket2   =[$rockatt2, player_rocket3  ] {self.weaponframe=2;};
 void() player_rocket3   =[$rockatt3, player_rocket4  ] {self.weaponframe=3;};
 void() player_rocket4   =[$rockatt4, player_rocket5  ] {self.weaponframe=4;};
@@ -258,7 +262,7 @@ void(float num_bubbles) DeathBubbles;
 
 void() PainSound =
 {
-local float		rs;
+	local float		rs;
 
 	if (self.health < 0)
 		return;
@@ -375,7 +379,7 @@ void() player_die_ax1;
 
 void() DeathBubblesSpawn =
 {
-local entity	bubble;
+	local entity	bubble;
 	if (self.owner.waterlevel != 3)
 		return;
 	bubble = spawn();
@@ -399,7 +403,7 @@ local entity	bubble;
 
 void(float num_bubbles) DeathBubbles =
 {
-local entity	bubble_spawner;
+	local entity	bubble_spawner;
 
 	bubble_spawner = spawn();
 	setorigin (bubble_spawner, self.origin);
@@ -416,7 +420,7 @@ local entity	bubble_spawner;
 
 void() DeathSound =
 {
-local float		rs;
+	local float		rs;
 
 	// water death sounds
 	if (self.waterlevel == 3)
@@ -460,12 +464,10 @@ vector(float dm) VelocityForDamage =
 
 	if (dm > -50)
 	{
-//		dprint ("level 1\n");
 		v = v * 0.7;
 	}
 	else if (dm > -200)
 	{
-//		dprint ("level 3\n");
 		v = v * 2;
 	}
 	else
@@ -597,9 +599,9 @@ void() PlayerDie =
 };
 
 void() set_suicide_frame =
-{	// used by klill command and diconnect command
+{	// used by klill command and disconnect command
 	if (self.model != "progs/player.mdl")
-		return;	// allready gibbed
+		return;	// already gibbed
 	self.frame = $deatha11;
 	self.solid = SOLID_NOT;
 	self.movetype = MOVETYPE_TOSS;

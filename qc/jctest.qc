@@ -19,7 +19,7 @@
 
 void() jctrig =
 {
-dprint ("here\n\n");
+    dprint ("here\n\n");
 	lightstyle(0, "az");
 };
 

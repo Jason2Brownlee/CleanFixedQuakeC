@@ -369,7 +369,6 @@ void() T_MissileTouch =
 	// was done in the impact
 	T_RadiusDamage (self, self.owner, 120, other);
 
-//	sound (self, CHAN_WEAPON, "weapons/r_exp3.wav", 1, ATTN_NORM);
 	self.origin = self.origin - 8*normalize(self.velocity);
 
 	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
@@ -689,9 +688,10 @@ void(float ox) W_FireSpikes =
 
 
 .float hit_z;
+
 void() spike_touch =
 {
-local float rand;
+	local float rand;
 	if (other == self.owner)
 		return;
 
@@ -731,7 +731,7 @@ local float rand;
 
 void() superspike_touch =
 {
-local float rand;
+	local float rand;
 	if (other == self.owner)
 		return;
 

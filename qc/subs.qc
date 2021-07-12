@@ -20,7 +20,9 @@
 
 void() SUB_Null = {};
 
-void() SUB_Remove = {remove(self);};
+void() SUB_Remove = {
+	remove(self);
+};
 
 
 /*
@@ -70,7 +72,7 @@ self.origin traveling at speed
 */
 void(entity ent, vector tdest, float tspeed, void() func) SUB_CalcMoveEnt =
 {
-local entity	stemp;
+	local entity	stemp;
 	stemp = self;
 	self = ent;
 
@@ -80,8 +82,8 @@ local entity	stemp;
 
 void(vector tdest, float tspeed, void() func) SUB_CalcMove =
 {
-local vector	vdestdelta;
-local float		len, traveltime;
+	local vector	vdestdelta;
+	local float		len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");
@@ -147,7 +149,7 @@ The calling function should make sure self.think is valid
 */
 void(entity ent, vector destangle, float tspeed, void() func) SUB_CalcAngleMoveEnt =
 {
-local entity		stemp;
+	local entity		stemp;
 	stemp = self;
 	self = ent;
 	SUB_CalcAngleMove (destangle, tspeed, func);
@@ -156,8 +158,8 @@ local entity		stemp;
 
 void(vector destangle, float tspeed, void() func) SUB_CalcAngleMove =
 {
-local vector	destdelta;
-local float		len, traveltime;
+	local vector	destdelta;
+	local float		len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");
