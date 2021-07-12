@@ -1,7 +1,10 @@
 Change Log
 ==========
 
-v1.3
+v1.3: In progress...
+(unreleased)
+
+Development in progress...
 
 * Removed commented out source code.
 * Fixed minor source code indenting for consistency.
