@@ -17,7 +17,8 @@
     See file, 'COPYING', for details.
 */
 
-entity stemp, otemp, s, old;
+// global variable
+entity s;
 
 
 void() trigger_reactivate =

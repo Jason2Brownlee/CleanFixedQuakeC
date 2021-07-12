@@ -6,6 +6,7 @@ v1.3: Removed unused code.
 
 Removed unused variables, files, and commented out code.
 
+* Removed unused global variables from triggers.qc.
 * Removed unused local variable from func_plat.
 * Removed unused local variable from OgreFireGrenade.
 * Removed unused local variables from monster_death_use and walkmonster_start_go.
