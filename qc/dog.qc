@@ -319,8 +319,6 @@ float()	CheckDogJump =
 
 float()	DogCheckAttack =
 {
-	local	vector	vec;
-
 // if close enough for slashing, go for it
 	if (CheckDogMelee ())
 	{
