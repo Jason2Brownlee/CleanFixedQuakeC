@@ -66,4 +66,5 @@ Useful resources for fixing bugs in Quake game code.
 * [Quake Engine Source (GPL)](https://github.com/id-Software/Quake)
 * [Quake Tools and Utilities (GPL)](https://github.com/id-Software/Quake-Tools)
 * [Quake Info Pool (QIP)](https://www.quake-info-pool.net/home.htm)
+* [QuakeWiki: Quake Bugs](https://quakewiki.org/wiki/Quake_bugs)
 * [GMQCC](https://graphitemaster.github.io/gmqcc/)
