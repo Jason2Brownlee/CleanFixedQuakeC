@@ -684,9 +684,6 @@ void(float ox) W_FireSpikes =
 };
 
 
-
-.float hit_z;
-
 void() spike_touch =
 {
 	if (other == self.owner)
