@@ -106,7 +106,7 @@ SpawnMeatSpray
 */
 void(vector org, vector vel) SpawnMeatSpray =
 {
-	local	entity missile, mpuff;
+	local	entity missile;
 
 	missile = spawn ();
 	missile.owner = self;
@@ -389,7 +389,7 @@ W_FireRocket
 */
 void() W_FireRocket =
 {
-	local	entity missile, mpuff;
+	local	entity missile;
 
 	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 
@@ -643,7 +643,6 @@ void(vector org, vector dir) launch_spike =
 void() W_FireSuperSpikes =
 {
 	local vector	dir;
-	local entity	old;
 
 	sound (self, CHAN_WEAPON, "weapons/spike2.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
@@ -659,7 +658,6 @@ void() W_FireSuperSpikes =
 void(float ox) W_FireSpikes =
 {
 	local vector	dir;
-	local entity	old;
 
 	makevectors (self.v_angle);
 
@@ -691,7 +689,6 @@ void(float ox) W_FireSpikes =
 
 void() spike_touch =
 {
-	local float rand;
 	if (other == self.owner)
 		return;
 
@@ -731,7 +728,6 @@ void() spike_touch =
 
 void() superspike_touch =
 {
-	local float rand;
 	if (other == self.owner)
 		return;
 
