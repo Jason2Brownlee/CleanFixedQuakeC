@@ -1,11 +1,12 @@
 Change Log
 ==========
 
-v1.3: In progress...
+v1.3: Removed unused code.
 (unreleased)
 
-Development in progress...
+Removed unused variables, files, and commented out code.
 
+* Removed unused local variables in func_button.
 * Removed unused global variable current_yaw.
 * Removed unused local variables in ai_run and ai_walk.
 * Removed amtest.qc from the project.
