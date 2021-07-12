@@ -426,8 +426,6 @@ The monster is walking it's beat
 */
 void(float dist) ai_walk =
 {
-	local vector		mtemp;
-
 	movedist = dist;
 
 	if (self.classname == "monster_dragon")
@@ -629,10 +627,6 @@ The monster has an enemy it is trying to kill
 */
 void(float dist) ai_run =
 {
-	local	vector	delta;
-	local	float	axis;
-	local	float	direct, ang_rint, ang_floor, ang_ceil;
-
 	movedist = dist;
 // see if the enemy is dead
 	if (self.enemy.health <= 0)

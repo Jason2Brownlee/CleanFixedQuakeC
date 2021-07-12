@@ -6,6 +6,7 @@ v1.3: In progress...
 
 Development in progress...
 
+* Removed unused local variables in ai_run and ai_walk.
 * Removed amtest.qc from the project.
 * Removed jctest.qc from the project.
 * Removed commented out source code.
