@@ -2,6 +2,18 @@
 
 Quake game code (progs.dat) with bug fixes released under the GPL.
 
+## Features
+
+* Released under the permissive GNU GPL license.
+* Based on Quake game code v1.01 released under the GPL.
+* Supports all changes in the Quake game code v1.06.
+* Fixed compiler warnings for bad function definitions and uninitialized variables.
+* Removed unused files and unused local and global variables.
+
+See the change log for a full list of fixes:
+
+* [Changelog](CHANGELOG.txt)
+
 ## About
 
 The Quake computer game Quake was released in 1996.
@@ -12,11 +24,7 @@ The version of the Quake game code released under the GPL was v1.01, different f
 
 This project provides a version of the Quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code.
 
-This project also includes a host of other bug fixes such as compiler warnings, removal of unused code, and bugs reported on the Quake Info Pool.
-
-See the change log for a full list of fixes:
-
-* [Changelog](CHANGELOG.txt)
+This project also includes a host of other bug fixes such as compiler warnings, removal of unused code, and reported bugs.
 
 ## How to Download
 
