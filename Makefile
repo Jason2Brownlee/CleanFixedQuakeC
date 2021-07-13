@@ -26,12 +26,21 @@ COMPILERS=$(CURDIR)/compilers
 
 # gmqcc
 # ----------------
+# # filename of quakec compiler
+# QCCNAME=gmqcc
+# # location of the quakec compiler
+# QCCCOMPILER=$(COMPILERS)/gmqcc/${QCCNAME}
+# # quakec compiler flags
+# QCFLAGS=-std=qcc -Wall
+
+# fteqcc
+# ----------------
 # filename of quakec compiler
-QCCNAME=gmqcc
+QCCNAME=fteqcc
 # location of the quakec compiler
-QCCCOMPILER=$(COMPILERS)/gmqcc/${QCCNAME}
+QCCCOMPILER=$(COMPILERS)/fteqcc/${QCCNAME}
 # quakec compiler flags
-QCFLAGS=-std=qcc -Wall
+QCFLAGS=-Wall
 
 # frikqcc
 # ----------------
