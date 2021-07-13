@@ -33,6 +33,15 @@ QCCCOMPILER=$(COMPILERS)/gmqcc/${QCCNAME}
 # quakec compiler flags
 QCFLAGS=-std=qcc -Wall
 
+# frikqcc
+# ----------------
+# # filename of quakec compiler
+# QCCNAME=frikqcc
+# # location of the quakec compiler
+# QCCCOMPILER=$(COMPILERS)/frikqcc/${QCCNAME}
+# # quakec compiler flags
+# QCFLAGS=-warn 9
+
 
 # compile the quakec source code
 build:
