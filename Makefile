@@ -42,6 +42,15 @@ QCFLAGS=-std=qcc -Wall
 # # quakec compiler flags
 # QCFLAGS=-warn 9
 
+# meqcc
+# ----------------
+# # filename of quakec compiler
+# QCCNAME=qcc
+# # location of the quakec compiler
+# QCCCOMPILER=$(COMPILERS)/meqcc/${QCCNAME}
+# # quakec compiler flags
+# QCFLAGS=""
+
 
 # compile the quakec source code
 build:
