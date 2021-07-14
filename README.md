@@ -6,8 +6,8 @@ Quake game code (progs.dat) with bug fixes released under the GPL.
 
 * Released under the permissive GNU GPL license.
 * Based on Quake game code v1.01 released under the GPL.
-* One change per commit to provide traceability of changes.
 * Supports all changes in the Quake game code v1.06.
+* One change per commit to provide traceability of changes.
 * Fixed compiler warnings for bad function definitions and uninitialized variables.
 * Removed unused files and unused local and global variables.
 
@@ -76,4 +76,5 @@ Useful resources for fixing bugs in Quake game code.
 * [Quake Tools and Utilities (GPL)](https://github.com/id-Software/Quake-Tools)
 * [Quake Info Pool (QIP)](https://www.quake-info-pool.net/home.htm)
 * [QuakeWiki: Quake Bugs](https://quakewiki.org/wiki/Quake_bugs)
-* [GMQCC](https://graphitemaster.github.io/gmqcc/)
+* [GMQCC (QuakeC compiler)](https://graphitemaster.github.io/gmqcc/)
+* [FTEQW including FTEQCC (QuakeC compiler)](https://triptohell.info/)
