@@ -4,8 +4,9 @@ Change Log
 v1.4: Fix compiler warnings from fteqcc.
 Unreleased
 
-In development.
+Fixes all reasonable warnings reported by the fteqcc QuakeC compiler.
 
+* Updated dog_pain to match expectations of th_pain.
 * Updated fd_secret_use to use an empty function to match expectations of th_pain.
 * Created wrapper function for fd_secret_use to match expectations of th_pain.
 * Updated definition of player_pain to match expectations of th_pain.
