@@ -579,6 +579,9 @@ float SECRET_1ST_DOWN = 4;		// 1st move is down from arrow
 float SECRET_NO_SHOOT = 8;		// only opened by trigger
 float SECRET_YES_SHOOT = 16;	// shootable even if targeted
 
+// empty pain function
+void(entity attacker, float damage) pain_empty = {};
+
 void () fd_secret_use =
 {
 	local float temp;
@@ -595,7 +598,7 @@ void () fd_secret_use =
 
 	if (!(self.spawnflags & SECRET_NO_SHOOT))
 	{
-		self.th_pain = SUB_Null;
+		self.th_pain = pain_empty;
 		self.takedamage = DAMAGE_NO;
 	}
 	self.velocity = '0 0 0';
