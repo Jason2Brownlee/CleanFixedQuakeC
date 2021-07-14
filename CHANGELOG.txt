@@ -6,6 +6,8 @@ Unreleased
 
 In development.
 
+* Updated definition of player_pain to match expectations of th_pain.
+
 
 v1.3: Removed unused code.
 15 July 2021
