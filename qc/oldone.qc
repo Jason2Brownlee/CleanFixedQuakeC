@@ -256,7 +256,7 @@ void() finale_4 =
 
 //============================================================================
 
-void () oldone_pain =
+void (entity attacker, float damage) oldone_pain =
 {
 	self.health = 40000;
 };
