@@ -564,7 +564,7 @@ W_FireGrenade
 */
 void() W_FireGrenade =
 {
-	local	entity missile, mpuff;
+	local	entity missile;
 
 	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 

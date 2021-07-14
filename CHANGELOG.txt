@@ -6,6 +6,7 @@ v1.3: Removed unused code.
 
 Removed unused variables, files, and commented out code.
 
+* Removed unused variable from W_FireGrenade.
 * Removed unused local variable from ZombieFireGrenade.
 * Removed unused local variable from InitBodyQue.
 * Removed unused global variable hit_z from weapons.qc.
