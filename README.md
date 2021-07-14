@@ -6,6 +6,7 @@ Quake game code (progs.dat) with bug fixes released under the GPL.
 
 * Released under the permissive GNU GPL license.
 * Based on Quake game code v1.01 released under the GPL.
+* One change per commit to provide traceability of changes.
 * Supports all changes in the Quake game code v1.06.
 * Fixed compiler warnings for bad function definitions and uninitialized variables.
 * Removed unused files and unused local and global variables.
