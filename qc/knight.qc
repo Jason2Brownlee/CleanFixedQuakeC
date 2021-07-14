@@ -42,8 +42,8 @@ $frame pain1 pain2 pain3
 $frame painb1 painb2 painb3 painb4 painb5 painb6 painb7 painb8 painb9
 $frame painb10 painb11
 
-$frame attackb1 attackb1 attackb2 attackb3 attackb4 attackb5
-$frame attackb6 attackb7 attackb8 attackb9 attackb10
+$frame attackb1 attackb2 attackb3 attackb4 attackb5 attackb6
+$frame attackb7 attackb8 attackb9 attackb10 attackb11
 
 $frame walk1 walk2 walk3 walk4 walk5 walk6 walk7 walk8 walk9
 $frame walk10 walk11 walk12 walk13 walk14

@@ -6,6 +6,7 @@ Unreleased
 
 Fixes all reasonable warnings reported by the fteqcc QuakeC compiler.
 
+* Fixed duplicate macro for knight attack.
 * Removed unused global variable empty_float.
 * Updated oldone_pain to match expectations of th_pain.
 * Updated shalrath_pain to match expectations of th_pain.
