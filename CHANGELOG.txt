@@ -1,11 +1,12 @@
 Change Log
 ==========
 
-v1.4
+v1.4: Fix compiler warnings from fteqcc.
 Unreleased
 
 In development.
 
+* Created wrapper function for fd_secret_use to match expectations of th_pain.
 * Updated definition of player_pain to match expectations of th_pain.
 
 
