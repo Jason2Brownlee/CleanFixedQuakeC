@@ -416,7 +416,6 @@ float	movedist;
 float	gameover;		// set when a rule exits
 
 string	string_null;	// null string, nothing should be held here
-float	empty_float;
 
 entity	newmis;			// launch_spike sets this after spawning it
 
