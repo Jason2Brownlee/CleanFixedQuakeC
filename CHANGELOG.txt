@@ -2,7 +2,7 @@ Change Log
 ==========
 
 v1.3: Removed unused code.
-(unreleased)
+15 July 2021
 
 Removed unused variables, files, and commented out code.
 
