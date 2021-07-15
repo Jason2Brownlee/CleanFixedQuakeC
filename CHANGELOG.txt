@@ -6,6 +6,7 @@ Unreleased
 
 Fixes all reasonable warnings reported by the fteqcc QuakeC compiler.
 
+* Fixed spelling error in trigger_changelevel.
 * Removed reference to the Dragon monster.
 * Removed reference to the Vomitus monster.
 * Fixed duplicate macro for shub shake.

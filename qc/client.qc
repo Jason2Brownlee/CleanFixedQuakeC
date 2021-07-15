@@ -349,7 +349,7 @@ When the player touches this, he gets sent to the map listed in the "map" variab
 void() trigger_changelevel =
 {
 	if (!self.map)
-		objerror ("chagnelevel trigger doesn't have map");
+		objerror ("changelevel trigger doesn't have map");
 
 	InitTrigger ();
 	self.touch = changelevel_touch;
