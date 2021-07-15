@@ -2,6 +2,18 @@
 
 Quake game code (progs.dat) with bug fixes released under the GPL.
 
+## About
+
+The Quake computer game Quake was released in 1996.
+
+In 1999 the source code for the Quake engine (.exe), tools (qcc), and game code (progs.dat) was released under the GPL.
+
+The version of the Quake game code released under the GPL was v1.01, different from the latest release of the game code v1.06.
+
+This project provides a version of the Quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code.
+
+This project also includes a host of other bug fixes such as compiler warnings, removal of unused code, and reported bugs.
+
 ## Features
 
 * Released under the permissive GNU GPL license.
@@ -15,17 +27,6 @@ See the change log for a full list of fixes:
 
 * [Changelog](CHANGELOG.txt)
 
-## About
-
-The Quake computer game Quake was released in 1996.
-
-In 1999 the source code for the Quake engine (.exe), tools (qcc), and game code (progs.dat) was released under the GPL.
-
-The version of the Quake game code released under the GPL was v1.01, different from the latest release of the game code v1.06.
-
-This project provides a version of the Quake game code v1.01 released under the GPL updated with a "clean room" implementation of fixes in the v1.06 code.
-
-This project also includes a host of other bug fixes such as compiler warnings, removal of unused code, and reported bugs.
 
 ## How to Download
 
