@@ -1347,8 +1347,6 @@ void(entity targ, entity attacker) ClientObituary =
 					bprint (" was eviscerated by a Fiend\n");
 				if (attacker.classname == "monster_dog")
 					bprint (" was mauled by a Rottweiler\n");
-				if (attacker.classname == "monster_dragon")
-					bprint (" was fried by a Dragon\n");
 				if (attacker.classname == "monster_enforcer")
 					bprint (" was blasted by an Enforcer\n");
 				if (attacker.classname == "monster_fish")
