@@ -80,3 +80,7 @@ Useful resources for fixing bugs in Quake game code.
 * [Interesting QC Bugs](https://quakeone.com/forum/quake-help/servers-and-coding/277010-interesting-qc-bugs)
 * [GMQCC (QuakeC compiler)](https://graphitemaster.github.io/gmqcc/)
 * [FTEQW including FTEQCC (QuakeC compiler)](https://triptohell.info/)
+
+## License
+
+* [License](LICENSE.txt)
