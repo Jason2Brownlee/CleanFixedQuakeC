@@ -397,7 +397,8 @@ void()	ogre_bdie2	=[	$bdeath2,	ogre_bdie3	] {ai_forward(5);};
 void()	ogre_bdie3	=[	$bdeath3,	ogre_bdie4	] {
 	self.solid = SOLID_NOT;
 	self.ammo_rockets = 2;
-	DropBackpack();};
+	DropBackpack();
+};
 void()	ogre_bdie4	=[	$bdeath4,	ogre_bdie5	] {ai_forward(1);};
 void()	ogre_bdie5	=[	$bdeath5,	ogre_bdie6	] {ai_forward(3);};
 void()	ogre_bdie6	=[	$bdeath6,	ogre_bdie7	] {ai_forward(7);};
