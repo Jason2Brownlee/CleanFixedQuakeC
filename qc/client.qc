@@ -1209,8 +1209,8 @@ void(entity targ, entity attacker) ClientObituary =
 	local	float rnum;
 	local	string deathstring, deathstring2;
 	rnum = random();
-	deathstring = "";
-	deathstring2 = "";
+	deathstring = string_null;
+	deathstring2 = string_null;
 
 	if (targ.classname == "player")
 	{
@@ -1431,7 +1431,7 @@ void(entity targ, entity attacker) ClientObituary =
 
 			if (targ.deathtype == "falling")
 			{
-				targ.deathtype = "";
+				targ.deathtype = string_null;
 				bprint (" fell to his death\n");
 				return;
 			}

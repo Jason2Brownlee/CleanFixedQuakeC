@@ -141,7 +141,7 @@ void() finale_1 =
 	remove (pl);
 
 	WriteByte (MSG_ALL, SVC_FINALE);
-	WriteString (MSG_ALL, "");
+	WriteString (MSG_ALL, string_null);
 
 	pl = find (world, classname, "player");
 	while (pl != world)

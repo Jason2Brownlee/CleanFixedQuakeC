@@ -1036,7 +1036,7 @@ void() sigil_touch =
 	self.solid = SOLID_NOT;
 	self.model = string_null;
 	serverflags = serverflags | (self.spawnflags & 15);
-	self.classname = "";		// so rune doors won't find it
+	self.classname = string_null;		// so rune doors won't find it
 
 	activator = other;
 	SUB_UseTargets();				// fire all targets / killtargets
@@ -1373,7 +1373,7 @@ void() DropBackpack =
 	else if (item.items == IT_LIGHTNING)
 		item.netname = "Thunderbolt";
 	else
-		item.netname = "";
+		item.netname = string_null;
 
 	item.ammo_shells = self.ammo_shells;
 	item.ammo_nails = self.ammo_nails;

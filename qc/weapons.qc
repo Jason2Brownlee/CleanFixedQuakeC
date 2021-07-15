@@ -828,7 +828,7 @@ void() W_SetCurrentAmmo =
 	else
 	{
 		self.currentammo = 0;
-		self.weaponmodel = "";
+		self.weaponmodel = string_null;
 		self.weaponframe = 0;
 	}
 };

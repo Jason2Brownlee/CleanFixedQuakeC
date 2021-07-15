@@ -61,7 +61,7 @@ void() multi_trigger =
 		WriteByte (MSG_ALL, SVC_FOUNDSECRET);
 	}
 
-	if (self.noise)
+	if (self.noise != string_null)
 		sound (self, CHAN_VOICE, self.noise, 1, ATTN_NORM);
 
 // don't trigger again until reset
@@ -381,7 +381,7 @@ void() teleport_touch =
 	local entity	t;
 	local vector	org;
 
-	if (self.targetname)
+	if (self.targetname != string_null)
 	{
 		if (self.nextthink < time)
 		{
@@ -444,7 +444,7 @@ void() info_teleport_destination =
 // this does nothing, just serves as a target spot
 	self.mangle = self.angles;
 	self.angles = '0 0 0';
-	self.model = "";
+	self.model = string_null;
 	self.origin = self.origin + '0 0 27';
 	if (!self.targetname)
 		objerror ("no targetname");
@@ -526,13 +526,13 @@ void() trigger_onlyregistered_touch =
 	self.attack_finished = time + 2;
 	if (cvar("registered"))
 	{
-		self.message = "";
+		self.message = string_null;
 		SUB_UseTargets ();
 		remove (self);
 	}
 	else
 	{
-		if (self.message != "")
+		if (self.message != string_null)
 		{
 			centerprint (other, self.message);
 			sound (other, CHAN_BODY, "misc/talk.wav", 1, ATTN_NORM);

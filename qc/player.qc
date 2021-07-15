@@ -324,7 +324,7 @@ void() PainSound =
 
 	rs = rint((random() * 5) + 1);
 
-	self.noise = "";
+	self.noise = string_null;
 	if (rs == 1)
 		self.noise = "player/pain1.wav";
 	else if (rs == 2)
@@ -555,7 +555,7 @@ void() PlayerDie =
 	if (deathmatch || coop)
 		DropBackpack();
 
-	self.weaponmodel="";
+	self.weaponmodel = string_null;
 	self.view_ofs = '0 0 -8';
 	self.deadflag = DEAD_DYING;
 	self.solid = SOLID_NOT;

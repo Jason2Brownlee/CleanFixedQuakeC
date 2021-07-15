@@ -415,6 +415,7 @@ float	MSG_INIT		= 3;		// write to the init string
 float	movedist;
 float	gameover;		// set when a rule exits
 
+// evaluates as FALSE (like NULL or 0) but treated like "" (empty string)
 string	string_null;	// null string, nothing should be held here
 
 entity	newmis;			// launch_spike sets this after spawning it
