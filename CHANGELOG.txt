@@ -4,8 +4,10 @@ Change Log
 v1.5: Fixes inspired by "Quakec V1 01 Clean" by gnounc.
 Unreleased
 
-Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc (https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean).
+Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc
+( https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean ).
 
+* Fix for double counting fish (rotfish) in total monsters for a level.
 * Set correct weapon number in weapon_grenadelauncher, weapon_rocketlauncher and
   weapon_lightning and set correct weapon name in weapon_supershotgun and
   weapon_nailgun.
