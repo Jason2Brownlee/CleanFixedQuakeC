@@ -599,7 +599,7 @@ void() PlayerDie =
 };
 
 void() set_suicide_frame =
-{	// used by klill command and disconnect command
+{	// used by kill command and disconnect command
 	if (self.model != "progs/player.mdl")
 		return;	// already gibbed
 	self.frame = $deatha11;
