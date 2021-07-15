@@ -141,8 +141,7 @@ void() item_health =
 		self.healamount = 15;
 		self.healtype = 0;
 	}
-	else
-	if (self.spawnflags & H_MEGA)
+	else if (self.spawnflags & H_MEGA)
 	{
 		precache_model("maps/b_bh100.bsp");
 		precache_sound("items/r_item2.wav");
@@ -531,7 +530,7 @@ void() weapon_supershotgun =
 	precache_model ("progs/g_shot.mdl");
 	setmodel (self, "progs/g_shot.mdl");
 	self.weapon = IT_SUPER_SHOTGUN;
-	self.netname = "Double-barrelled Shotgun";
+	self.netname = "Double-barreled Shotgun";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
 	StartItem ();
@@ -545,7 +544,7 @@ void() weapon_nailgun =
 	precache_model ("progs/g_nail.mdl");
 	setmodel (self, "progs/g_nail.mdl");
 	self.weapon = IT_NAILGUN;
-	self.netname = "nailgun";
+	self.netname = "Nailgun";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
 	StartItem ();
@@ -572,7 +571,7 @@ void() weapon_grenadelauncher =
 {
 	precache_model ("progs/g_rock.mdl");
 	setmodel (self, "progs/g_rock.mdl");
-	self.weapon = 3;
+	self.weapon = IT_GRENADE_LAUNCHER;
 	self.netname = "Grenade Launcher";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
@@ -586,7 +585,7 @@ void() weapon_rocketlauncher =
 {
 	precache_model ("progs/g_rock2.mdl");
 	setmodel (self, "progs/g_rock2.mdl");
-	self.weapon = 3;
+	self.weapon = IT_ROCKET_LAUNCHER;
 	self.netname = "Rocket Launcher";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
@@ -601,7 +600,7 @@ void() weapon_lightning =
 {
 	precache_model ("progs/g_light.mdl");
 	setmodel (self, "progs/g_light.mdl");
-	self.weapon = 3;
+	self.weapon = IT_LIGHTNING;
 	self.netname = "Thunderbolt";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
