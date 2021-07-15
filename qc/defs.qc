@@ -195,7 +195,7 @@ void		end_sys_globals;		// flag for structure dumping
 .float		armortype;		// save this fraction of incoming damage
 .float		armorvalue;
 
-.float		waterlevel;		// 0 = not in, 1 = feet, 2 = wast, 3 = eyes
+.float		waterlevel;		// 0 = not in, 1 = feet, 2 = waist, 3 = eyes
 .float		watertype;		// a contents value
 
 .float		ideal_yaw;

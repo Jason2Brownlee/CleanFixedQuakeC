@@ -1,10 +1,12 @@
 Change Log
 ==========
 
-v1.5
+v1.5: Fixes inspired by "Quakec V1 01 Clean" by gnounc.
 Unreleased
 
-Currently in development.
+Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc (https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean).
+
+* Fixed minor spelling errors.
 
 
 v1.4: Fix compiler warnings from fteqcc.
