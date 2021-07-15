@@ -31,7 +31,7 @@ Will be world if not currently angry at anyone.
 The next path spot to walk toward.  If .enemy, ignore .movetarget.
 When an enemy is killed, the monster will try to return to it's path.
 
-.huntt_ime
+.hunt_time
 Set to time + something when the player is in sight, but movement straight for
 him is blocked.  This causes the monster to use wall following code for
 movement direction instead of sighting on the player.
