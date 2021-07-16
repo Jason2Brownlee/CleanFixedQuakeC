@@ -1,0 +1,23 @@
+To Do
+==========
+
+Ideas of improvements to the code base to consider.
+
+- Code review and fixes in 1.07 (mission pack 1)
+	https://github.com/Jason2Brownlee/QuakeOfficialArchive/blob/main/bin/all.zip
+- Code review and fixes in 1.08 (mission pack 2)
+	https://github.com/Jason2Brownlee/QuakeOfficialArchive/blob/main/bin/doe_qc.zip
+- Code review and fixes in QW v2.30
+	https://github.com/Jason2Brownlee/QuakeOfficialArchive/blob/main/bin/q1source.zip
+- Check every bug listed on the quake wiki
+	https://quakewiki.org/wiki/Quake_bugs
+- Check every bug listed on the QIP
+	https://www.quake-info-pool.net/home.htm
+- Code review and fixes in URQP v1.05 (before bots)
+	https://www.quake-info-pool.net/files/addons/old/urqp105.zip
+- Code review and fixes from "Quakec V1 01 Clean" by gnounc.
+	https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean
+- Code review and fixes from "id1 quakec cleaned" by shpuld.
+	https://github.com/shpuld/id1-quakec-cleaned
+
+
