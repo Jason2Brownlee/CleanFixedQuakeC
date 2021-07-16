@@ -239,7 +239,7 @@ void() HuntTarget =
 
 void() SightSound =
 {
-local float	rsnd;
+	local float	rsnd;
 
 	if (self.classname == "monster_ogre")
 		sound (self, CHAN_VOICE, "ogre/ogwake.wav", 1, ATTN_NORM);
