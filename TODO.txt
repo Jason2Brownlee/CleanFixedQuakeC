@@ -21,3 +21,8 @@ Ideas of improvements to the code base to consider.
 	https://github.com/shpuld/id1-quakec-cleaned
 
 
+Smaller ideas
+
+- Rename monster filenames to match monster names?
+- Remove models.qc and sprites.qc?
+
