@@ -530,7 +530,7 @@ void() weapon_supershotgun =
 	precache_model ("progs/g_shot.mdl");
 	setmodel (self, "progs/g_shot.mdl");
 	self.weapon = IT_SUPER_SHOTGUN;
-	self.netname = "Double-barreled Shotgun";
+	self.netname = "Double-barrelled Shotgun";
 	self.touch = weapon_touch;
 	setsize (self, '-16 -16 0', '16 16 56');
 	StartItem ();
@@ -1329,13 +1329,18 @@ void() BackpackTouch =
 	remove(self);
 	self = other;
 
-// change to a better weapon if appropriate
-	if (!deathmatch)
-		// last weapon held by player
-		self.weapon = new;
-	else
-		// best weapon in backpack
+	// check if the player is in water
+	if (self.flags & FL_INWATER)
+	{
+		// switch best weapon if there is no lightning gun in the pack
+		if (new != IT_LIGHTNING)
+		{
+			Deathmatch_Weapon (old, new);
+		}
+	} else {
+		// switch to the best weapon in backpack
 		Deathmatch_Weapon (old, new);
+	}
 
 	W_SetCurrentAmmo ();
 };
