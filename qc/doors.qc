@@ -631,7 +631,7 @@ void () fd_secret_use =
 };
 
 // wrapper function for fd_secret_use for use with th_pain
-void (entity attacker, float damage) fd_secret_use_wrapper =
+void (entity attacker, float damage) fd_secret_pain =
 {
 	 fd_secret_use();
 };
@@ -689,7 +689,7 @@ void () fd_secret_done =
 	{
 		self.health = 10000;
 		self.takedamage = DAMAGE_YES;
-		self.th_pain = fd_secret_use_wrapper;
+		self.th_pain = fd_secret_pain;
 		self.th_die = fd_secret_use;
 	}
 	sound(self, CHAN_VOICE, self.noise3, 1, ATTN_NORM);
@@ -794,7 +794,7 @@ void () func_door_secret =
 	{
 		self.health = 10000;
 		self.takedamage = DAMAGE_YES;
-		self.th_pain = fd_secret_use_wrapper;
+		self.th_pain = fd_secret_pain;
 		self.th_die = fd_secret_use;
 	}
 	self.oldorigin = self.origin;
