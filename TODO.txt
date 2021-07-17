@@ -25,4 +25,6 @@ Smaller ideas
 
 - Rename monster filenames to match monster names?
 - Remove models.qc and sprites.qc?
+- Why does ammo_touch use weapon integers 1, 2, 3 instead of constants?
+	- how does this even work - does it work at all?
 

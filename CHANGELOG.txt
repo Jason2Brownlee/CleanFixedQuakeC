@@ -4,9 +4,10 @@ Change Log
 v1.5: Fixes inspired by "Quakec V1 01 Clean" by gnounc.
 Unreleased
 
-Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc
+Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc.
 https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean
 
+* Updated code to use weapons constants instead of integers in comparisons.
 * Fix door unlock sound in door_fire.
 * Make fish not solid early in death sequence.
 * Don't switch weapon for backpack pickup when in water and pack has lightning gun.
