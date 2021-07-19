@@ -24,7 +24,7 @@ Changes fall under three main categories, they are:
 * **Bug Fixes**: Fixes for bugs reported by the community that were never officially fixed.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency.
 
-All changes are made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
+All changes were made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
 
 See the change log for a full list of fixes:
 
