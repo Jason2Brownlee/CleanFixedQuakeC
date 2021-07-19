@@ -19,7 +19,7 @@
 /*
 ==============================================================================
 
-SHAL-RATH
+SHAL-RATH (Vore)
 
 ==============================================================================
 */
@@ -118,7 +118,7 @@ void(entity attacker, float damage) shalrath_pain =
 
 void() shalrath_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -90)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);

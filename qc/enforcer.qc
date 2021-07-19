@@ -19,7 +19,7 @@
 /*
 ==============================================================================
 
-SOLDIER / PLAYER
+SOLDIER / PLAYER (Enforcer)
 
 ==============================================================================
 */
@@ -290,9 +290,7 @@ void()	enf_die12	=[	$death12,	enf_die13	] {ai_forward(5);};
 void()	enf_die13	=[	$death13,	enf_die14	] {};
 void()	enf_die14	=[	$death14,	enf_die14	] {};
 
-void()	enf_fdie1	=[	$fdeath1,	enf_fdie2	] {
-
-};
+void()	enf_fdie1	=[	$fdeath1,	enf_fdie2	] {};
 void()	enf_fdie2	=[	$fdeath2,	enf_fdie3	] {};
 void()	enf_fdie3	=[	$fdeath3,	enf_fdie4	]{
 	self.solid = SOLID_NOT;self.ammo_cells = 5;DropBackpack();
