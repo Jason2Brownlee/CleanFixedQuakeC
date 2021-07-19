@@ -16,12 +16,15 @@ This project also includes a host of other bug fixes such as compiler warnings, 
 
 ## Features
 
-* Released under the permissive GNU GPL license.
-* Based on Quake game code v1.01 released under the GPL.
-* Supports all changes in the Quake game code v1.06.
-* One change per commit to provide traceability of changes.
-* Fixed compiler warnings for bad function definitions and uninitialized variables.
-* Removed unused files and unused local and global variables.
+This project provides a clean and bug fixed version of the Quake game code released under a permissive license.
+
+Changes fall under three main categories, they are:
+
+* **Official Fixes**: Fixes available in v1.06, v1.07, and v1.08 of the game code were originally not released under the GPL.
+* **Bug Fixes**: Fixes for community reported bugs that were never officially fixed.
+* **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency.
+
+All changes are made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
 
 See the change log for a full list of fixes:
 
