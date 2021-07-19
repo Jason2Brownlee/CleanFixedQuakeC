@@ -16,11 +16,11 @@ This project also includes a host of other bug fixes such as compiler warnings, 
 
 ## Features
 
-This project provides a clean and bug fixed version of the Quake game code released under a permissive license.
+This project provides a **clean** and **bug fixed** version of the Quake game code released under a permissive license.
 
 Changes fall under three main categories, they are:
 
-* **Official Fixes**: Fixes available in v1.06, v1.07, and v1.08 of the game code were originally not released under the GPL.
+* **Official Fixes**: Fixes available in v1.06, v1.07, and v1.08 of the game code that were not released under the GPL.
 * **Bug Fixes**: Fixes for community reported bugs that were never officially fixed.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency.
 
