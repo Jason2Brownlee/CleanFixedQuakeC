@@ -20,7 +20,7 @@ This project provides a **clean** and **bug fixed** version of the Quake game co
 
 Changes fall under three main categories, they are:
 
-* **Official Fixes**: Fixes available in v1.06, v1.07, and v1.08 of the game code that were not released under the GPL.
+* **Official Fixes**: Re-implementation of fixes available in v1.06, v1.07, and v1.08.
 * **Bug Fixes**: Fixes for community reported bugs that were never officially fixed.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency.
 
