@@ -2,7 +2,7 @@ Change Log
 ==========
 
 v1.5: Fixes inspired by "Quakec V1 01 Clean" by gnounc.
-Unreleased
+19 July 2021
 
 Fixes inspired by a code review of "Quakec V1 01 Clean" by gnounc.
 https://gitlab.com/quakec-v1-01-clean/quakec-v1-01-clean
