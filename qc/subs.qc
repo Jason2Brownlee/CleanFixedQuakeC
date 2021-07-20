@@ -85,7 +85,7 @@ void(entity ent, vector tdest, float tspeed, void() func) SUB_CalcMoveEnt =
 void(vector tdest, float tspeed, void() func) SUB_CalcMove =
 {
 	local vector vdestdelta;
-	local float	 len, traveltime;
+	local float len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");
@@ -163,7 +163,7 @@ void(entity ent, vector destangle, float tspeed, void() func) SUB_CalcAngleMoveE
 void(vector destangle, float tspeed, void() func) SUB_CalcAngleMove =
 {
 	local vector destdelta;
-	local float	 len, traveltime;
+	local float len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");

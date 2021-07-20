@@ -196,7 +196,10 @@ void() player_nail1   =[$nailatt1, player_nail2  ]
 	self.effects = self.effects | EF_MUZZLEFLASH;
 
 	if (!self.button0)
-		{player_run ();return;}
+	{
+		player_run ();
+		return;
+	}
 	self.weaponframe = self.weaponframe + 1;
 	if (self.weaponframe == 9)
 		self.weaponframe = 1;
@@ -209,7 +212,10 @@ void() player_nail2   =[$nailatt2, player_nail1  ]
 	self.effects = self.effects | EF_MUZZLEFLASH;
 
 	if (!self.button0)
-		{player_run ();return;}
+	{
+		player_run ();
+		return;
+	}
 	self.weaponframe = self.weaponframe + 1;
 	if (self.weaponframe == 9)
 		self.weaponframe = 1;
@@ -225,7 +231,10 @@ void() player_light1   =[$light1, player_light2  ]
 	self.effects = self.effects | EF_MUZZLEFLASH;
 
 	if (!self.button0)
-		{player_run ();return;}
+	{
+		player_run ();
+		return;
+	}
 	self.weaponframe = self.weaponframe + 1;
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
@@ -238,7 +247,10 @@ void() player_light2   =[$light2, player_light1  ]
 	self.effects = self.effects | EF_MUZZLEFLASH;
 
 	if (!self.button0)
-		{player_run ();return;}
+	{
+		player_run ();
+		return;
+	}
 	self.weaponframe = self.weaponframe + 1;
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
@@ -264,7 +276,7 @@ void(float num_bubbles) DeathBubbles;
 
 void() PainSound =
 {
-	local float		rs;
+	local float rs;
 
 	if (self.health < 0)
 		return;
@@ -424,7 +436,7 @@ void(float num_bubbles) DeathBubbles =
 
 void() DeathSound =
 {
-	local float	 rs;
+	local float rs;
 
 	// water death sounds
 	if (self.waterlevel == 3)

@@ -87,7 +87,7 @@ void() W_FireAxe =
 
 vector() wall_velocity =
 {
-	local vector	vel;
+	local vector vel;
 
 	vel = normalize (self.velocity);
 	vel = normalize(vel + v_up*(random()- 0.5) + v_right*(random()- 0.5));
@@ -344,7 +344,7 @@ void() BecomeExplosion =
 
 void() T_MissileTouch =
 {
-	local float	damg;
+	local float damg;
 
 	if (other == self.owner)
 		// don't explode on owner
@@ -390,7 +390,7 @@ W_FireRocket
 */
 void() W_FireRocket =
 {
-	local	entity missile;
+	local entity missile;
 
 	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 
@@ -480,8 +480,8 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 
 void() W_FireLightning =
 {
-	local	vector		org;
-	local	float		cells;
+	local vector org;
+	local float cells;
 
 	if (self.ammo_cells < 1)
 	{
@@ -643,7 +643,7 @@ void(vector org, vector dir) launch_spike =
 
 void() W_FireSuperSpikes =
 {
-	local vector	dir;
+	local vector dir;
 
 	sound (self, CHAN_WEAPON, "weapons/spike2.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
@@ -658,7 +658,7 @@ void() W_FireSuperSpikes =
 
 void(float ox) W_FireSpikes =
 {
-	local vector	dir;
+	local vector dir;
 
 	makevectors (self.v_angle);
 
@@ -892,13 +892,13 @@ void()	player_rocket1;
 
 void() W_Attack =
 {
-	local	float	r;
+	local float r;
 
 	if (!W_CheckNoAmmo ())
 		return;
 
 	// calculate forward angle for velocity
-	makevectors	(self.v_angle);
+	makevectors(self.v_angle);
 	// wake monsters up
 	self.show_hostile = time + 1;
 

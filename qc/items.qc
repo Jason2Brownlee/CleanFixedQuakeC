@@ -56,7 +56,7 @@ plants the object on the floor
 */
 void() PlaceItem =
 {
-	local float	oldz;
+	local float oldz;
 
 	// so it can be restored on respawn
 	self.mdl = self.model;
@@ -618,7 +618,7 @@ AMMO
 void() ammo_touch =
 {
 	local entity stemp;
-	local float	 best;
+	local float best;
 
 	if (other.classname != "player")
 		return;

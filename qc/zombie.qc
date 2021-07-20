@@ -186,8 +186,8 @@ ZombieFireGrenade
 */
 void(vector st) ZombieFireGrenade =
 {
-	local	entity missile;
-	local	vector	org;
+	local entity missile;
+	local vector org;
 
 	sound (self, CHAN_WEAPON, "zombie/z_shot1.wav", 1, ATTN_NORM);
 
@@ -264,7 +264,7 @@ void() zombie_attc12	=[	$attc12,	zombie_run1		] {ai_face();ZombieFireGrenade('-1
 
 void() zombie_missile =
 {
-	local float	r;
+	local float r;
 
 	r = random();
 

@@ -261,7 +261,7 @@ void() train_wait =
 
 void() train_next =
 {
-	local entity	targ;
+	local entity targ;
 
 	targ = find (world, targetname, self.target);
 	self.target = targ.target;
@@ -278,7 +278,7 @@ void() train_next =
 void() func_train_find =
 
 {
-	local entity	targ;
+	local entity targ;
 
 	targ = find (world, targetname, self.target);
 	self.target = targ.target;

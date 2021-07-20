@@ -199,8 +199,8 @@ void() finale_4 =
 {
 	// throw tons of meat chunks
 	local vector oldo;
-	local float	x, y, z;
-	local float	r;
+	local float x, y, z;
+	local float r;
 	local entity n;
 
 	sound (self, CHAN_VOICE, "boss2/pop2.wav", 1, ATTN_NORM);

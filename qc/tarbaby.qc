@@ -146,7 +146,8 @@ void()	tbaby_jump5;
 void()	tbaby_fly1		=[	$fly1,	tbaby_fly2	] {};
 void()	tbaby_fly2		=[	$fly2,	tbaby_fly3	] {};
 void()	tbaby_fly3		=[	$fly3,	tbaby_fly4	] {};
-void()	tbaby_fly4		=[	$fly4,	tbaby_fly1	] {
+void()	tbaby_fly4		=[	$fly4,	tbaby_fly1	] 
+{
 	self.cnt = self.cnt + 1;
 	if (self.cnt == 4)
 	{
