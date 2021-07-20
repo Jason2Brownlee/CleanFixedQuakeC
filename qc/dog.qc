@@ -60,8 +60,8 @@ dog_bite
 */
 void() dog_bite =
 {
-	local vector	delta;
-	local float 	ldmg;
+	local vector delta;
+	local float ldmg;
 
 	if (!self.enemy)
 		return;
@@ -82,7 +82,7 @@ void() dog_bite =
 
 void()	Dog_JumpTouch =
 {
-	local	float	ldmg;
+	local float ldmg;
 
 	if (self.health <= 0)
 		return;
@@ -124,7 +124,8 @@ void() dog_stand7	=[	$stand7,	dog_stand8	] {ai_stand();};
 void() dog_stand8	=[	$stand8,	dog_stand9	] {ai_stand();};
 void() dog_stand9	=[	$stand9,	dog_stand1	] {ai_stand();};
 
-void() dog_walk1	=[	$walk1 ,	dog_walk2	] {
+void() dog_walk1	=[	$walk1 ,	dog_walk2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "dog/idle.wav", 1, ATTN_IDLE);
 	ai_walk(8);
@@ -137,7 +138,8 @@ void() dog_walk6	=[	$walk6 ,	dog_walk7	] {ai_walk(8);};
 void() dog_walk7	=[	$walk7 ,	dog_walk8	] {ai_walk(8);};
 void() dog_walk8	=[	$walk8 ,	dog_walk1	] {ai_walk(8);};
 
-void() dog_run1		=[	$run1  ,	dog_run2	] {
+void() dog_run1		=[	$run1  ,	dog_run2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "dog/idle.wav", 1, ATTN_IDLE);
 	ai_run(16);
@@ -157,7 +159,8 @@ void() dog_run12	=[	$run12  ,	dog_run1	] {ai_run(32);};
 void() dog_atta1	=[	$attack1,	dog_atta2	] {ai_charge(10);};
 void() dog_atta2	=[	$attack2,	dog_atta3	] {ai_charge(10);};
 void() dog_atta3	=[	$attack3,	dog_atta4	] {ai_charge(10);};
-void() dog_atta4	=[	$attack4,	dog_atta5	] {
+void() dog_atta4	=[	$attack4,	dog_atta5	]
+{
 	sound (self, CHAN_VOICE, "dog/dattack1.wav", 1, ATTN_NORM);
 	dog_bite();
 };
@@ -244,7 +247,7 @@ void() dog_dieb9		=[	$deathb9,	dog_dieb9	] {};
 
 void() dog_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -35)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -255,7 +258,7 @@ void() dog_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	sound (self, CHAN_VOICE, "dog/ddeath.wav", 1, ATTN_NORM);
 	self.solid = SOLID_NOT;
 
@@ -292,8 +295,8 @@ CheckDogJump
 */
 float()	CheckDogJump =
 {
-	local	vector	dist;
-	local	float	d;
+	local vector dist;
+	local float	d;
 
 	if (self.origin_z + self.mins_z > self.enemy.origin_z + self.enemy.mins_z + 0.75 * self.enemy.size_z)
 		return FALSE;
@@ -317,7 +320,7 @@ float()	CheckDogJump =
 
 float()	DogCheckAttack =
 {
-// if close enough for slashing, go for it
+	// if close enough for slashing, go for it
 	if (CheckDogMelee ())
 	{
 		self.attack_state = AS_MELEE;
@@ -337,7 +340,6 @@ float()	DogCheckAttack =
 //===========================================================================
 
 /*QUAKED monster_dog (1 0 0) (-32 -32 -24) (32 32 40) Ambush
-
 */
 void() monster_dog =
 {

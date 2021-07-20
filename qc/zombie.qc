@@ -163,7 +163,8 @@ ATTACKS
 void() ZombieGrenadeTouch =
 {
 	if (other == self.owner)
-		return;		// don't explode on owner
+		// don't explode on owner
+		return;
 	if (other.takedamage)
 	{
 		T_Damage (other, self, self.owner, 10 );
@@ -171,7 +172,8 @@ void() ZombieGrenadeTouch =
 		remove (self);
 		return;
 	}
-	sound (self, CHAN_WEAPON, "zombie/z_miss.wav", 1, ATTN_NORM);	// bounce sound
+	// bounce sound
+	sound (self, CHAN_WEAPON, "zombie/z_miss.wav", 1, ATTN_NORM);
 	self.velocity = '0 0 0';
 	self.avelocity = '0 0 0';
 	self.touch = SUB_Remove;
@@ -194,11 +196,10 @@ void(vector st) ZombieFireGrenade =
 	missile.movetype = MOVETYPE_BOUNCE;
 	missile.solid = SOLID_BBOX;
 
-// calc org
+	// calc org
 	org = self.origin + st_x * v_forward + st_y * v_right + (st_z - 24) * v_up;
 
-// set missile speed
-
+	// set missile speed
 	makevectors (self.angles);
 
 	missile.velocity = normalize(self.enemy.origin - org);
@@ -209,7 +210,7 @@ void(vector st) ZombieFireGrenade =
 
 	missile.touch = ZombieGrenadeTouch;
 
-// set missile duration
+	// set missile duration
 	missile.nextthink = time + 2.5;
 	missile.think = SUB_Remove;
 
@@ -442,15 +443,18 @@ void(entity attacker, float take) zombie_pain =
 {
 	local float r;
 
-	self.health = 60;		// always reset health
+	// always reset health
+	self.health = 60;
 
 	if (take < 9)
-		return;				// totally ignore
+		// totally ignore
+		return;
 
 	if (self.inpain == 2)
-		return;			// down on ground, so don't reset any counters
+		// down on ground, so don't reset any counters
+		return;
 
-// go down immediately if a big enough hit
+	// go down immediately if a big enough hit
 	if (take >= 25)
 	{
 		self.inpain = 2;
@@ -460,20 +464,21 @@ void(entity attacker, float take) zombie_pain =
 
 	if (self.inpain)
 	{
-// if hit again in next gre seconds while not in pain frames, definately drop
+		// if hit again in next gre seconds while not in pain frames, definitely drop
 		self.pain_finished = time + 3;
-		return;			// currently going through an animation, don't change
+		// currently going through an animation, don't change
+		return;
 	}
 
 	if (self.pain_finished > time)
 	{
-// hit again, so drop down
+		// hit again, so drop down
 		self.inpain = 2;
 		zombie_paine1 ();
 		return;
 	}
 
-// gp into one of the fast pain animations
+	// gp into one of the fast pain animations
 	self.inpain = 1;
 
 	r = random();

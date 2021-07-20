@@ -51,12 +51,13 @@ InitTrigger
 */
 void() InitTrigger =
 {
-// trigger angles are used for one-way touches.  An angle of 0 is assumed
-// to mean no restrictions, so use a yaw of 360 instead.
+	// trigger angles are used for one-way touches.  An angle of 0 is assumed
+	// to mean no restrictions, so use a yaw of 360 instead.
 	if (self.angles != '0 0 0')
 		SetMovedir ();
 	self.solid = SOLID_TRIGGER;
-	setmodel (self, self.model);	// set size and link into world
+	// set size and link into world
+	setmodel (self, self.model);
 	self.movetype = MOVETYPE_NONE;
 	self.modelindex = 0;
 	self.model = string_null;
@@ -72,7 +73,8 @@ self.origin traveling at speed
 */
 void(entity ent, vector tdest, float tspeed, void() func) SUB_CalcMoveEnt =
 {
-	local entity	stemp;
+	local entity stemp;
+
 	stemp = self;
 	self = ent;
 
@@ -82,8 +84,8 @@ void(entity ent, vector tdest, float tspeed, void() func) SUB_CalcMoveEnt =
 
 void(vector tdest, float tspeed, void() func) SUB_CalcMove =
 {
-	local vector	vdestdelta;
-	local float		len, traveltime;
+	local vector vdestdelta;
+	local float	 len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");
@@ -99,13 +101,13 @@ void(vector tdest, float tspeed, void() func) SUB_CalcMove =
 		return;
 	}
 
-// set destdelta to the vector needed to move
+	// set destdelta to the vector needed to move
 	vdestdelta = tdest - self.origin;
 
-// calculate length of vector
+	// calculate length of vector
 	len = vlen (vdestdelta);
 
-// divide by speed to get time to reach dest
+	// divide by speed to get time to reach dest
 	traveltime = len / tspeed;
 
 	if (traveltime < 0.1)
@@ -115,11 +117,12 @@ void(vector tdest, float tspeed, void() func) SUB_CalcMove =
 		return;
 	}
 
-// set nextthink to trigger a think when dest is reached
+	// set nextthink to trigger a think when dest is reached
 	self.nextthink = self.ltime + traveltime;
 
-// scale the destdelta vector by the time spent traveling to get velocity
-	self.velocity = vdestdelta * (1/traveltime);	// qcc won't take vec/float
+	// scale the destdelta vector by the time spent traveling to get velocity
+	// qcc won't take vec/float
+	self.velocity = vdestdelta * (1/traveltime);
 };
 
 /*
@@ -149,7 +152,8 @@ The calling function should make sure self.think is valid
 */
 void(entity ent, vector destangle, float tspeed, void() func) SUB_CalcAngleMoveEnt =
 {
-	local entity		stemp;
+	local entity stemp;
+
 	stemp = self;
 	self = ent;
 	SUB_CalcAngleMove (destangle, tspeed, func);
@@ -158,25 +162,25 @@ void(entity ent, vector destangle, float tspeed, void() func) SUB_CalcAngleMoveE
 
 void(vector destangle, float tspeed, void() func) SUB_CalcAngleMove =
 {
-	local vector	destdelta;
-	local float		len, traveltime;
+	local vector destdelta;
+	local float	 len, traveltime;
 
 	if (!tspeed)
 		objerror("No speed is defined!");
 
-// set destdelta to the vector needed to move
+	// set destdelta to the vector needed to move
 	destdelta = destangle - self.angles;
 
-// calculate length of vector
+	// calculate length of vector
 	len = vlen (destdelta);
 
-// divide by speed to get time to reach dest
+	// divide by speed to get time to reach dest
 	traveltime = len / tspeed;
 
-// set nextthink to trigger a think when dest is reached
+	// set nextthink to trigger a think when dest is reached
 	self.nextthink = self.ltime + traveltime;
 
-// scale the destdelta vector by the time spent traveling to get velocity
+	// scale the destdelta vector by the time spent traveling to get velocity
 	self.avelocity = destdelta * (1 / traveltime);
 
 	self.think1 = func;
@@ -231,12 +235,10 @@ void() SUB_UseTargets =
 {
 	local entity t, stemp, otemp, act;
 
-//
-// check for a delay
-//
+	// check for a delay
 	if (self.delay)
 	{
-	// create a temp object to fire at a later time
+		// create a temp object to fire at a later time
 		t = spawn();
 		t.classname = "DelayedUse";
 		t.nextthink = time + self.delay;
@@ -248,10 +250,7 @@ void() SUB_UseTargets =
 		return;
 	}
 
-
-//
-// print the message
-//
+	// print the message
 	if (activator.classname == "player" && self.message != string_null)
 	{
 		centerprint (activator, self.message);
@@ -259,9 +258,8 @@ void() SUB_UseTargets =
 			sound (activator, CHAN_VOICE, "misc/talk.wav", 1, ATTN_NORM);
 	}
 
-//
-// kill the killtargets
-//
+
+	// kill the killtargets
 	if (self.killtarget != string_null)
 	{
 		t = world;
@@ -274,9 +272,7 @@ void() SUB_UseTargets =
 		} while ( 1 );
 	}
 
-//
-// fire targets
-//
+	// fire targets
 	if (self.target != string_null)
 	{
 		act = activator;
@@ -302,21 +298,17 @@ void() SUB_UseTargets =
 			activator = act;
 		} while ( 1 );
 	}
-
-
 };
 
 
 /*
-
 in nightmare mode, all attack_finished times become 0
 some monsters refire twice automatically
-
 */
-
 void(float normal) SUB_AttackFinished =
 {
-	self.cnt = 0;		// refire count for nightmare
+	// refire count for nightmare
+	self.cnt = 0;
 	if (skill != 3)
 		self.attack_finished = time + normal;
 };

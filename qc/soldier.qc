@@ -72,7 +72,8 @@ void()	army_stand6	=[	$stand6,	army_stand7	] {ai_stand();};
 void()	army_stand7	=[	$stand7,	army_stand8	] {ai_stand();};
 void()	army_stand8	=[	$stand8,	army_stand1	] {ai_stand();};
 
-void()	army_walk1	=[	$prowl_1,	army_walk2	] {
+void()	army_walk1	=[	$prowl_1,	army_walk2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
 	ai_walk(1);
@@ -101,7 +102,8 @@ void()	army_walk22	=[	$prowl_22,	army_walk23	] {ai_walk(1);};
 void()	army_walk23	=[	$prowl_23,	army_walk24	] {ai_walk(1);};
 void()	army_walk24	=[	$prowl_24,	army_walk1	] {ai_walk(1);};
 
-void()	army_run1	=[	$run1,		army_run2	] {
+void()	army_run1	=[	$run1,		army_run2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "soldier/idle.wav", 1, ATTN_IDLE);
 	ai_run(11);
@@ -118,7 +120,8 @@ void()	army_atk1	=[	$shoot1,	army_atk2	] {ai_face();};
 void()	army_atk2	=[	$shoot2,	army_atk3	] {ai_face();};
 void()	army_atk3	=[	$shoot3,	army_atk4	] {ai_face();};
 void()	army_atk4	=[	$shoot4,	army_atk5	] {ai_face();};
-void()	army_atk5	=[	$shoot5,	army_atk6	] {
+void()	army_atk5	=[	$shoot5,	army_atk6	]
+{
 	ai_face();
 	army_fire();
 	self.effects = self.effects | EF_MUZZLEFLASH;
@@ -197,14 +200,14 @@ void(entity attacker, float damage)	army_pain =
 
 void() army_fire =
 {
-	local	vector	dir;
-	local	entity	en;
+	local vector dir;
+	local entity en;
 
 	ai_face();
 
 	sound (self, CHAN_WEAPON, "soldier/sattck1.wav", 1, ATTN_NORM);
 
-// fire somewhat behind the player, so a dodging player is harder to hit
+	// fire somewhat behind the player, so a dodging player is harder to hit
 	en = self.enemy;
 
 	dir = en.origin - en.velocity*0.2;
@@ -252,7 +255,7 @@ void()	army_cdie11	=[	$deathc11,	army_cdie11	] {};
 
 void() army_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -35)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -263,7 +266,7 @@ void() army_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	sound (self, CHAN_VOICE, "soldier/death1.wav", 1, ATTN_NORM);
 	if (random() < 0.5)
 		army_die1 ();
@@ -294,7 +297,8 @@ void() monster_army =
 	precache_sound ("soldier/sattck1.wav");
 	precache_sound ("soldier/sight1.wav");
 
-	precache_sound ("player/udeath.wav");		// gib death
+	// gib death
+	precache_sound ("player/udeath.wav");
 
 
 	self.solid = SOLID_SLIDEBOX;

@@ -42,7 +42,8 @@ $frame	walk11 walk12
 void() ShalMissile;
 void() shal_stand     =[      $walk1,       shal_stand    ] {ai_stand();};
 
-void() shal_walk1     =[      $walk2,       shal_walk2    ] {
+void() shal_walk1     =[      $walk2,       shal_walk2    ]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
 	ai_walk(6);
@@ -59,7 +60,8 @@ void() shal_walk10    =[      $walk11,       shal_walk11    ] {ai_walk(0);};
 void() shal_walk11    =[      $walk12,       shal_walk12    ] {ai_walk(4);};
 void() shal_walk12    =[      $walk1,       shal_walk1    ] {ai_walk(5);};
 
-void() shal_run1     =[      $walk2,       shal_run2    ] {
+void() shal_run1     =[      $walk2,       shal_run2    ]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "shalrath/idle.wav", 1, ATTN_IDLE);
 	ai_run(6);
@@ -76,7 +78,8 @@ void() shal_run10    =[      $walk11,       shal_run11    ] {ai_run(0);};
 void() shal_run11    =[      $walk12,       shal_run12    ] {ai_run(4);};
 void() shal_run12    =[      $walk1,       shal_run1    ] {ai_run(5);};
 
-void() shal_attack1     =[      $attack1,       shal_attack2    ] {
+void() shal_attack1     =[      $attack1,       shal_attack2    ]
+{
 	sound (self, CHAN_VOICE, "shalrath/attack.wav", 1, ATTN_NORM);
 	ai_face();
 };
@@ -132,7 +135,6 @@ void() shalrath_die =
 	sound (self, CHAN_VOICE, "shalrath/death.wav", 1, ATTN_NORM);
 	shal_death1();
 	self.solid = SOLID_NOT;
-	// insert death sounds here
 };
 
 /*
@@ -144,9 +146,9 @@ void() ShalMissileTouch;
 void() ShalHome;
 void() ShalMissile =
 {
-	local	entity 	missile;
-	local	vector	dir;
-	local	float	dist, flytime;
+	local entity missile;
+	local vector dir;
+	local float	dist, flytime;
 
 	dir = normalize((self.enemy.origin + '0 0 10') - self.origin);
 	dist = vlen (self.enemy.origin - self.origin);
@@ -196,7 +198,8 @@ void() ShalHome =
 void() ShalMissileTouch =
 {
 	if (other == self.owner)
-		return;		// don't explode on owner
+		// don't explode on owner
+		return;
 
 	if (other.classname == "monster_zombie")
 		T_Damage (other, self, self, 110);
@@ -254,5 +257,4 @@ void() monster_shalrath =
 
 	self.think = walkmonster_start;
 	self.nextthink = time + 0.1 + random ()*0.1;
-
 };

@@ -76,8 +76,8 @@ void() hk_idle_sound;
 
 void(float offset) hknight_shot =
 {
-	local	vector	offang;
-	local	vector	org, vec;
+	local vector offang;
+	local vector org, vec;
 
 	offang = vectoangles (self.enemy.origin - self.origin);
 	offang_y = offang_y + offset * 6;
@@ -86,7 +86,7 @@ void(float offset) hknight_shot =
 
 	org = self.origin + self.mins + self.size*0.5 + v_forward * 20;
 
-// set missile speed
+	// set missile speed
 	vec = normalize (v_forward);
 	vec_z = 0 - vec_z + (random() - 0.5)*0.1;
 
@@ -100,20 +100,21 @@ void(float offset) hknight_shot =
 
 void() CheckForCharge =
 {
-// check for mad charge
-if (!enemy_vis)
-	return;
-if (time < self.attack_finished)
-	return;
-if ( fabs(self.origin_z - self.enemy.origin_z) > 20)
-	return;		// too much height change
-if ( vlen (self.origin - self.enemy.origin) < 80)
-	return;		// use regular attack
+	// check for mad charge
+	if (!enemy_vis)
+		return;
+	if (time < self.attack_finished)
+		return;
+	if ( fabs(self.origin_z - self.enemy.origin_z) > 20)
+		// too much height change
+		return;
+	if ( vlen (self.origin - self.enemy.origin) < 80)
+		// use regular attack
+		return;
 
-// charge
+	// charge
 	SUB_AttackFinished (2);
 	hknight_char_a1 ();
-
 };
 
 void() CheckContinueCharge =
@@ -144,7 +145,8 @@ void()	hknight_stand9	=[	$stand9,	hknight_stand1	] {ai_stand();};
 
 //===========================================================================
 
-void()	hknight_walk1	=[	$walk1,		hknight_walk2	] {
+void()	hknight_walk1	=[	$walk1,		hknight_walk2	]
+{
 	hk_idle_sound();
 	ai_walk(2);
 };
@@ -170,7 +172,8 @@ void()	hknight_walk20	=[	$walk20,	hknight_walk1	] {ai_walk(2);};
 
 //===========================================================================
 
-void()	hknight_run1	=[	$run1,		hknight_run2	] {
+void()	hknight_run1	=[	$run1,		hknight_run2	]
+{
 	hk_idle_sound();
 	ai_run(20);
 	CheckForCharge ();
@@ -195,7 +198,8 @@ void()	hknight_pain5	=[	$pain5,		hknight_run1	] {};
 
 void()	hknight_die1	=[	$death1,	hknight_die2	] {ai_forward(10);};
 void()	hknight_die2	=[	$death2,	hknight_die3	] {ai_forward(8);};
-void()	hknight_die3	=[	$death3,	hknight_die4	]{
+void()	hknight_die3	=[	$death3,	hknight_die4	]
+{
 	self.solid = SOLID_NOT;
 	ai_forward(7);
 };
@@ -211,7 +215,8 @@ void()	hknight_die12	=[	$death12,	hknight_die12	] {};
 
 void()	hknight_dieb1	=[	$deathb1,	hknight_dieb2	] {};
 void()	hknight_dieb2	=[	$deathb2,	hknight_dieb3	] {};
-void()	hknight_dieb3	=[	$deathb3,	hknight_dieb4	]{
+void()	hknight_dieb3	=[	$deathb3,	hknight_dieb4	]
+{
 	self.solid = SOLID_NOT;
 };
 void()	hknight_dieb4	=[	$deathb4,	hknight_dieb5	] {};
@@ -223,7 +228,7 @@ void()	hknight_dieb9	=[	$deathb9,	hknight_dieb9	] {};
 
 void() hknight_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -40)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -234,7 +239,7 @@ void() hknight_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	sound (self, CHAN_VOICE, "hknight/death1.wav", 1, ATTN_NORM);
 	if (random() > 0.5)
 		hknight_die1 ();
@@ -311,7 +316,8 @@ void()	hknight_char_a16=[	$char_a16,	hknight_run1	] {ai_charge(13);};
 
 //===========================================================================
 
-void()	hknight_char_b1	=[	$char_b1,	hknight_char_b2	]{
+void()	hknight_char_b1	=[	$char_b1,	hknight_char_b2	]
+{
 	CheckContinueCharge ();
 	ai_charge(23);
 	ai_melee();
@@ -390,20 +396,22 @@ void(entity attacker, float damage)	hknight_pain =
 	sound (self, CHAN_VOICE, "hknight/pain1.wav", 1, ATTN_NORM);
 
 	if (time - self.pain_finished > 5)
-	{	// always go into pain frame if it has been a while
+	{
+		// always go into pain frame if it has been a while
 		hknight_pain1 ();
 		self.pain_finished = time + 1;
 		return;
 	}
 
 	if ((random()*30 > damage) )
-		return;		// didn't flinch
+		// didn't flinch
+		return;
 
 	self.pain_finished = time + 1;
 	hknight_pain1 ();
 };
 
-float	hknight_type;
+float hknight_type;
 
 void() hknight_melee =
 {

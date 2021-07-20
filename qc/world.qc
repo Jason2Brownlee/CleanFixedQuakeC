@@ -24,8 +24,7 @@ void() main =
 {
 	dprint ("main function\n");
 
-// these are just commands the the prog compiler to copy these files
-
+	// these are just commands the the prog compiler to copy these files
 	precache_file ("progs.dat");
 	precache_file ("gfx.wad");
 	precache_file ("quake.rc");
@@ -38,9 +37,7 @@ void() main =
 	precache_file ("demo2.dem");
 	precache_file ("demo3.dem");
 
-//
-// these are all of the lumps from the cached.ls files
-//
+	// these are all of the lumps from the cached.ls files
 	precache_file ("gfx/palette.lmp");
 	precache_file ("gfx/colormap.lmp");
 
@@ -114,7 +111,7 @@ void() main =
 	precache_file ("gfx/p_save.lmp");
 	precache_file ("gfx/p_multi.lmp");
 
-// sounds loaded by C code
+	// sounds loaded by C code
 	precache_sound ("misc/menu1.wav");
 	precache_sound ("misc/menu2.wav");
 	precache_sound ("misc/menu3.wav");
@@ -122,7 +119,7 @@ void() main =
 	precache_sound ("ambience/water1.wav");
 	precache_sound ("ambience/wind2.wav");
 
-// shareware
+	// shareware
 	precache_file ("maps/start.bsp");
 
 	precache_file ("maps/e1m1.bsp");
@@ -134,7 +131,7 @@ void() main =
 	precache_file ("maps/e1m7.bsp");
 	precache_file ("maps/e1m8.bsp");
 
-// registered
+	// registered
 	precache_file2 ("gfx/pop.lmp");
 
 	precache_file2 ("maps/e2m1.bsp");
@@ -192,22 +189,24 @@ void() worldspawn =
 	lastspawn = world;
 	InitBodyQue ();
 
-// custom map attributes
+	// custom map attributes
 	if (self.model == "maps/e1m8.bsp")
 		cvar_set ("sv_gravity", "100");
 	else
 		cvar_set ("sv_gravity", "800");
 
-// the area based ambient sounds MUST be the first precache_sounds
+	// the area based ambient sounds MUST be the first precache_sounds
 
-// player precaches
-	W_Precache ();			// get weapon precaches
+	// player precaches
 
-// sounds used from C physics code
+	// get weapon precaches
+	W_Precache ();
+
+	// sounds used from C physics code
 	precache_sound ("demon/dland2.wav");		// landing thud
 	precache_sound ("misc/h2ohit1.wav");		// landing splash
 
-// setup precaches always needed
+	// setup precaches always needed
 	precache_sound ("items/itembk2.wav");		// item respawn sound
 	precache_sound ("player/plyrjmp8.wav");		// player jump
 	precache_sound ("player/land.wav");			// player landing
@@ -234,13 +233,12 @@ void() worldspawn =
 
 	precache_sound ("misc/power.wav");			//lightning for boss
 
-// player gib sounds
+	// player gib sounds
 	precache_sound ("player/gib.wav");			// player gib sound
 	precache_sound ("player/udeath.wav");		// player gib sound
 	precache_sound ("player/tornoff2.wav");		// gib sound
 
-// player pain sounds
-
+	// player pain sounds
 	precache_sound ("player/pain1.wav");
 	precache_sound ("player/pain2.wav");
 	precache_sound ("player/pain3.wav");
@@ -248,14 +246,14 @@ void() worldspawn =
 	precache_sound ("player/pain5.wav");
 	precache_sound ("player/pain6.wav");
 
-// player death sounds
+	// player death sounds
 	precache_sound ("player/death1.wav");
 	precache_sound ("player/death2.wav");
 	precache_sound ("player/death3.wav");
 	precache_sound ("player/death4.wav");
 	precache_sound ("player/death5.wav");
 
-// ax sounds
+	// ax sounds
 	precache_sound ("weapons/ax1.wav");			// ax swoosh
 	precache_sound ("player/axhit1.wav");		// ax hit meat
 	precache_sound ("player/axhit2.wav");		// ax hit world
@@ -306,10 +304,7 @@ void() worldspawn =
 
 	precache_model ("progs/v_light.mdl");
 
-
-//
-// Setup light animation tables. 'a' is total darkness, 'z' is maxbright.
-//
+	// Setup light animation tables. 'a' is total darkness, 'z' is maxbright.
 
 	// 0 normal
 	lightstyle(0, "m");
@@ -370,10 +365,9 @@ BODY QUE
 
 entity	bodyque_head;
 
-void() bodyque =
-{	// just here so spawn functions don't complain after the world
-	// creates bodyques
-};
+// just here so spawn functions don't complain after the world
+// creates bodyques
+void() bodyque = {};
 
 void() InitBodyQue =
 {
@@ -405,5 +399,3 @@ void(entity ent) CopyToBodyQue =
 	setsize (bodyque_head, ent.mins, ent.maxs);
 	bodyque_head = bodyque_head.owner;
 };
-
-

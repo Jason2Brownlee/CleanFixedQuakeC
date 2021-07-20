@@ -28,12 +28,10 @@ float PLAT_LOW_TRIGGER = 1;
 
 void() plat_spawn_inside_trigger =
 {
-	local entity	trigger;
-	local vector	tmin, tmax;
+	local entity trigger;
+	local vector tmin, tmax;
 
-//
-// middle trigger
-//
+	// middle trigger
 	trigger = spawn();
 	trigger.touch = plat_center_touch;
 	trigger.movetype = MOVETYPE_NONE;
@@ -100,7 +98,8 @@ void() plat_center_touch =
 	if (self.state == STATE_BOTTOM)
 		plat_go_up ();
 	else if (self.state == STATE_TOP)
-		self.nextthink = self.ltime + 1;	// delay going down
+		// delay going down
+		self.nextthink = self.ltime + 1;
 };
 
 void() plat_outside_touch =
@@ -119,7 +118,8 @@ void() plat_outside_touch =
 void() plat_trigger_use =
 {
 	if (self.think)
-		return;		// allready activated
+		// allready activated
+		return;
 	plat_go_down();
 };
 
@@ -168,8 +168,8 @@ void() func_plat =
 
 	if (self.sounds == 0)
 		self.sounds = 2;
-// FIX THIS TO LOAD A GENERIC PLAT SOUND
 
+	// FIX THIS TO LOAD A GENERIC PLAT SOUND
 	if (self.sounds == 1)
 	{
 		precache_sound ("plats/plat1.wav");
@@ -201,7 +201,7 @@ void() func_plat =
 	if (!self.speed)
 		self.speed = 150;
 
-// pos1 is the top position, pos2 is the bottom
+	// pos1 is the top position, pos2 is the bottom
 	self.pos1 = self.origin;
 	self.pos2 = self.origin;
 	if (self.height)
@@ -211,7 +211,8 @@ void() func_plat =
 
 	self.use = plat_trigger_use;
 
-	plat_spawn_inside_trigger ();	// the "start moving" trigger
+	// the "start moving" trigger
+	plat_spawn_inside_trigger ();
 
 	if (self.targetname != string_null)
 	{
@@ -240,7 +241,8 @@ void() train_blocked =
 void() train_use =
 {
 	if (self.think != func_train_find)
-		return;		// already activated
+		// already activated
+		return;
 	train_next();
 };
 
@@ -282,7 +284,8 @@ void() func_train_find =
 	self.target = targ.target;
 	setorigin (self, targ.origin - self.mins);
 	if (!self.targetname)
-	{	// not triggered, so start immediately
+	{
+		// not triggered, so start immediately
 		self.nextthink = self.ltime + 0.1;
 		self.think = train_next;
 	}
@@ -335,8 +338,8 @@ void() func_train =
 	setsize (self, self.mins , self.maxs);
 	setorigin (self, self.origin);
 
-// start trains on the second frame, to make sure their targets have had
-// a chance to spawn
+	// start trains on the second frame, to make sure their targets have had
+	// a chance to spawn
 	self.nextthink = self.ltime + 0.1;
 	self.think = func_train_find;
 };
@@ -368,9 +371,8 @@ void() misc_teleporttrain =
 	setsize (self, self.mins , self.maxs);
 	setorigin (self, self.origin);
 
-// start trains on the second frame, to make sure their targets have had
-// a chance to spawn
+	// start trains on the second frame, to make sure their targets have had
+	// a chance to spawn
 	self.nextthink = self.ltime + 0.1;
 	self.think = func_train_find;
 };
-

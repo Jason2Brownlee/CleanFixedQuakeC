@@ -51,9 +51,9 @@ float	enemy_yaw;
 
 void() knight_attack =
 {
-	local float		len;
+	local float	len;
 
-// decide if now is a good swing time
+	// decide if now is a good swing time
 	len = vlen(self.enemy.origin+self.enemy.view_ofs - (self.origin+self.view_ofs));
 
 	if (len<80)
@@ -74,13 +74,13 @@ Returns FALSE if movement should continue
 */
 float() CheckAttack =
 {
-	local vector	spot1, spot2;
-	local entity	targ;
-	local float		chance;
+	local vector spot1, spot2;
+	local entity targ;
+	local float	 chance;
 
 	targ = self.enemy;
 
-// see if any entities are in the way of the shot
+	// see if any entities are in the way of the shot
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
 
@@ -104,7 +104,7 @@ float() CheckAttack =
 		}
 	}
 
-// missile attack
+	// missile attack
 	if (!self.th_missile)
 		return FALSE;
 
@@ -174,7 +174,8 @@ float(entity targ) range;
 void(float d) ai_charge =
 {
 	ai_face ();
-	movetogoal (d);		// done in C code...
+	// done in C code...
+	movetogoal (d);
 };
 
 void() ai_charge_side =
@@ -182,7 +183,7 @@ void() ai_charge_side =
 	local	vector	dtemp;
 	local	float	heading;
 
-// aim to the left of the enemy for a flyby
+	// aim to the left of the enemy for a flyby
 
 	self.ideal_yaw = vectoyaw(self.enemy.origin - self.origin);
 	ChangeYaw ();
@@ -203,11 +204,12 @@ ai_melee
 */
 void() ai_melee =
 {
-	local vector	delta;
-	local float 	ldmg;
+	local vector delta;
+	local float  ldmg;
 
 	if (!self.enemy)
-		return;		// removed before stroke
+		// removed before stroke
+		return;
 
 	delta = self.enemy.origin - self.origin;
 
@@ -221,8 +223,8 @@ void() ai_melee =
 
 void() ai_melee_side =
 {
-	local vector	delta;
-	local float 	ldmg;
+	local vector delta;
+	local float  ldmg;
 
 	if (!self.enemy)
 		return;		// removed before stroke
@@ -258,7 +260,7 @@ float() SoldierCheckAttack =
 
 	targ = self.enemy;
 
-// see if any entities are in the way of the shot
+	// see if any entities are in the way of the shot
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
 
@@ -271,7 +273,7 @@ float() SoldierCheckAttack =
 		return FALSE;	// don't have a clear shot
 
 
-// missile attack
+	// missile attack
 	if (time < self.attack_finished)
 		return FALSE;
 
@@ -311,8 +313,8 @@ Returns FALSE if movement should continue
 */
 float() ShamCheckAttack =
 {
-	local vector	spot1, spot2;
-	local entity	targ;
+	local vector spot1, spot2;
+	local entity targ;
 
 	if (enemy_range == RANGE_MELEE)
 	{
@@ -331,7 +333,7 @@ float() ShamCheckAttack =
 
 	targ = self.enemy;
 
-// see if any entities are in the way of the shot
+	// see if any entities are in the way of the shot
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
 
@@ -348,7 +350,7 @@ float() ShamCheckAttack =
 		return FALSE;	// don't have a clear shot
 	}
 
-// missile attack
+	// missile attack
 	if (enemy_range == RANGE_FAR)
 		return FALSE;
 
@@ -390,21 +392,23 @@ float() OgreCheckAttack =
 
 	targ = self.enemy;
 
-// see if any entities are in the way of the shot
+	// see if any entities are in the way of the shot
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
 
 	traceline (spot1, spot2, FALSE, self);
 
 	if (trace_inopen && trace_inwater)
-		return FALSE;			// sight line crossed contents
+		// sight line crossed contents
+		return FALSE;
 
 	if (trace_ent != targ)
 	{
-		return FALSE;	// don't have a clear shot
+		// don't have a clear shot
+		return FALSE;
 	}
 
-// missile attack
+	// missile attack
 	if (time < self.attack_finished)
 		return FALSE;
 
@@ -422,4 +426,3 @@ float() OgreCheckAttack =
 	SUB_AttackFinished (1 + 2*random());
 	return TRUE;
 };
-

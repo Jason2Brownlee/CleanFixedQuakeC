@@ -121,7 +121,7 @@ moving towards it, change the next destination and continue.
 */
 void() t_movetarget =
 {
-local entity	temp;
+	local entity	temp;
 
 	if (other.movetarget != self)
 		return;
@@ -163,8 +163,9 @@ returns the range catagorization of an entity reletive to self
 */
 float(entity targ) range =
 {
-local vector	spot1, spot2;
-local float		r;
+	local vector	spot1, spot2;
+	local float		r;
+
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
 
@@ -187,7 +188,7 @@ returns 1 if the entity is visible to self, even if not infront ()
 */
 float (entity targ) visible =
 {
-	local vector	spot1, spot2;
+	local vector spot1, spot2;
 
 	spot1 = self.origin + self.view_ofs;
 	spot2 = targ.origin + targ.view_ofs;
@@ -313,12 +314,12 @@ float() FindTarget =
 	local entity	client;
 	local float		r;
 
-// if the first spawnflag bit is set, the monster will only wake up on
-// really seeing the player, not another monster getting angry
+	// if the first spawnflag bit is set, the monster will only wake up on
+	// really seeing the player, not another monster getting angry
 
-// spawnflags & 3 is a big hack, because zombie crucified used the first
-// spawn flag prior to the ambush flag, and I forgot about it, so the second
-// spawn flag works as well
+	// spawnflags & 3 is a big hack, because zombie crucified used the first
+	// spawn flag prior to the ambush flag, and I forgot about it, so the second
+	// spawn flag works as well
 	if (sight_entity_time >= time - 0.1 && !(self.spawnflags & 3) )
 	{
 		client = sight_entity;
@@ -358,9 +359,9 @@ float() FindTarget =
 			return FALSE;
 	}
 
-//
-// got one
-//
+	//
+	// got one
+	//
 	self.enemy = client;
 	if (self.enemy.classname != "player")
 	{
@@ -451,9 +452,6 @@ void() ai_stand =
 		self.th_walk ();
 		return;
 	}
-
-// change angle slightly
-
 };
 
 /*
@@ -621,11 +619,11 @@ The monster has an enemy it is trying to kill
 void(float dist) ai_run =
 {
 	movedist = dist;
-// see if the enemy is dead
+	// see if the enemy is dead
 	if (self.enemy.health <= 0)
 	{
 		self.enemy = world;
-	// FIXME: look all around for other targets
+		// FIXME: look all around for other targets
 		if (self.oldenemy.health > 0)
 		{
 			self.enemy = self.oldenemy;
@@ -641,14 +639,15 @@ void(float dist) ai_run =
 		}
 	}
 
-	self.show_hostile = time + 1;		// wake up other monsters
+	// wake up other monsters
+	self.show_hostile = time + 1;
 
-// check knowledge of enemy
+	// check knowledge of enemy
 	enemy_vis = visible(self.enemy);
 	if (enemy_vis)
 		self.search_time = time + 5;
 
-// look for other coop players
+	// look for other coop players
 	if (coop && self.search_time < time)
 	{
 		if (FindTarget ())
@@ -679,7 +678,6 @@ void(float dist) ai_run =
 		return;
 	}
 
-// head straight in
+	// head straight in
 	movetogoal (dist);		// done in C code...
 };
-

@@ -109,7 +109,8 @@ void() old_thrash11       =[      $shake11, old_thrash12      ] {lightstyle(0, "
 void() old_thrash12       =[      $shake12, old_thrash13      ] {lightstyle(0, "i");};
 void() old_thrash13       =[      $shake13, old_thrash14      ] {lightstyle(0, "k");};
 void() old_thrash14       =[      $shake14, old_thrash15      ] {lightstyle(0, "m");};
-void() old_thrash15       =[      $shake15, old_thrash16      ] {
+void() old_thrash15       =[      $shake15, old_thrash16      ]
+{
 	lightstyle(0, "m");
 	self.cnt = self.cnt + 1;
 	if (self.cnt != 3)
@@ -125,8 +126,8 @@ void() old_thrash20       =[      $shake20, old_thrash20      ] {finale_4();};
 
 void() finale_1 =
 {
-	local entity	pos, pl;
-	local entity	timer;
+	local entity pos, pl;
+	local entity timer;
 
 	intermission_exittime = time + 10000000;	// never allow exit
 	intermission_running = 1;
@@ -170,10 +171,9 @@ void() finale_1 =
 
 void() finale_2 =
 {
-	local vector	o;
+	local vector o;
 
 	// start a teleport splash inside shub
-
 	o = shub.origin - '0 100 0';
 	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 	WriteByte (MSG_BROADCAST, TE_TELEPORT);
@@ -198,10 +198,10 @@ void() finale_3 =
 void() finale_4 =
 {
 	// throw tons of meat chunks
-	local	vector	oldo;
-	local	float	x, y, z;
-	local	float	r;
-	local entity	n;
+	local vector oldo;
+	local float	x, y, z;
+	local float	r;
+	local entity n;
 
 	sound (self, CHAN_VOICE, "boss2/pop2.wav", 1, ATTN_NORM);
 
@@ -237,7 +237,7 @@ void() finale_4 =
 	WriteByte (MSG_ALL, SVC_FINALE);
 	WriteString (MSG_ALL, "Congratulations and well done! You have\nbeaten the hideous Shub-Niggurath, and\nher hundreds of ugly changelings and\nmonsters. You have proven that your\nskill and your cunning are greater than\nall the powers of Quake. You are the\nmaster now. Id Software salutes you.");
 
-// put a player model down
+	// put a player model down
 	n = spawn();
 	setmodel (n, "progs/player.mdl");
 	oldo = oldo - '32 264 0';
@@ -247,7 +247,7 @@ void() finale_4 =
 
 	remove (self);
 
-// switch cd track
+	// switch cd track
 	WriteByte (MSG_ALL, SVC_CDTRACK);
 	WriteByte (MSG_ALL, 3);
 	WriteByte (MSG_ALL, 3);
@@ -284,7 +284,8 @@ void() monster_oldone =
 	setmodel (self, "progs/oldone.mdl");
 	setsize (self, '-160 -128 -24', '160 128 256');
 
-	self.health = 40000;		// kill by telefrag
+	// kill by telefrag
+	self.health = 40000;
 	self.think = old_idle1;
 	self.nextthink = time + 0.1;
 	self.takedamage = DAMAGE_YES;

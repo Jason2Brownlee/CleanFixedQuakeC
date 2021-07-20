@@ -6,6 +6,8 @@ Unreleased
 
 In development.
 
+* Improved comment indenting and spacing for local variables.
+
 
 v1.5: Fixes inspired by "Quakec V1 01 Clean" by gnounc.
 19 July 2021

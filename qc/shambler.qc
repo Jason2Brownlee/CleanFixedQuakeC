@@ -83,7 +83,9 @@ void() sham_walk8       =[      $walk8,        sham_walk9 ] {ai_walk(3);};
 void() sham_walk9       =[      $walk9,        sham_walk10] {ai_walk(13);};
 void() sham_walk10      =[      $walk10,       sham_walk11] {ai_walk(9);};
 void() sham_walk11      =[      $walk11,       sham_walk12] {ai_walk(7);};
-void() sham_walk12      =[      $walk12,       sham_walk1 ] {ai_walk(7);
+void() sham_walk12      =[      $walk12,       sham_walk1 ]
+{
+	ai_walk(7);
 	if (random() > 0.8)
 		sound (self, CHAN_VOICE, "shambler/sidle.wav", 1, ATTN_IDLE);
 };
@@ -93,14 +95,18 @@ void() sham_run2       =[      $run2,        sham_run3      ] {ai_run(24);};
 void() sham_run3       =[      $run3,        sham_run4      ] {ai_run(20);};
 void() sham_run4       =[      $run4,        sham_run5      ] {ai_run(20);};
 void() sham_run5       =[      $run5,        sham_run6      ] {ai_run(24);};
-void() sham_run6       =[      $run6,        sham_run1      ] {ai_run(20);
+void() sham_run6       =[      $run6,        sham_run1      ]
+ {
+	ai_run(20);
 	if (random() > 0.8)
 		sound (self, CHAN_VOICE, "shambler/sidle.wav", 1, ATTN_IDLE);
 };
 
-void() sham_smash1     =[      $smash1,       sham_smash2    ] {
-sound (self, CHAN_VOICE, "shambler/melee1.wav", 1, ATTN_NORM);
-ai_charge(2);};
+void() sham_smash1     =[      $smash1,       sham_smash2    ]
+{
+	sound (self, CHAN_VOICE, "shambler/melee1.wav", 1, ATTN_NORM);
+	ai_charge(2);
+};
 void() sham_smash2     =[      $smash2,       sham_smash3    ] {ai_charge(6);};
 void() sham_smash3     =[      $smash3,       sham_smash4    ] {ai_charge(6);};
 void() sham_smash4     =[      $smash4,       sham_smash5    ] {ai_charge(5);};
@@ -109,12 +115,14 @@ void() sham_smash6     =[      $smash6,       sham_smash7    ] {ai_charge(1);};
 void() sham_smash7     =[      $smash7,       sham_smash8    ] {ai_charge(0);};
 void() sham_smash8     =[      $smash8,       sham_smash9    ] {ai_charge(0);};
 void() sham_smash9     =[      $smash9,       sham_smash10   ] {ai_charge(0);};
-void() sham_smash10    =[      $smash10,      sham_smash11   ] {
-	local vector	delta;
-	local float 	ldmg;
+void() sham_smash10    =[      $smash10,      sham_smash11   ]
+{
+	local vector delta;
+	local float  ldmg;
 
 	if (!self.enemy)
 		return;
+
 	ai_charge(0);
 
 	delta = self.enemy.origin - self.origin;
@@ -138,8 +146,8 @@ void() sham_swingr1;
 
 void(float side) ShamClaw =
 {
-	local vector	delta;
-	local float 	ldmg;
+	local vector delta;
+	local float  ldmg;
 
 	if (!self.enemy)
 		return;
@@ -161,7 +169,8 @@ void(float side) ShamClaw =
 	}
 };
 
-void() sham_swingl1	=[      $swingl1,      sham_swingl2   ] {
+void() sham_swingl1	=[      $swingl1,      sham_swingl2   ]
+{
 	sound (self, CHAN_VOICE, "shambler/melee2.wav", 1, ATTN_NORM);
 	ai_charge(5);
 };
@@ -172,13 +181,15 @@ void() sham_swingl5 =[      $swingl5,      sham_swingl6   ] {ai_charge(7);};
 void() sham_swingl6 =[      $swingl6,      sham_swingl7   ] {ai_charge(9);};
 void() sham_swingl7 =[      $swingl7,      sham_swingl8   ] {ai_charge(5); ShamClaw(250);};
 void() sham_swingl8 =[      $swingl8,      sham_swingl9   ] {ai_charge(4);};
-void() sham_swingl9 =[      $swingl9,      sham_run1  ] {
+void() sham_swingl9 =[      $swingl9,      sham_run1  ]
+{
 	ai_charge(8);
 	if (random()<0.5)
 		self.think = sham_swingr1;
 };
 
-void() sham_swingr1	=[      $swingr1,      sham_swingr2   ] {
+void() sham_swingr1	=[      $swingr1,      sham_swingr2   ]
+{
 	sound (self, CHAN_VOICE, "shambler/melee1.wav", 1, ATTN_NORM);
 	ai_charge(1);
 };
@@ -189,7 +200,8 @@ void() sham_swingr5 =[      $swingr5,      sham_swingr6   ] {ai_charge(3);};
 void() sham_swingr6 =[      $swingr6,      sham_swingr7   ] {ai_charge(6);};
 void() sham_swingr7 =[      $swingr7,      sham_swingr8   ] {ai_charge(6); ShamClaw(-250);};
 void() sham_swingr8 =[      $swingr8,      sham_swingr9   ] {ai_charge(3);};
-void() sham_swingr9 =[      $swingr9,      sham_run1  ] {
+void() sham_swingr9 =[      $swingr9,      sham_run1  ]
+{
 	ai_charge(1);
 	ai_charge(10);
 	if (random()<0.5)
@@ -214,7 +226,7 @@ void() sham_melee =
 
 void() CastLightning =
 {
-	local	vector	org, dir;
+	local vector org, dir;
 
 	self.effects = self.effects | EF_MUZZLEFLASH;
 
@@ -240,12 +252,14 @@ void() CastLightning =
 	LightningDamage (org, trace_endpos, self, 10);
 };
 
-void() sham_magic1     =[      $magic1,       sham_magic2    ] {
+void() sham_magic1     =[      $magic1,       sham_magic2    ]
+{
 	ai_face();
 	sound (self, CHAN_WEAPON, "shambler/sattck1.wav", 1, ATTN_NORM);
 };
 void() sham_magic2     =[      $magic2,       sham_magic3    ] {ai_face();};
-void() sham_magic3     =[      $magic3,       sham_magic4    ] {
+void() sham_magic3     =[      $magic3,       sham_magic4    ]
+{
 	ai_face();
 	self.nextthink = self.nextthink + 0.2;
 	local entity o;
@@ -305,10 +319,12 @@ void(entity attacker, float damage)	sham_pain =
 	sound (self, CHAN_VOICE, "shambler/shurt2.wav", 1, ATTN_NORM);
 
 	if (self.health <= 0)
-		return;		// already dying, don't go into pain frame
+		// already dying, don't go into pain frame
+		return;
 
 	if (random()*400 > damage)
-		return;		// didn't flinch
+		// didn't flinch
+		return;
 
 	if (self.pain_finished > time)
 		return;
@@ -334,7 +350,7 @@ void() sham_death11     =[      $death11,      sham_death11    ] {};
 
 void() sham_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -60)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -345,7 +361,7 @@ void() sham_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	sound (self, CHAN_VOICE, "shambler/sdeath.wav", 1, ATTN_NORM);
 	sham_death1 ();
 };

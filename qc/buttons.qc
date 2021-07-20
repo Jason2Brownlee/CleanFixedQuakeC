@@ -45,10 +45,8 @@ void() button_return =
 		self.takedamage = DAMAGE_YES;	// can be shot again
 };
 
-
-void() button_blocked =
-{	// do nothing, just don't ome all the way back out
-};
+// do nothing, just don't ome all the way back out
+void() button_blocked = {};
 
 
 void() button_fire =
@@ -154,4 +152,3 @@ void() func_button =
 	self.pos1 = self.origin;
 	self.pos2 = self.pos1 + self.movedir*(fabs(self.movedir*self.size) - self.lip);
 };
-

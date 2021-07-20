@@ -65,7 +65,8 @@ void()	demon1_stand11	=[	$stand11,	demon1_stand12	] {ai_stand();};
 void()	demon1_stand12	=[	$stand12,	demon1_stand13	] {ai_stand();};
 void()	demon1_stand13	=[	$stand13,	demon1_stand1	] {ai_stand();};
 
-void()	demon1_walk1	=[	$walk1,		demon1_walk2	] {
+void()	demon1_walk1	=[	$walk1,		demon1_walk2	]
+{
 	if (random() < 0.2)
 	    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
 	ai_walk(8);
@@ -78,7 +79,8 @@ void()	demon1_walk6	=[	$walk6,		demon1_walk7	] {ai_walk(6);};
 void()	demon1_walk7	=[	$walk7,		demon1_walk8	] {ai_walk(10);};
 void()	demon1_walk8	=[	$walk8,		demon1_walk1	] {ai_walk(10);};
 
-void()	demon1_run1	=[	$run1,		demon1_run2	] {
+void()	demon1_run1	=[	$run1,		demon1_run2	]
+{
 	if (random() < 0.2)
 	    sound (self, CHAN_VOICE, "demon/idle1.wav", 1, ATTN_IDLE);
 	ai_run(20);
@@ -108,7 +110,8 @@ void()	demon1_jump6	=[	$leap6,		demon1_jump7	] {};
 void()	demon1_jump7	=[	$leap7,		demon1_jump8	] {};
 void()	demon1_jump8	=[ 	$leap8,		demon1_jump9	] {};
 void()	demon1_jump9	=[ 	$leap9,		demon1_jump10	] {};
-void()	demon1_jump10	=[ 	$leap10,	demon1_jump1	] {
+void()	demon1_jump10	=[ 	$leap10,	demon1_jump1	]
+{
 	self.nextthink = time + 3;
 	// if three seconds pass, assume demon is stuck and jump again
 };
@@ -173,7 +176,7 @@ void()	demon1_die9		=[	$death9,		demon1_die9 ] {};
 
 void() demon_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -80)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -184,7 +187,7 @@ void() demon_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	demon1_die1 ();
 };
 
@@ -196,7 +199,6 @@ void() Demon_MeleeAttack =
 
 
 /*QUAKED monster_demon1 (1 0 0) (-32 -32 -24) (32 32 64) Ambush
-
 */
 void() monster_demon1 =
 {
@@ -268,8 +270,8 @@ CheckDemonJump
 */
 float()	CheckDemonJump =
 {
-	local	vector	dist;
-	local	float	d;
+	local vector dist;
+	local float	d;
 
 	if (self.origin_z + self.mins_z > self.enemy.origin_z + self.enemy.mins_z + 0.75 * self.enemy.size_z)
 		return FALSE;
@@ -296,7 +298,7 @@ float()	CheckDemonJump =
 
 float()	DemonCheckAttack =
 {
-// if close enough for slashing, go for it
+	// if close enough for slashing, go for it
 	if (CheckDemonMelee ())
 	{
 		self.attack_state = AS_MELEE;
@@ -318,8 +320,8 @@ float()	DemonCheckAttack =
 
 void(float side)	Demon_Melee =
 {
-	local	float	ldmg;
-	local vector	delta;
+	local float ldmg;
+	local vector delta;
 
 	ai_face ();
 	walkmove (self.ideal_yaw, 12);	// allow a little closing
@@ -372,4 +374,3 @@ void()	Demon_JumpTouch =
 	self.think = demon1_jump11;
 	self.nextthink = time + 0.1;
 };
-

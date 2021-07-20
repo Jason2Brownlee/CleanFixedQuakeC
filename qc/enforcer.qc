@@ -61,7 +61,8 @@ void() Laser_Touch =
 	local vector org;
 
 	if (other == self.owner)
-		return;		// don't explode on owner
+		// don't explode on owner
+		return;
 
 	if (pointcontents(self.origin) == CONTENT_SKY)
 	{
@@ -141,7 +142,8 @@ void()	enf_stand5	=[	$stand5,	enf_stand6	] {ai_stand();};
 void()	enf_stand6	=[	$stand6,	enf_stand7	] {ai_stand();};
 void()	enf_stand7	=[	$stand7,	enf_stand1	] {ai_stand();};
 
-void()	enf_walk1	=[	$walk1 ,	enf_walk2	] {
+void()	enf_walk1	=[	$walk1 ,	enf_walk2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "enforcer/idle1.wav", 1, ATTN_IDLE);
 	ai_walk(2);
@@ -162,7 +164,8 @@ void()	enf_walk14	=[	$walk14,	enf_walk15	] {ai_walk(3);};
 void()	enf_walk15	=[	$walk15,	enf_walk16	] {ai_walk(4);};
 void()	enf_walk16	=[	$walk16,	enf_walk1	] {ai_walk(2);};
 
-void()	enf_run1	=[	$run1  ,	enf_run2	] {
+void()	enf_run1	=[	$run1  ,	enf_run2	]
+{
 	if (random() < 0.2)
 		sound (self, CHAN_VOICE, "enforcer/idle1.wav", 1, ATTN_IDLE);
 	ai_run(18);
@@ -188,7 +191,9 @@ void()	enf_atk10	=[	$attack6,	enf_atk11	] {enforcer_fire();};
 void()	enf_atk11	=[	$attack7,	enf_atk12	] {ai_face();};
 void()	enf_atk12	=[	$attack8,	enf_atk13	] {ai_face();};
 void()	enf_atk13	=[	$attack9,	enf_atk14	] {ai_face();};
-void()	enf_atk14	=[	$attack10,	enf_run1	] {ai_face();
+void()	enf_atk14	=[	$attack10,	enf_run1	]
+{
+	ai_face();
 	SUB_CheckRefire (enf_atk1);
 };
 
@@ -275,8 +280,11 @@ void(entity attacker, float damage)	enf_pain =
 
 void()	enf_die1	=[	$death1,	enf_die2	] {};
 void()	enf_die2	=[	$death2,	enf_die3	] {};
-void()	enf_die3	=[	$death3,	enf_die4	]{
-	self.solid = SOLID_NOT;self.ammo_cells = 5;DropBackpack();
+void()	enf_die3	=[	$death3,	enf_die4	]
+{
+	self.solid = SOLID_NOT;
+	self.ammo_cells = 5;
+	DropBackpack();
 };
 void()	enf_die4	=[	$death4,	enf_die5	] {ai_forward(14);};
 void()	enf_die5	=[	$death5,	enf_die6	] {ai_forward(2);};
@@ -292,8 +300,11 @@ void()	enf_die14	=[	$death14,	enf_die14	] {};
 
 void()	enf_fdie1	=[	$fdeath1,	enf_fdie2	] {};
 void()	enf_fdie2	=[	$fdeath2,	enf_fdie3	] {};
-void()	enf_fdie3	=[	$fdeath3,	enf_fdie4	]{
-	self.solid = SOLID_NOT;self.ammo_cells = 5;DropBackpack();
+void()	enf_fdie3	=[	$fdeath3,	enf_fdie4	]
+{
+	self.solid = SOLID_NOT;
+	self.ammo_cells = 5;
+	DropBackpack();
 };
 void()	enf_fdie4	=[	$fdeath4,	enf_fdie5	] {};
 void()	enf_fdie5	=[	$fdeath5,	enf_fdie6	] {};
@@ -307,7 +318,7 @@ void()	enf_fdie11	=[	$fdeath11,	enf_fdie11	] {};
 
 void() enf_die =
 {
-// check for gib
+	// check for gib
 	if (self.health < -35)
 	{
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
@@ -318,7 +329,7 @@ void() enf_die =
 		return;
 	}
 
-// regular death
+	// regular death
 	sound (self, CHAN_VOICE, "enforcer/death1.wav", 1, ATTN_NORM);
 	if (random() > 0.5)
 		enf_die1 ();

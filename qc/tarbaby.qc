@@ -108,7 +108,7 @@ void()	tbaby_jump1;
 
 void()	Tar_JumpTouch =
 {
-	local	float	ldmg;
+	local float ldmg;
 
 	if (other.takedamage && other.classname != self.classname)
 	{
@@ -176,7 +176,8 @@ void()	tbaby_jump6	=[	$jump6,tbaby_fly1	] {};
 
 //=============================================================================
 
-void()	tbaby_die1	=[	$exp,		tbaby_die2	] {
+void()	tbaby_die1	=[	$exp,		tbaby_die2	]
+{
 	self.takedamage = DAMAGE_NO;
 };
 void()	tbaby_die2	=[	$exp,		tbaby_run1	]
@@ -231,4 +232,3 @@ void() monster_tarbaby =
 
 	walkmonster_start ();
 };
-

@@ -51,8 +51,8 @@ void() door_blocked =
 {
 	T_Damage (other, self, self, self.dmg);
 
-// if a door has a negative wait, it would never come back if blocked,
-// so let it just squash the object to death real fast
+	// if a door has a negative wait, it would never come back if blocked,
+	// so let it just squash the object to death real fast
 	if (self.wait >= 0)
 	{
 		if (self.state == STATE_DOWN)
@@ -95,10 +95,12 @@ void() door_go_down =
 void() door_go_up =
 {
 	if (self.state == STATE_UP)
-		return;		// allready going up
+		// allready going up
+		return;
 
 	if (self.state == STATE_TOP)
-	{	// reset top wait time
+	{
+		// reset top wait time
 		self.nextthink = self.ltime + self.wait;
 		return;
 	}
@@ -121,14 +123,13 @@ ACTIVATION FUNCTIONS
 
 void() door_fire =
 {
-	local entity 	oself;
-	local entity	starte;
+	local entity oself;
+	local entity starte;
 
 	if (self.owner != self)
 		objerror ("door_fire: self.owner != self");
 
-// play use key sound
-
+	// play use key sound
 	if (self.items)
 		sound (self, CHAN_ITEM, self.noise4, 1, ATTN_NORM);
 
@@ -150,7 +151,7 @@ void() door_fire =
 		}
 	}
 
-// trigger all paired doors
+	// trigger all paired doors
 	starte = self;
 	do
 	{
@@ -165,7 +166,8 @@ void() door_use =
 {
 	local entity oself;
 
-	self.message = string_null;			// door message are for touch only
+	// door message are for touch only
+	self.message = string_null;
 	self.owner.message = string_null;
 	self.enemy.message = string_null;
 	oself = self;
@@ -198,7 +200,8 @@ void() door_killed =
 	oself = self;
 	self = self.owner;
 	self.health = self.max_health;
-	self.takedamage = DAMAGE_NO;	// wil be reset upon return
+	// will be reset upon return
+	self.takedamage = DAMAGE_NO;
 	door_use ();
 	self = oself;
 };
@@ -226,11 +229,11 @@ void() door_touch =
 		sound (other, CHAN_VOICE, "misc/talk.wav", 1, ATTN_NORM);
 	}
 
-// key door stuff
+	// key door stuff
 	if (!self.items)
 		return;
 
-// FIXME: blink key on player's status bar
+	// FIXME: blink key on player's status bar
 	if ( (self.items & other.items) != self.items )
 	{
 		if (self.owner.items == IT_KEY1)
@@ -275,7 +278,8 @@ void() door_touch =
 	other.items = other.items - self.items;
 	self.touch = SUB_Null;
 	if (self.enemy)
-		self.enemy.touch = SUB_Null;	// get paired door
+		// get paired door
+		self.enemy.touch = SUB_Null;
 	door_use ();
 };
 
@@ -290,8 +294,8 @@ SPAWNING FUNCTIONS
 
 entity(vector fmins, vector fmaxs) spawn_field =
 {
-	local entity	trigger;
-	local	vector	t1, t2;
+	local entity trigger;
+	local vector t1, t2;
 
 	trigger = spawn();
 	trigger.movetype = MOVETYPE_NONE;
@@ -333,8 +337,8 @@ LinkDoors
 */
 void() LinkDoors =
 {
-	local entity	t, starte;
-	local vector	cmins, cmaxs;
+	local entity t, starte;
+	local vector cmins, cmaxs;
 
 	if (self.enemy)
 		return;		// already linked by another door
@@ -352,7 +356,8 @@ void() LinkDoors =
 
 	do
 	{
-		self.owner = starte;			// master door
+		// master door
+		self.owner = starte;
 
 		if (self.health)
 			starte.health = self.health;
@@ -364,10 +369,11 @@ void() LinkDoors =
 		t = find(t, classname, self.classname);
 		if (!t)
 		{
-			self.enemy = starte;		// make the chain a loop
+			// make the chain a loop
+			self.enemy = starte;
 
-		// shootable, fired, or key doors just needed the owner/enemy links,
-		// they don't spawn a field
+			// shootable, fired, or key doors just needed the owner/enemy links,
+			// they don't spawn a field
 
 			self = self.owner;
 
@@ -527,8 +533,8 @@ void() func_door =
 	self.pos1 = self.origin;
 	self.pos2 = self.pos1 + self.movedir*(fabs(self.movedir*self.size) - self.lip);
 
-// DOOR_START_OPEN is to allow an entity to be lighted in the closed position
-// but spawn in the open position
+	// DOOR_START_OPEN is to allow an entity to be lighted in the closed position
+	// but spawn in the open position
 	if (self.spawnflags & DOOR_START_OPEN)
 	{
 		setorigin (self, self.pos2);
@@ -549,8 +555,8 @@ void() func_door =
 
 	self.touch = door_touch;
 
-// LinkDoors can't be done until all of the doors have been spawned, so
-// the sizes can be detected properly.
+	// LinkDoors can't be done until all of the doors have been spawned, so
+	// the sizes can be detected properly.
 	self.think = LinkDoors;
 	self.nextthink = self.ltime + 0.1;
 };
@@ -590,9 +596,11 @@ void () fd_secret_use =
 	if (self.origin != self.oldorigin)
 		return;
 
-	self.message = string_null;		// no more message
+	// no more message
+	self.message = string_null;
 
-	SUB_UseTargets();				// fire all targets / killtargets
+	// fire all targets / killtargets
+	SUB_UseTargets();
 
 	if (!(self.spawnflags & SECRET_NO_SHOOT))
 	{
@@ -602,11 +610,11 @@ void () fd_secret_use =
 	self.velocity = '0 0 0';
 
 	// Make a sound, wait a little...
-
 	sound(self, CHAN_VOICE, self.noise1, 1, ATTN_NORM);
 	self.nextthink = self.ltime + 0.1;
 
-	temp = 1 - (self.spawnflags & SECRET_1ST_LEFT);	// 1 or -1
+	// 1 or -1
+	temp = 1 - (self.spawnflags & SECRET_1ST_LEFT);
 	makevectors(self.mangle);
 
 	if (!self.t_width)
@@ -799,5 +807,6 @@ void () func_door_secret =
 	}
 	self.oldorigin = self.origin;
 	if (!self.wait)
-		self.wait = 5;		// 5 seconds before closing
+		// 5 seconds before closing
+		self.wait = 5;
 };
