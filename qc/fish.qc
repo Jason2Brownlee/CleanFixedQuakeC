@@ -163,6 +163,28 @@ void() f_death19 =[      $death19,       f_death20       ] {};
 void() f_death20 =[      $death20,       f_death21       ] {};
 void() f_death21 =[      $death21,       f_death21       ] {};
 
+/* Handle fish death, either die animation or gib. */
+void() fish_die =
+{
+	// check for big death
+	if (self.health < -20)
+	{
+		// play gib sound
+		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
+		// can't call ThrowHead so remove the entity on the next think
+		self.think = SUB_Remove;
+      	self.nextthink= time + 0.1;
+		// throw some normal gibs
+		ThrowGib ("progs/gib1.mdl", self.health);
+		ThrowGib ("progs/gib2.mdl", self.health);
+		ThrowGib ("progs/gib3.mdl", self.health);
+		return;
+	}
+
+	// run normal death animation
+	f_death1();
+};
+
 void() f_pain1  =[      $pain1, f_pain2 ] {};
 void() f_pain2  =[      $pain2, f_pain3 ] {ai_pain(6);};
 void() f_pain3  =[      $pain3, f_pain4 ] {ai_pain(6);};
@@ -207,7 +229,7 @@ void() monster_fish =
 	self.th_stand = f_stand1;
 	self.th_walk = f_walk1;
 	self.th_run = f_run1;
-	self.th_die = f_death1;
+	self.th_die = fish_die;
 	self.th_pain = fish_pain;
 	self.th_melee = f_attack1;
 

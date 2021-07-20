@@ -1,11 +1,13 @@
 Change Log
 ==========
 
-v1.6
+v1.6: Fixes inspired by "Scourge of Armagon" (hipnotic).
 Unreleased
 
-In development.
+Game code fixes inspired by mission pack one "Scourge of Armagon" (hipnotic),
+released as v1.07.
 
+* Added fish_die to support fish gib death.
 * Improved comment indenting and spacing for local variables.
 
 
