@@ -166,14 +166,14 @@ void() f_death21 =[      $death21,       f_death21       ] {};
 /* Handle fish death, either die animation or gib. */
 void() fish_die =
 {
-	// check for big death
+	// check for gib death
 	if (self.health < -20)
 	{
 		// play gib sound
 		sound (self, CHAN_VOICE, "player/udeath.wav", 1, ATTN_NORM);
 		// can't call ThrowHead so remove the entity on the next think
 		self.think = SUB_Remove;
-      	self.nextthink= time + 0.1;
+		self.nextthink= time + 0.1;
 		// throw some normal gibs
 		ThrowGib ("progs/gib1.mdl", self.health);
 		ThrowGib ("progs/gib2.mdl", self.health);
