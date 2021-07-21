@@ -130,6 +130,8 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 
 	// used by buttons and triggers to set activator for target firing
 	damage_attacker = attacker;
+	// keep track of the source of damage, used in gibs
+	damage_inflictor = inflictor;
 
 	// check for quad damage powerup on the attacker
 	if (attacker.super_damage_finished > time)

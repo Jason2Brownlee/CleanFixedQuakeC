@@ -474,9 +474,23 @@ vector(float dm) VelocityForDamage =
 {
 	local vector v;
 
-	v_x = 100 * crandom();
-	v_y = 100 * crandom();
-	v_z = 200 + 100 * random();
+	// check if the inflictor had velocity, e.g. like a rocket or explode box
+	if (vlen(damage_inflictor.velocity) > 0)
+	{
+		// impact some of inflictor's velocity on the gibs
+		v = 0.5 * damage_inflictor.velocity;
+		v = v + (25 * normalize(self.origin - damage_inflictor.origin));
+		v_z = 100 + 100 * random();
+		v_x = v_x + (50 * crandom());
+		v_y = v_y + (50 * crandom());
+	}
+	else
+	{
+		// use a random velocity for the gibs
+		v_x = 100 * crandom();
+		v_y = 100 * crandom();
+		v_z = 200 + 100 * random();
+	}
 
 	if (dm > -50)
 	{

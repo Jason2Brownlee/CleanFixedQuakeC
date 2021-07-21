@@ -7,6 +7,7 @@ Unreleased
 Game code fixes inspired by mission pack one "Scourge of Armagon" (hipnotic),
 released as v1.07.
 
+* Added directional gibs based on velocity of inflictor from qw2.30 GPL.
 * Added fish_die to support fish gib death.
 * Improved comment indenting and spacing for local variables.
 
