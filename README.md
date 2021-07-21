@@ -23,16 +23,17 @@ This project provides a **clean** and **bug-fixed** version of the Quake game co
 Changes fall under three main categories, they are:
 
 * **Official Fixes**: Re-implementation of fixes available in non-GPL official releases, e.g.:
-** Clean-room implementation of fixes in final official release v1.06.
-** Clean-room implementation of relevant fixes in Scourge of Armagon v1.07.
-** Clean-room implementation of relevant fixes in Dissolution of Eternity v1.08.
+    * Clean-room implementation of fixes in final official release v1.06.
+    * Clean-room implementation of relevant fixes in Scourge of Armagon v1.07.
+    * Clean-room implementation of relevant fixes in Dissolution of Eternity v1.08.
 * **Bug Fixes**: Fixes for bugs reported by the community that were never officially fixed, e.g.:
-** Double counting fish monsters at end of level.
-** Fish not support gib death.
+    * Double counting fish monsters at end of level.
+    * Fish not support gib death.
+    * Never switch to lightning gun with backpack pickup when underwater.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency, e.g.:
-** Removal of unused .qc files, unused global variables, and unused local variables.
-** Fixed compiler warnings like incorrect function definitions.
-** Missing return values, missing function arguments, and uninitialized variables.
+    * Removal of unused .qc files, unused global variables, and unused local variables.
+    * Fixed compiler warnings like incorrect function definitions.
+    * Missing return values, missing function arguments, and uninitialized variables.
 
 All changes were made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
 
