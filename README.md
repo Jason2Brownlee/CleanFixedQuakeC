@@ -1,4 +1,4 @@
-# QuakeC GPL
+# Clean Fixed QuakeC
 
 Clean version of the Quake game code (progs.dat) with bug fixes released under the GPL.
 
