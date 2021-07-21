@@ -18,6 +18,8 @@ Reported Bugs
 	https://quakewiki.org/wiki/Quake_bugs
 - Check every bug listed on the QIP
 	https://www.quake-info-pool.net/home.htm
+- Check reported bugs here
+	https://quakeone.com/forum/quake-help/servers-and-coding/277010-interesting-qc-bugs
 
 Mods
 

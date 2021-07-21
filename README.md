@@ -1,6 +1,6 @@
 # Clean Fixed QuakeC
 
-Clean version of the Quake game code (progs.dat) with bug fixes released under the GPL.
+Clean and bug fixed version of the Quake game code (progs.dat) released under the GPL.
 
 ## About
 
@@ -47,9 +47,9 @@ You can use the game code (`progs.dat`) to play Quake, such as singleplayer or m
 
 1. Download the .zip file for the latest release.
 2. Unzip and locate the `progs.dat` file.
-3. Create a mod subdirectory under your quake directory, e.g. `quakegpl/`
-4. Place the `progs.dat` into your mod subdirectory, e.g. `quakegpl/progs.dat`
-5. Start quake and load the mod, e.g. `quake -game quakegpl`
+3. Create a mod subdirectory under your quake directory, e.g. `fixedquake/`
+4. Place the `progs.dat` into your mod subdirectory, e.g. `fixedquake/progs.dat`
+5. Start quake and load the mod, e.g. `quake -game fixedquake`
 
 ### Mod Development
 
@@ -66,7 +66,7 @@ Instructions on how to download and build this project.
 1. Checkout the code.
 	1. `git clone https://github.com/Jason2Brownlee/CleanFixedQuakeC.git`
 	2. `cd CleanFixedQuakeC`
-2. Configure your QuakeC compiler (e.g. assumes you have qcc).
+2. Configure your QuakeC compiler (e.g. assumes you have access to a compiler).
 	1. Set `QCCNAME`, `QCCCOMPILER`, and `QCFLAGS` in `makefile`
 3. Create a release.
 	1. `make dist`
@@ -80,7 +80,6 @@ Useful resources for fixing bugs in Quake game code.
 * [Quake Tools and Utilities (GPL)](https://github.com/id-Software/Quake-Tools)
 * [Quake Info Pool (QIP)](https://www.quake-info-pool.net/home.htm)
 * [QuakeWiki: Quake Bugs](https://quakewiki.org/wiki/Quake_bugs)
-* [Interesting QC Bugs](https://quakeone.com/forum/quake-help/servers-and-coding/277010-interesting-qc-bugs)
 * [GMQCC (QuakeC compiler)](https://graphitemaster.github.io/gmqcc/)
 * [FTEQW including FTEQCC (QuakeC compiler)](https://triptohell.info/)
 
