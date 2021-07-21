@@ -32,8 +32,8 @@ Changes fall under three main categories, they are:
     * Never switch to lightning gun with backpack pickup when underwater.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency, e.g.:
     * Removal of unused .qc files, unused global variables, and unused local variables.
-    * Fixed compiler warnings like incorrect function definitions.
-    * Missing return values, missing function arguments, and uninitialized variables.
+    * Fixed compiler warnings like bad function definitions and missing return values.
+    * Rationalized code formatting for consistency like indenting and comment placement.
 
 All changes were made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
 
@@ -72,7 +72,7 @@ You can use the .qc files as the basis for mod development.
 
 ## How to Build
 
-Instructions on how to download and build this project.
+Instructions on how to build this project.
 
 1. Checkout the code.
 	1. `git clone https://github.com/Jason2Brownlee/CleanFixedQuakeC.git`
