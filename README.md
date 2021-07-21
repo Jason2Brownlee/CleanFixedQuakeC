@@ -1,12 +1,12 @@
 # Clean Fixed QuakeC
 
-Clean and bug fixed version of the Quake game code (progs.dat) released under the GPL.
+Clean and bug-fixed version of the Quake game code (progs.dat) released under the GPL.
 
 ## About
 
-The Quake computer game Quake was released in 1996.
+The computer game Quake was released in 1996.
 
-In 1999 the source code for the Quake engine (.exe), tools (qcc), and game code (progs.dat) was released under the GPL.
+In 1999 the source code for the Quake engine (.exe), tools (QuakeC complier), and game code (progs.dat) was released under the GPL.
 
 The version of the Quake game code released under the GPL was v1.01, different from the latest release of the game code v1.06.
 
@@ -14,15 +14,25 @@ This project provides a version of the Quake game code v1.01 released under the 
 
 This project also includes a host of other improvements such as fixed compiler warnings, removal of unused code, and fixes for community reported bugs.
 
+A compiled version of the game code (progs.dat) is provided so you can play a fixed version of Quake, and the source code (.qc files) provide the basis for Quake mod development.
+
 ## Features
 
-This project provides a **clean** and **bug fixed** version of the Quake game code released under a permissive license.
+This project provides a **clean** and **bug-fixed** version of the Quake game code released under a permissive license.
 
 Changes fall under three main categories, they are:
 
-* **Official Fixes**: Re-implementation of fixes available in v1.06, v1.07, and v1.08 of the game code.
-* **Bug Fixes**: Fixes for bugs reported by the community that were never officially fixed.
-* **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency.
+* **Official Fixes**: Re-implementation of fixes available in non-GPL official releases, e.g.:
+** Clean-room implementation of fixes in final official release v1.06.
+** Clean-room implementation of relevant fixes in Scourge of Armagon v1.07.
+** Clean-room implementation of relevant fixes in Dissolution of Eternity v1.08.
+* **Bug Fixes**: Fixes for bugs reported by the community that were never officially fixed, e.g.:
+** Double counting fish monsters at end of level.
+** Fish not support gib death.
+* **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency, e.g.:
+** Removal of unused .qc files, unused global variables, and unused local variables.
+** Fixed compiler warnings like incorrect function definitions.
+** Missing return values, missing function arguments, and uninitialized variables.
 
 All changes were made with the intent of **not adding functionality** (this is not a mod) and **making minimal changes** (to make diff's with other code bases easy).
 
