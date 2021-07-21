@@ -23,11 +23,11 @@ This project provides a **clean** and **bug-fixed** version of the Quake game co
 Changes fall under three main categories, they are:
 
 * **Official Fixes**: Re-implementation of fixes available in non-GPL official releases, e.g.:
-    * Clean-room implementation of fixes in final official release v1.06.
-    * Clean-room implementation of relevant fixes in Scourge of Armagon v1.07.
-    * Clean-room implementation of relevant fixes in Dissolution of Eternity v1.08.
+    * Fixes in final official game code release v1.06.
+    * Fixes in Quake Mission Pack 1: Scourge of Armagon v1.07.
+    * Fixes in Quake Mission Pack 2: Dissolution of Eternity v1.08.
 * **Bug Fixes**: Fixes for bugs reported by the community that were never officially fixed, e.g.:
-    * Double counting fish monsters at end of level.
+    * Double counting fish monsters (rotfish) at end of level.
     * Fish not support gib death.
     * Never switch to lightning gun with backpack pickup when underwater.
 * **Technical Fixes**: Fixes reported by QuakeC compilers, good practices, and consistency, e.g.:
