@@ -1,7 +1,7 @@
 # makefile
 
 # list of targets that should always run
-.PHONY : clean build dist
+.PHONY : clean build dist run
 # current version of the release
 VERSION=1.6
 # release filename
@@ -89,3 +89,14 @@ clean:
 	rm -rf ${DIR_BUILD}
 	rm -rf ${DIR_DIST}
 
+# hack for testing changes
+DIR=/Users/jasonb/Games/QuakeDev
+GAME=test1
+MAP=e1m1
+run: clean build
+	# create directory if needed
+	mkdir -p $(DIR)/$(GAME)
+	# copy progs into place
+	cp ${DIR_BUILD}/progs.dat $(DIR)/$(GAME)
+	# start quakespasm
+	open $(DIR)/QuakeSpasm-SDL2.app --args -nolauncher -basedir $(DIR) -game $(GAME) +map $(MAP) +developer 1 -width 1024 -height 768 -bpp 32 -window -nosound
